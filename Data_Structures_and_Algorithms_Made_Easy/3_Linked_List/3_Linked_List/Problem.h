@@ -1,0 +1,10 @@
+int Problem3_1(void);
+int Problem3_2(void);
+int Problem3_3(void);
+int Problem3_4(void);
+int Problem3_5(void);
+int Problem3_6(void);
+int Problem3_7(void);
+int Problem3_8(void);
+int Problem3_9(void);
+int Problem3_10(void);
