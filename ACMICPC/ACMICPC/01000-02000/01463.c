@@ -1,13 +1,12 @@
 #pragma warning (disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
-
+int D[1000000] = { 0, };
 int Problem01463(void)
 {
 	int num;
-	int *D;
+
 	scanf("%d", &num);
-	D = (int *)malloc(sizeof(int)*(num + 1));
 	D[0] = 0;
 	D[1] = 0;
 	D[2] = 1;
