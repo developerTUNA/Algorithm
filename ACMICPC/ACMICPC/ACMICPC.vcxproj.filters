@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\02000-03000">
       <UniqueIdentifier>{2edb2a2b-deb3-4013-ae1d-cdc0dafb5761}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01000-02000">
+      <UniqueIdentifier>{fc5ee056-75c4-4ee1-8e8c-ecd572414796}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -29,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="02000-03000\02512.c">
       <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="01463.c">
+      <Filter>소스 파일\01000-02000</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

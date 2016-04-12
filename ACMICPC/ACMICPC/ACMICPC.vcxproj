@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="01463.c" />
     <ClCompile Include="02000-03000\02512.c" />
     <ClCompile Include="11000-12000\11728.c" />
     <ClCompile Include="main.c" />

@@ -56,8 +56,3 @@ int Problem02512(void)
     }
     return 0;
 }
-int main(void)
-{
-    Problem02512();
-    return 0;
-}
