@@ -12,19 +12,19 @@ int Problem01010(void)
 	for (int i = 0; i < round; i++)
 	{
 		scanf("%d %d", &a, &b);
-		
+
 		mid = a;
 		if (a < b - a)
 		{
 			mid = b - a;
 		}
 		result = 1;
-		for (int j = mid +1; j <= b; j++)
+		for (int j = mid + 1; j <= b; j++)
 		{
 			result *= j;
 		}
-
-		for (int j = 1; j <= b - a; j++)
+		mid = b - mid;
+		for (int j = 1; j <= mid; j++)
 		{
 			result /= j;
 		}

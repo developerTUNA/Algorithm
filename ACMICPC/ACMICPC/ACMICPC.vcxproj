@@ -162,12 +162,14 @@
     <ClCompile Include="02000-03000\02512.c" />
     <ClCompile Include="02000-03000\02609.c" />
     <ClCompile Include="02000-03000\02667.c" />
+    <ClCompile Include="02000-03000\02753.c" />
     <ClCompile Include="05000-06000\05338.c" />
     <ClCompile Include="09000-10000\09095.c" />
     <ClCompile Include="09000-10000\09465.c" />
     <ClCompile Include="10000-11000\10844.c" />
     <ClCompile Include="10000-11000\test.cpp" />
     <ClCompile Include="11000-12000\11052.c" />
+    <ClCompile Include="11000-12000\11053.c" />
     <ClCompile Include="11000-12000\11057.c" />
     <ClCompile Include="11000-12000\11726.c" />
     <ClCompile Include="11000-12000\11727.c" />

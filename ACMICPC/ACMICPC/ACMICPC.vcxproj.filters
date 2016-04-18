@@ -105,14 +105,20 @@
     <ClCompile Include="01000-02000\01149.c">
       <Filter>소스 파일\01000-02000</Filter>
     </ClCompile>
-    <ClCompile Include="01000-02000\01463.c">
-      <Filter>소스 파일\01000-02000</Filter>
-    </ClCompile>
     <ClCompile Include="01000-02000\01934.c">
       <Filter>소스 파일\01000-02000</Filter>
     </ClCompile>
     <ClCompile Include="01000-02000\01010.c">
       <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="01000-02000\01463.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="11000-12000\11053.c">
+      <Filter>소스 파일\11000-12000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02753.c">
+      <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
