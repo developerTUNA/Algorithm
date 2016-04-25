@@ -155,9 +155,11 @@
     <ClCompile Include="01000-02000\01149.c" />
     <ClCompile Include="01000-02000\01463.c" />
     <ClCompile Include="01000-02000\01934.c" />
+    <ClCompile Include="01000-02000\01978.c" />
     <ClCompile Include="02000-03000\01085.c" />
     <ClCompile Include="02000-03000\02010.c" />
     <ClCompile Include="02000-03000\02156.c" />
+    <ClCompile Include="02000-03000\02163.c" />
     <ClCompile Include="02000-03000\02167.c" />
     <ClCompile Include="02000-03000\02193.c" />
     <ClCompile Include="02000-03000\02309.c" />
@@ -176,9 +178,9 @@
     <ClCompile Include="05000-06000\05338.c" />
     <ClCompile Include="09000-10000\09095.c" />
     <ClCompile Include="09000-10000\09465.c" />
+    <ClCompile Include="09000-10000\09653.c" />
     <ClCompile Include="10000-11000\10039.c" />
     <ClCompile Include="10000-11000\10844.c" />
-    <ClCompile Include="10000-11000\test.cpp" />
     <ClCompile Include="11000-12000\11052.c" />
     <ClCompile Include="11000-12000\11053.c" />
     <ClCompile Include="11000-12000\11057.c" />
