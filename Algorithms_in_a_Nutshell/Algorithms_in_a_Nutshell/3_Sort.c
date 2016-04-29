@@ -17,17 +17,29 @@ int cmp(int a, int b)
     }
 }
 
-int Sort_Insert(int *arr_nNum, int nSize)
+int Sort_Insert(int *p_nNum, int nSize)
 {
-    for(int i = 0; i < nSize; i++)
+    for(int i = 1; i < nSize; i++)
     {
-        int nPic = arr_nNum[i];
-        int iCheck = i-1;
-        while(iCheck >= 0 && arr_nNum[iCheck] > nPic)
+        int nInsert = p_nNum[i];
+        int iCheck = i - 1;
+        while(0 <= iCheck && nInsert < p_nNum[iCheck])
         {
-            arr_nNum[iCheck + 1] = arr_nNum[iCheck];
+            p_nNum[iCheck + 1] = p_nNum[iCheck];
             iCheck--;
         }
-        arr_nNum[iCheck + 1] = nPic;
+        p_nNum[iCheck + 1] = nInsert;
+    }
+}
+
+int Sort_Insert2(int *p_nNum, int nSize)
+{
+    for(int i = 1; i < nSize; i++)
+    {
+        int nInsert = p_nNum[i];
+        for(int j = i; 0 < j && nInsert < p_nNum[j - 1]; j++)
+        {
+            p_nNum[j] = p_nNum[j - 1];
+        }
     }
 }
