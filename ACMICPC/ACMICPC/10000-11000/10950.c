@@ -10,7 +10,7 @@ int Problem10950(void)
 	for (int i = 0; i < nRound; i++)
 	{
 		scanf("%d %d", &nA, &nB);
-		printf("%d", nA + nB);
+		printf("%d\n", nA + nB);
 	}
 	return 0;
 }
