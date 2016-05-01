@@ -4,22 +4,22 @@
 
 int Probrem11727(void)
 {
-	int num;
-	int *D;
+    int num;
+    int *D;
 
-	scanf("%d", &num);
-	D = (int *)malloc(sizeof(int)*(num + 1));
-	D[0] = 0;
-	D[1] = 1;
-	D[2] = 3;
+    scanf("%d", &num);
+    D = (int *)malloc(sizeof(int)*(num + 1));
+    D[0] = 0;
+    D[1] = 1;
+    D[2] = 3;
 
-	for (int i = 3; i <= num; i++)
-	{
-		D[i] = D[i - 1] + D[i - 2] + D[i - 2];
-		D[i] = D[i] % 10007;
-	}
+    for (int i = 3; i <= num; i++)
+    {
+        D[i] = D[i - 1] + D[i - 2] + D[i - 2];
+        D[i] = D[i] % 10007;
+    }
 
-	printf("%d\n", D[num]);
-	free(D);
-	return 0;
+    printf("%d\n", D[num]);
+    free(D);
+    return 0;
 }

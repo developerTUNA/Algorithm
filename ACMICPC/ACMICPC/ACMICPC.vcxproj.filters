@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\03000-04000">
       <UniqueIdentifier>{ca7f2e7a-55be-407d-826e-946e4241d7ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\07000-08000">
+      <UniqueIdentifier>{cf3d05fd-44aa-4c88-b102-df31e7dbc5ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="11000-12000\11728.c">
@@ -153,11 +156,77 @@
     <ClCompile Include="02000-03000\02167.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="10000-11000\10950.c">
       <Filter>소스 파일\10000-11000</Filter>
     </ClCompile>
     <ClCompile Include="02000-03000\02163.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
+=======
+    <ClCompile Include="02000-03000\02163.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="09000-10000\09653.c">
+      <Filter>소스 파일\09000-10000</Filter>
+    </ClCompile>
+    <ClCompile Include="01000-02000\01978.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="05000-06000\05337.c">
+      <Filter>소스 파일\05000-06000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02743.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="01000-02000\01550.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02178.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02522.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02953.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02446.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02750.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="01000-02000\01292.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="07000-08000\07567.c">
+      <Filter>소스 파일\07000-08000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02490.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02577.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="09000-10000\09085.c">
+      <Filter>소스 파일\09000-10000</Filter>
+    </ClCompile>
+    <ClCompile Include="05000-06000\05339.c">
+      <Filter>소스 파일\05000-06000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02460.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="05000-06000\05565.c">
+      <Filter>소스 파일\05000-06000</Filter>
+    </ClCompile>
+    <ClCompile Include="05000-06000\05543.c">
+      <Filter>소스 파일\05000-06000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02579.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+>>>>>>> origin/master
   </ItemGroup>
 </Project>

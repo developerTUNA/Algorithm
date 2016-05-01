@@ -3,33 +3,33 @@
 
 int Problem01010(void)
 {
-	int round;
-	int a, b;
-	int mid;
-	long long result;
-	scanf("%d", &round);
+    int round;
+    int a, b;
+    int mid;
+    long long result;
+    scanf("%d", &round);
 
-	for (int i = 0; i < round; i++)
-	{
-		scanf("%d %d", &a, &b);
+    for (int i = 0; i < round; i++)
+    {
+        scanf("%d %d", &a, &b);
 
-		mid = a;
-		if (a < b - a)
-		{
-			mid = b - a;
-		}
-		result = 1;
-		for (int j = mid + 1; j <= b; j++)
-		{
-			result *= j;
-		}
-		mid = b - mid;
-		for (int j = 1; j <= mid; j++)
-		{
-			result /= j;
-		}
+        mid = a;
+        if (a < b - a)
+        {
+            mid = b - a;
+        }
+        result = 1;
+        for (int j = mid + 1; j <= b; j++)
+        {
+            result *= j;
+        }
+        mid = b - mid;
+        for (int j = 1; j <= mid; j++)
+        {
+            result /= j;
+        }
 
-		printf("%lld\n", result);
-	}
-	return 0;
+        printf("%lld\n", result);
+    }
+    return 0;
 }
