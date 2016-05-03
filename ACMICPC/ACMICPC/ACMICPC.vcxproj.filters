@@ -156,14 +156,12 @@
     <ClCompile Include="02000-03000\02167.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="10000-11000\10950.c">
       <Filter>소스 파일\10000-11000</Filter>
     </ClCompile>
     <ClCompile Include="02000-03000\02163.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
-=======
     <ClCompile Include="02000-03000\02163.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
@@ -227,6 +225,5 @@
     <ClCompile Include="02000-03000\02579.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
->>>>>>> origin/master
   </ItemGroup>
 </Project>

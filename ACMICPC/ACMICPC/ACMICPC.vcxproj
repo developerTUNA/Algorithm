@@ -199,10 +199,7 @@
     <ClCompile Include="09000-10000\09653.c" />
     <ClCompile Include="10000-11000\10039.c" />
     <ClCompile Include="10000-11000\10844.c" />
-<<<<<<< HEAD
     <ClCompile Include="10000-11000\10950.c" />
-=======
->>>>>>> origin/master
     <ClCompile Include="11000-12000\11052.c" />
     <ClCompile Include="11000-12000\11053.c" />
     <ClCompile Include="11000-12000\11057.c" />
