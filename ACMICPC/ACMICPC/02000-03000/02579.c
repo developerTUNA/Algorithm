@@ -27,7 +27,7 @@ int Problem02579(void)
 
     for(int i = 1; i < nCount; i++)
     {
-        pp_nStap_DP[i][0] = MAX(MAX(pp_nStap_DP[i - 1][0], pp_nStap_DP[i - 1][1]), pp_nStap_DP[i - 1][2]);
+        pp_nStap_DP[i][0] = MAX( pp_nStap_DP[i - 1][1], pp_nStap_DP[i - 1][2]);
         pp_nStap_DP[i][1] = pp_nStap_DP[i - 1][0] + p_nStap[i];
         pp_nStap_DP[i][2] = pp_nStap_DP[i - 1][1] + p_nStap[i];
     }

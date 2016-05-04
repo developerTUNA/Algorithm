@@ -1,10 +1,7 @@
 int main(void)
 {
-<<<<<<< HEAD
-	Problem02163();
-	return 0;
-=======
-    Problem02579();
+
+    Problem01012();
     return 0;
->>>>>>> origin/master
+
 }

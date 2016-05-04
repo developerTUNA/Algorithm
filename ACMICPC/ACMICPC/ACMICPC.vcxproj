@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="01000-02000\01009.c" />
     <ClCompile Include="01000-02000\01010.c" />
+    <ClCompile Include="01000-02000\01012.c" />
     <ClCompile Include="01000-02000\01026.c" />
     <ClCompile Include="01000-02000\01032.c" />
     <ClCompile Include="01000-02000\01100.c" />
