@@ -1,7 +1,7 @@
 int main(void)
 {
 
-	Problem01012();
+	Problem01932();
     return 0;
 
 }

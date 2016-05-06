@@ -94,6 +94,12 @@ int BFS01012(int ***ppp_nFarm, int nRow, int nCol)
             }
         }
     }
+	
+	for (int i = 0; i < nRow; i++)
+	{
+		free(pp_nCheck[i]);
+	}
+	free(pp_nCheck);
 	return nWorm;
 }
 int Problem01012(void)
