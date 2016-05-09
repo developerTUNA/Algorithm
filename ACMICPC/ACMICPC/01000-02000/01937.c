@@ -6,7 +6,7 @@
 typedef struct _HeapNode01937
 {
     int nOrder;
-    int nData;
+    void *p_Data;
 }HeapNode01937;
 
 typedef struct _Heap01937
