@@ -3,21 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int HeapCompare01937(int nA, int nB)
-{
-    if(nA > nB)
-    {
-        return 1;
-    }
-    else if(nA == nB)
-    {
-        return 0;
-    }
-    else if(nA < nB)
-    {
-        return -1;
-    }
-}
+typedef int OrderType01937;
 
 typedef struct _HeapNode01937
 {
@@ -30,27 +16,42 @@ typedef struct _Heap01937
     int nDataNum;
     int nTotalSize;
     int nBlockSize;
-    int (*pfunc_Compare)(int,int);
+    int(*pfunc_Compare)(OrderType01937, OrderType01937);
     HeapNode01937 *pstr_HeapArr;
 }Heap01937;
 
-
-
-int HeapInitialize01937(Heap01937 *pstr_HeapHead, void(*pfunc_Compare)(int, int) ,int nSize)
+int HeapCompare(OrderType01937 nA, OrderType01937 nB)
 {
-    pstr_HeapHead->pstr_HeapArr = (HeapNode01937*)malloc(sizeof(HeapNode01937)*nSize);
+    if(nA > nB)
+    {
+        return 1;
+    }
+    else if(nA == nB)
+    {
+        return 0;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+
+int HeapInitialize(Heap01937 *pstr_HeapHead, int(*pfunc_Compare)(OrderType01937, OrderType01937), int nBlockSize)
+{
+    pstr_HeapHead->pstr_HeapArr = (HeapNode01937*)malloc(sizeof(HeapNode01937)*nBlockSize);
     if(pstr_HeapHead->pstr_HeapArr == NULL)
     {
         return 1;
     }
-    memset(pstr_HeapHead->pstr_HeapArr, 0, sizeof(HeapNode01937)*nSize);
+    memset(pstr_HeapHead->pstr_HeapArr, 0, sizeof(HeapNode01937)*nBlockSize);
     pstr_HeapHead->nDataNum = 0;
-    pstr_HeapHead->nTotalSize = nSize;
-    pstr_HeapHead->nBlockSize = nSize;
+    pstr_HeapHead->nTotalSize = nBlockSize;
+    pstr_HeapHead->nBlockSize = nBlockSize;
     pstr_HeapHead->pfunc_Compare = pfunc_Compare;
     return 0;
 }
-int HeapFinalize01937(Heap01937 *pstr_HeapHead, int nSize)
+int HeapFinalize(Heap01937 *pstr_HeapHead, int nSize)
 {
     if(pstr_HeapHead->pstr_HeapArr == NULL)
     {
@@ -59,13 +60,9 @@ int HeapFinalize01937(Heap01937 *pstr_HeapHead, int nSize)
     free(pstr_HeapHead->pstr_HeapArr);
     return 0;
 }
-int HeapSize01937(Heap01937 *pstr_HeapHead)
-{
-    return pstr_HeapHead->nDataNum;
-}
 int HeapGetParentIDX(int nIdx)
 {
-    return nIdx/2;
+    return nIdx / 2;
 }
 int HeapGetChildLeftIDX(int nIdx)
 {
@@ -80,20 +77,19 @@ int HeapGetHighOrderChild(Heap01937 *pstr_HeapHead, int nIdx)
     int nHeapData = pstr_HeapHead->nDataNum;
     int nChildLeftIDX = HeapGetChildLeftIDX(nIdx);
     int nChildRightIDX = HeapGetChildRightIDX(nIdx);
-    
+
     if(nHeapData < nChildLeftIDX)
     {
         return 0;
     }
     else if(nHeapData == nChildLeftIDX)
     {
-        pstr_HeapHead->pfunc_Compare(4, 5);
         return nChildLeftIDX;
     }
     else if(0 < pstr_HeapHead->pfunc_Compare
-                                            (pstr_HeapHead->pstr_HeapArr[nChildRightIDX].nOrder ,
-                                             pstr_HeapHead->pstr_HeapArr[nChildLeftIDX].nOrder)
-           )
+    (pstr_HeapHead->pstr_HeapArr[nChildRightIDX].nOrder,
+     pstr_HeapHead->pstr_HeapArr[nChildLeftIDX].nOrder)
+            )
     {
         return nChildRightIDX;
     }
@@ -102,11 +98,20 @@ int HeapGetHighOrderChild(Heap01937 *pstr_HeapHead, int nIdx)
         return nChildLeftIDX;
     }
 }
-int HeapInsert01309(Heap01937 *pstr_HeapHead, void *p_Data, int nOrder)
+int HeapInsert(Heap01937 *pstr_HeapHead, void *p_Data, OrderType01937 nOrder)
 {
     int nIdx = 0;
     int nParentIDX = 0;
     HeapNode01937 strHeapNodeInsert = {0, NULL};
+
+    if(pstr_HeapHead->nTotalSize == (pstr_HeapHead->nDataNum + 1))
+    {
+        int nBlockNum = 0;
+        nBlockNum = pstr_HeapHead->nTotalSize / pstr_HeapHead->nBlockSize;
+        pstr_HeapHead->nTotalSize = (nBlockNum + 1)*pstr_HeapHead->nBlockSize;
+        realloc(pstr_HeapHead->pstr_HeapArr, sizeof(HeapNode01937)*pstr_HeapHead->nTotalSize);
+    }
+
     nIdx = pstr_HeapHead->nDataNum + 1;
     strHeapNodeInsert.p_Data = p_Data;
     strHeapNodeInsert.nOrder = nOrder;
@@ -115,8 +120,8 @@ int HeapInsert01309(Heap01937 *pstr_HeapHead, void *p_Data, int nOrder)
     {
         nParentIDX = HeapGetParentIDX(nIdx);
         if(0 < pstr_HeapHead->pfunc_Compare
-                                           (nOrder ,
-                                            pstr_HeapHead->pstr_HeapArr[nParentIDX].nOrder)
+        (nOrder,
+         pstr_HeapHead->pstr_HeapArr[nParentIDX].nOrder)
            )
         {
             pstr_HeapHead->pstr_HeapArr[nIdx] = pstr_HeapHead->pstr_HeapArr[nParentIDX];
@@ -142,13 +147,13 @@ void* HeapDelete(Heap01937 *pstr_HeapHead)
     p_ReturnData = pstr_HeapHead->pstr_HeapArr[1].p_Data;
     strHeapNodeLast = pstr_HeapHead->pstr_HeapArr[pstr_HeapHead->nDataNum];
     nParentIdx = 1;
-    
+
     while(nChildIdx = HeapGetHighOrderChild(pstr_HeapHead, nParentIdx))
     {
         if(0 <= pstr_HeapHead->pfunc_Compare
-                                            (strHeapNodeLast.nOrder,
-                                             pstr_HeapHead->pstr_HeapArr[nChildIdx].nOrder)
-          )
+        (strHeapNodeLast.nOrder,
+         pstr_HeapHead->pstr_HeapArr[nChildIdx].nOrder)
+           )
         {
             break;
         }
@@ -157,8 +162,18 @@ void* HeapDelete(Heap01937 *pstr_HeapHead)
     }
     pstr_HeapHead->pstr_HeapArr[nParentIdx] = strHeapNodeLast;
     pstr_HeapHead->nDataNum -= 1;
+
+    if((pstr_HeapHead->nDataNum + 1) < (pstr_HeapHead->nTotalSize - pstr_HeapHead->nBlockSize))
+    {
+        int nBlockNum = 0;
+        nBlockNum = pstr_HeapHead->nTotalSize / pstr_HeapHead->nBlockSize;
+        pstr_HeapHead->nTotalSize = (nBlockNum - 1)*pstr_HeapHead->nBlockSize;
+        realloc(pstr_HeapHead->pstr_HeapArr, sizeof(HeapNode01937)*pstr_HeapHead->nTotalSize);
+    }
+
     return p_ReturnData;
 }
+
 int Problem01937(void)
 {
     int nSize = 0;
@@ -173,45 +188,5 @@ int Problem01937(void)
     }
 
     int *p_test;
-
-
-    Heap01937 strHeap;
-    HeapInitialize01937(&strHeap, HeapCompare01937, 1024);
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 1;
-    p_test[1] = 2;
-    HeapInsert01309(&strHeap, p_test, 4);
-    
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 3;
-    p_test[1] = 4;
-    HeapInsert01309(&strHeap, p_test, 5);
-    
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 5;
-    p_test[1] = 6;
-    HeapInsert01309(&strHeap, p_test, 6);
-    
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 7;
-    p_test[1] = 8;
-    HeapInsert01309(&strHeap, p_test, 1);
-    
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 9;
-    p_test[1] = 10;
-    HeapInsert01309(&strHeap, p_test, 2);
-    
-    p_test = malloc(sizeof(int) * 2);
-    p_test[0] = 11;
-    p_test[1] = 12;
-    HeapInsert01309(&strHeap, p_test, 3);
-
-    p_test = HeapDelete(&strHeap);
-    p_test = HeapDelete(&strHeap);
-    p_test = HeapDelete(&strHeap);
-    p_test = HeapDelete(&strHeap);
-    p_test = HeapDelete(&strHeap);
-    p_test = HeapDelete(&strHeap);
     return 0;
 }
