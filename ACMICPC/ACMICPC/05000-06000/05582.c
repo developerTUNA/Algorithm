@@ -4,6 +4,8 @@
 #include <string.h>
 int Problem05582(void)
 {
+    char szA[4001] = {0,};
+    char szB[4001] = {0,};
     int nMaxLen = 0;
     int **pp_nAB_DP = NULL;
     size_t nLenA = 0;
