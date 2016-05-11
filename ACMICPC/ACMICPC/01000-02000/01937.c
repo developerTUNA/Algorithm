@@ -24,7 +24,7 @@ int HeapCompare01937(OrderType01937 nA, OrderType01937 nB)
 {
     if(nA > nB)
     {
-        return 1;
+        return -1;
     }
     else if(nA == nB)
     {
@@ -32,7 +32,7 @@ int HeapCompare01937(OrderType01937 nA, OrderType01937 nB)
     }
     else
     {
-        return -1;
+        return 1;
     }
 }
 
@@ -177,38 +177,79 @@ void* HeapDelete(Heap01937 *pstr_HeapHead)
 int Problem01937(void)
 {
     int nSize = 0;
+    int nOrder = 0;
+    int nLiveAge = 0;
+    int arr_nMoveRow[4] = {1,-1,0,0};
+    int arr_nMoveCol[4] = {0,0,1,-1};
 	int *p_nRowCol = NULL;
     int **pp_nForest = NULL;
+    int **pp_nForestDP = NULL;
 	Heap01937 OrderHeap;
     
 	scanf("%d", &nSize);
+    
     pp_nForest = (int **)malloc(sizeof(int*)*nSize);
     for(int i = 0; i < nSize; i++)
     {
         pp_nForest[i] = (int*)malloc(sizeof(int)*nSize);
         memset(pp_nForest[i], 0, sizeof(int)*nSize);
     }
+    pp_nForestDP = (int **)malloc(sizeof(int*)*nSize);
+    for(int i = 0; i < nSize; i++)
+    {
+        pp_nForestDP[i] = (int*)malloc(sizeof(int)*nSize);
+        memset(pp_nForestDP[i], 0, sizeof(int)*nSize);
+    }
 
-	HeapInitialize(&OrderHeap, HeapCompare01937, nSize*nSize + 1);
+    HeapInitialize(&OrderHeap, HeapCompare01937, nSize*nSize + 1);
 	for (int i = 0; i < nSize; i++)
 	{
 		for (int j = 0; j < nSize; j++)
 		{
-			scanf("%d", &pp_nForest[i][j]);
+			scanf("%d", &nOrder);
+            pp_nForest[i][j] = nOrder;
 			p_nRowCol = malloc(sizeof(int) * 2);
 			p_nRowCol[0] = i;
 			p_nRowCol[1] = j;
-			HeapInsert(&OrderHeap, p_nRowCol, pp_nForest[i][j]);
+			HeapInsert(&OrderHeap, p_nRowCol, nOrder);
 		}
 	}
+
+
 	for (int i = 0; i < nSize; i++)
 	{
-		for (int j = 0; j < nSize; j++)
-		{
-			p_nRowCol = HeapDelete(&OrderHeap);
-			printf("%d : (%d, %d)\n", pp_nForest[i][j], p_nRowCol[0], p_nRowCol[1]);
-		}
+        for(int j = 0; j < nSize; j++)
+        {
+            int nSideMax = 0;
+	        p_nRowCol = HeapDelete(&OrderHeap);
+            for(int k = 0; k < 4; k++)
+            {
+                int nLookRow = p_nRowCol[0] + arr_nMoveRow[k];
+                int nLookCol = p_nRowCol[1] + arr_nMoveCol[k];
+                if(0 <= nLookRow && nLookRow < nSize &&
+                   0 <= nLookCol && nLookCol < nSize)
+                {
+                    if(nSideMax < pp_nForestDP[nLookRow][nLookCol] &&
+                       pp_nForest[p_nRowCol[0]][p_nRowCol[1]] != pp_nForest[nLookRow][nLookCol])
+                    {
+                        nSideMax = pp_nForestDP[nLookRow][nLookCol];
+                    }
+                }
+            }
+            pp_nForestDP[p_nRowCol[0]][p_nRowCol[1]] = nSideMax + 1;
+            if(nLiveAge < pp_nForestDP[p_nRowCol[0]][p_nRowCol[1]])
+            {
+                nLiveAge = pp_nForestDP[p_nRowCol[0]][p_nRowCol[1]];
+            }
+            free(p_nRowCol);
+        }
 	}
-    
+    printf("%d\n", nLiveAge);
+
+    for(int i = 0; i < nSize; i++)
+    {
+        free(pp_nForestDP[i]);
+    }
+    free(pp_nForestDP);
     return 0;
 }
