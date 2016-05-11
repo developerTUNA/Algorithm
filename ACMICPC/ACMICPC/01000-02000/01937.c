@@ -20,7 +20,7 @@ typedef struct _Heap01937
     HeapNode01937 *pstr_HeapArr;
 }Heap01937;
 
-int HeapCompare(OrderType01937 nA, OrderType01937 nB)
+int HeapCompare01937(OrderType01937 nA, OrderType01937 nB)
 {
     if(nA > nB)
     {
@@ -177,9 +177,11 @@ void* HeapDelete(Heap01937 *pstr_HeapHead)
 int Problem01937(void)
 {
     int nSize = 0;
+	int *p_nRowCol = NULL;
     int **pp_nForest = NULL;
-    int *p_nHeap = NULL;
-    scanf("%d", &nSize);
+	Heap01937 OrderHeap;
+    
+	scanf("%d", &nSize);
     pp_nForest = (int **)malloc(sizeof(int*)*nSize);
     for(int i = 0; i < nSize; i++)
     {
@@ -187,6 +189,26 @@ int Problem01937(void)
         memset(pp_nForest[i], 0, sizeof(int)*nSize);
     }
 
-    int *p_test;
+	HeapInitialize(&OrderHeap, HeapCompare01937, nSize*nSize + 1);
+	for (int i = 0; i < nSize; i++)
+	{
+		for (int j = 0; j < nSize; j++)
+		{
+			scanf("%d", &pp_nForest[i][j]);
+			p_nRowCol = malloc(sizeof(int) * 2);
+			p_nRowCol[0] = i;
+			p_nRowCol[1] = j;
+			HeapInsert(&OrderHeap, p_nRowCol, pp_nForest[i][j]);
+		}
+	}
+	for (int i = 0; i < nSize; i++)
+	{
+		for (int j = 0; j < nSize; j++)
+		{
+			p_nRowCol = HeapDelete(&OrderHeap);
+			printf("%d : (%d, %d)\n", pp_nForest[i][j], p_nRowCol[0], p_nRowCol[1]);
+		}
+	}
+    
     return 0;
 }
