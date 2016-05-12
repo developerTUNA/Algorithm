@@ -6,9 +6,7 @@ int Problem09252(void)
 {
     char szRow[1002] = {0,};
     char szCol[1002] = {0,};
-    char szResultRow[1002] = {0,};
-    char szResultCol[1002] = {0,};
-    int nRowColSelect = 0;
+    char szResult[1002] = {0,};
     int nMaxLen = 0;
     int **pp_nAB_DP = NULL;
     size_t nLenA = 0;
@@ -47,21 +45,23 @@ int Problem09252(void)
             }
         }
     }
-    printf("%d\n", pp_nAB_DP[nLenA - 1][nLenB - 1]);
+    nMaxLen = pp_nAB_DP[nLenA - 1][nLenB - 1];
+    printf("%d\n", nMaxLen);
     
-    for(int i = nLenA-1; 0 < i ; i--)
+    for(size_t i = nLenA-1; 0 < i ; i--)
     {
-        for(int j = nLenB-1; 0 < j ; j--)
+        for(size_t j = nLenB-1; 0 < j ; j--)
         {
-            if(szRow[i] == szCol[j])
+            if(szRow[i] == szCol[j] && nMaxLen == pp_nAB_DP[i][j])
             {
-                szResultRow[pp_nAB_DP[i][j] - 1] = szRow[i];
+                szResult[pp_nAB_DP[i][j] - 1] = szRow[i];
                 nLenB--;
+                nMaxLen--;
                 break;
             }
         }
     }
-
+    printf("%s\n",szResult);
     for(int i = 0; i <= nLenA; i++)
     {
         free(pp_nAB_DP[i]);
