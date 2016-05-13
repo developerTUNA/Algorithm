@@ -4,19 +4,18 @@
 #include <string.h>
 int Problem09251(void)
 {
-    char szRow[1002] = {0,};
-    char szCol[1002] = {0,};
-    int nMaxLen = 0;
+    char szA[1002] = {0,};
+    char szB[1002] = {0,};
     int **pp_nAB_DP = NULL;
     size_t nLenA = 0;
     size_t nLenB = 0;
     
-    szRow[0] = ' ';
-    szCol[0] = ' ';
-    scanf("%s", &szRow[1]);
-    scanf("%s", &szCol[1]);
-    nLenA = strlen(szRow);
-    nLenB = strlen(szCol);
+    szA[0] = ' ';
+    szB[0] = ' ';
+    scanf("%s", &szA[1]);
+    scanf("%s", &szB[1]);
+    nLenA = strlen(szA);
+    nLenB = strlen(szB);
 
     pp_nAB_DP = (int**)malloc(sizeof(int *)*(nLenA+1));
     for(int i = 0; i <= nLenA; i++)
@@ -25,12 +24,11 @@ int Problem09251(void)
         memset(pp_nAB_DP[i], 0, sizeof(int)*(nLenB+1));
     }
 
-    nMaxLen = 0;
     for(int i = 1; i < nLenA; i++)
     {
         for(int j = 1; j < nLenB; j++)
         {
-            if(szRow[i] == szCol[j])
+            if(szA[i] == szB[j])
             {
                 pp_nAB_DP[i][j] = pp_nAB_DP[i - 1][j - 1] + 1;
             }
