@@ -1,4 +1,4 @@
-#pragma warning (disable:4996)
+﻿#pragma warning (disable:4996)
 #include <stdio.h>
 
 int Problem05337(void)
