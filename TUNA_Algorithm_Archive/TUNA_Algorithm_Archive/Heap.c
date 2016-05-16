@@ -18,14 +18,8 @@ typedef struct _Heap
     int nTotalSize;
     int nBlockSize;
     int(*pfunc_Compare)(OrderType, OrderType);
-    int(*pfunc_GetOrder)(Heap *, int);
-    void *pstr_HeapArr;
+    HeapNode *pstr_HeapArr;
 }Heap;
-
-OrderType HeapGetOrder(Heap *pstr_HeapHead, int nIdx)
-{
-    return ((HeapNode*)pstr_HeapHead->pstr_HeapArr)[nIdx].nOrder;
-}
 
 int HeapCompare(OrderType nA, OrderType nB)
 {
@@ -44,7 +38,7 @@ int HeapCompare(OrderType nA, OrderType nB)
 }
 
 
-int HeapInitialize(Heap *pstr_HeapHead, OrderType(*pfunc_GetOrder)(Heap *, int),int(*pfunc_Compare)(OrderType, OrderType), int nNodeSize,int nBlockSize)
+int HeapInitialize(Heap *pstr_HeapHead,int(*pfunc_Compare)(OrderType, OrderType), int nNodeSize,int nBlockSize)
 {
     pstr_HeapHead->pstr_HeapArr = (void*)malloc(nNodeSize*nBlockSize);
     if(pstr_HeapHead->pstr_HeapArr == NULL)
@@ -56,7 +50,6 @@ int HeapInitialize(Heap *pstr_HeapHead, OrderType(*pfunc_GetOrder)(Heap *, int),
     pstr_HeapHead->nTotalSize = nBlockSize;
     pstr_HeapHead->nBlockSize = nBlockSize;
     pstr_HeapHead->pfunc_Compare = pfunc_Compare;
-    pstr_HeapHead->pfunc_GetOrder = pfunc_GetOrder;
     return 0;
 }
 int HeapFinalize(Heap *pstr_HeapHead, int nSize)
@@ -95,10 +88,7 @@ int HeapGetHighOrderChild(Heap *pstr_HeapHead, int nIdx)
     {
         return nChildLeftIDX;
     }
-    else if(0 < pstr_HeapHead->pfunc_Compare
-    (pstr_HeapHead->pstr_HeapArr[nChildRightIDX].nOrder,
-     pstr_HeapHead->pstr_HeapArr[nChildLeftIDX].nOrder)
-            )
+    else if(0 < pstr_HeapHead->pfunc_Compare(pstr_HeapHead->pstr_HeapArr[nChildRightIDX].nOrder, pstr_HeapHead->pstr_HeapArr[nChildLeftIDX].nOrder))
     {
         return nChildRightIDX;
     }
@@ -129,8 +119,7 @@ int HeapInsert(Heap *pstr_HeapHead, void *p_Data, OrderType nOrder)
     {
         nParentIDX = HeapGetParentIDX(nIdx);
         if(0 < pstr_HeapHead->pfunc_Compare
-        (nOrder,
-         pstr_HeapHead->pstr_HeapArr[nParentIDX].nOrder)
+        (nOrder, pstr_HeapHead->pstr_HeapArr[nParentIDX].nOrder)
            )
         {
             pstr_HeapHead->pstr_HeapArr[nIdx] = pstr_HeapHead->pstr_HeapArr[nParentIDX];

@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="Heap.c" />
     <ClCompile Include="QuickSort.c" />
+    <ClCompile Include="Temp.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,7 @@
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX(a,b) ((a)<(b)?(b):(a))
+#define MAX02579(a,b) ((a)<(b)?(b):(a))
 
 int Problem02579(void)
 {
@@ -27,11 +27,11 @@ int Problem02579(void)
 
     for(int i = 1; i < nCount; i++)
     {
-        pp_nStap_DP[i][0] = MAX( pp_nStap_DP[i - 1][1], pp_nStap_DP[i - 1][2]);
+        pp_nStap_DP[i][0] = MAX02579( pp_nStap_DP[i - 1][1], pp_nStap_DP[i - 1][2]);
         pp_nStap_DP[i][1] = pp_nStap_DP[i - 1][0] + p_nStap[i];
         pp_nStap_DP[i][2] = pp_nStap_DP[i - 1][1] + p_nStap[i];
     }
-    printf("%d\n", MAX(pp_nStap_DP[nCount - 1][1], pp_nStap_DP[nCount - 1][2]));
+    printf("%d\n", MAX02579(pp_nStap_DP[nCount - 1][1], pp_nStap_DP[nCount - 1][2]));
 
     for(int i = 0; i < nCount; i++)
     {
