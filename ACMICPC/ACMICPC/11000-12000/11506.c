@@ -4,6 +4,6 @@
 #include <string.h>
 int Problem11506(void)
 {
-    printf("��");
+    printf("");
     return 0;
 }
