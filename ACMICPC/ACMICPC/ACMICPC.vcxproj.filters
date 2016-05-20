@@ -309,5 +309,8 @@
     <ClCompile Include="01000-02000\01234.c">
       <Filter>소스 파일\01000-02000</Filter>
     </ClCompile>
+    <ClCompile Include="10000-11000\10799.c">
+      <Filter>소스 파일\10000-11000</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
