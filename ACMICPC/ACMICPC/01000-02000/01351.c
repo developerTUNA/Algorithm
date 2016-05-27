@@ -59,7 +59,7 @@ int NodeFree01351(Node01351 *NodeHead)
         NodeHead = NodeTemp;
     }
 }
-long long DP_GO(long long llnI, long long llnN, long long llnP, long long llnQ, Node01351 *NodeHead)
+long long GO_DP(long long llnI, long long llnN, long long llnP, long long llnQ, Node01351 *NodeHead)
 {
     long long llnPoz = 0;
     long long llnNum = 0;
@@ -75,8 +75,8 @@ long long DP_GO(long long llnI, long long llnN, long long llnP, long long llnQ, 
     }
     else
     {
-        llnResult_NP = DP_GO(llnI / llnP, llnN, llnP, llnQ, NodeHead);
-        llnResult_NQ = DP_GO(llnI / llnQ, llnN, llnP, llnQ, NodeHead);
+        llnResult_NP = GO_DP(llnI / llnP, llnN, llnP, llnQ, NodeHead);
+        llnResult_NQ = GO_DP(llnI / llnQ, llnN, llnP, llnQ, NodeHead);
         NodeAdd01351(NodeHead, llnI, llnResult_NP + llnResult_NQ);
         return llnResult_NP + llnResult_NQ;
     }
@@ -93,7 +93,7 @@ int Problem01351(void)
     NodeHead->llnPoz = 0;
     NodeHead->llnNum = 1;
     NodeHead->NodeNext = NULL;
-    llnResult = DP_GO(llnN, llnN, llnP, llnQ, NodeHead);
+    llnResult = GO_DP(llnN, llnN, llnP, llnQ, NodeHead);
     printf("%lld\n", llnResult);
     NodeFree01351(NodeHead);
     return 0;
