@@ -3,11 +3,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-typedef struct _Node01351
+typedef struct Node01351_
 {
     long long llnPoz;
     long long llnNum;
-    struct _Node01351 *NodeNext;
+    struct Node01351_ *NodeNext;
 }Node01351;
 
 long long FindNode01351(Node01351 *NodeHead, long long llnPoz)
