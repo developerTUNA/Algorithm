@@ -13,16 +13,29 @@ typedef struct _Queue10845
 {
     int nSize;
     Node10845 *pNodeHead;
+    Node10845 *pNodeTail;
 }Queue10845;
 
+int QueueEmpty10845(Queue10845 *Queue)
+{
+    if(Queue->nSize)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+int QueueSize10845(Queue10845 *Queue)
+{
+    return Queue->nSize;
+}
 
 int QueueInitialize10845(Queue10845 *Queue)
 {
-    Node10845 *NodeNew = NULL;
-    NodeNew = (Node10845*)malloc(sizeof(Node10845));
-    NodeNew->nNum = 0;
-    NodeNew->pNodeNext = NULL;
-    Queue->pNodeHead = NodeNew;
+    Queue->pNodeHead = NULL;
+    Queue->pNodeTail = NULL;
     Queue->nSize = 0;
     return 0;
 }
@@ -30,15 +43,20 @@ int QueueFinalize10845(Queue10845 *Queue)
 {
     Node10845 *NodeNext = NULL;
     Node10845 *NodeFree = NULL;
-    NodeFree = Queue->pNodeHead;
-    NodeNext = Queue->pNodeHead->pNodeNext;
+
+    if(QueueEmpty10845(Queue) == 1)
+    {
+        return 0;
+    }
+
+    NodeNext = Queue->pNodeHead;
     while(NodeNext != NULL)
     {
-        free(NodeFree);
         NodeFree = NodeNext;
         NodeNext = NodeNext->pNodeNext;
+        free(NodeFree);
     }
-    free(NodeFree);
+
     return 0;
 }
 
@@ -47,10 +65,19 @@ int QueuePush10845(Queue10845 *Queue, int nNumPush)
     Node10845 *NodeNew = NULL;
     NodeNew = (Node10845*)malloc(sizeof(Node10845));
     NodeNew->nNum = nNumPush;
-    NodeNew->pNodeNext = Queue->pNodeHead->pNodeNext;
+    NodeNew->pNodeNext = NULL;
 
-    Queue->nSize++;
-    Queue->pNodeHead->pNodeNext = NodeNew;
+    if(QueueEmpty10845(Queue))
+    {
+        Queue->pNodeHead = NodeNew;
+        Queue->pNodeTail = NodeNew;
+    }
+    else
+    {
+        Queue->pNodeTail->pNodeNext = NodeNew;
+        Queue->pNodeTail = NodeNew;
+    }
+    Queue->nSize += 1;
     return 0;
 }
 
@@ -58,64 +85,40 @@ int QueuePop10845(Queue10845 *Queue, int *nPopNum)
 {
     Node10845 *NodeTemp = NULL;
     Node10845 *NodePop = NULL;
-
-    if(Queue->nSize == 0)
+    if(QueueEmpty10845(Queue))
     {
         return -1;
     }
-    NodeTemp = Queue->pNodeHead;
-    NodePop = Queue->pNodeHead->pNodeNext;
-    while(NodePop->pNodeNext != NULL)
-    {
-        NodeTemp = NodeTemp->pNodeNext;
-        NodePop = NodePop->pNodeNext;
-    }
+
+    NodePop = Queue->pNodeHead;
     *nPopNum = NodePop->nNum;
-    NodeTemp->pNodeNext = NULL;
+    Queue->pNodeHead = Queue->pNodeHead->pNodeNext;
+
     free(NodePop);
-    Queue->nSize--;
+    Queue->nSize-=1;
+
     return 0;
 }
 
-int QueueSize10845(Queue10845 *Queue)
+int QueueFront10845(Queue10845 *Queue, int *nResult)
 {
-    return Queue->nSize;
-}
-
-int QueueEmpty10845(Queue10845 *Queue)
-{
-    if(Queue->nSize == 0)
+    if(QueueEmpty10845(Queue))
     {
         return 1;
     }
+    *nResult = Queue->pNodeHead->nNum;
     return 0;
 }
 
-int QueueBack10845(Queue10845 *Queue)
+int QueueBack10845(Queue10845 *Queue, int *nResult)
 {
-    if(Queue->nSize == 0)
+    if(QueueEmpty10845(Queue))
     {
-        return -1;
+        return 1;
     }
-    return Queue->pNodeHead->pNodeNext->nNum;
+    *nResult = Queue->pNodeTail->nNum;
+    return 0;
 }
-
-int QueueFront10845(Queue10845 *Queue)
-{
-    Node10845 *NodeTemp = NULL;
-    if(Queue->nSize == 0)
-    {
-        return -1;
-    }
-    NodeTemp = Queue->pNodeHead->pNodeNext;
-    while(NodeTemp->pNodeNext != NULL)
-    {
-        NodeTemp = NodeTemp->pNodeNext;
-    }
-
-    return NodeTemp->nNum;
-}
-
 
 int Problem10845(void)
 {
@@ -160,13 +163,25 @@ int Problem10845(void)
         }
         else if(strcmp(szOperand, "front") == 0)
         {
-            nNum = QueueFront10845(&Queue);
-            printf("%d\n", nNum);
+            if (QueueFront10845(&Queue, &nNum))
+            {
+                printf("-1\n");
+            }
+            else
+            {
+                printf("%d\n", nNum);
+            }
         }
         else if(strcmp(szOperand, "back") == 0)
         {
-            nNum = QueueBack10845(&Queue);
-            printf("%d\n", nNum);
+            if(QueueBack10845(&Queue, &nNum))
+            {
+                printf("-1\n");
+            }
+            else
+            {
+                printf("%d\n", nNum);
+            }
         }
     }
     QueueFinalize10845(&Queue);

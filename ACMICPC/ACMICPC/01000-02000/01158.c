@@ -29,18 +29,18 @@ int QueueFinalize01158(Queue01158 *Queue)
     Node01158 *NodeNext = NULL;
     Node01158 *NodeFree = NULL;
     
-    if(QueueEmpty01158(Queue) == 0)
+    if(QueueEmpty01158(Queue) == 1)
     {
         return 0;
     }
 
-    while(NodeNext->pNodeNext != NULL)
+    NodeNext = Queue->pNodeHead;
+    while(NodeNext != NULL)
     {
         NodeFree = NodeNext;
         NodeNext = NodeNext->pNodeNext;
         free(NodeFree);
     }
-    free(NodeNext);
     return 0;
 }
 int QueueEmpty01158(Queue01158 *Queue)
