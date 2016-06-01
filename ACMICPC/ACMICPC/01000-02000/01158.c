@@ -17,6 +17,11 @@ typedef struct _Queue01158
 }Queue01158;
 
 
+int QueueEmpty01158(Queue01158 *Queue)
+{
+    return Queue->nSize;
+}
+
 int QueueInitialize01158(Queue01158 *Queue)
 {
     Queue->pNodeHead = NULL;
@@ -43,10 +48,7 @@ int QueueFinalize01158(Queue01158 *Queue)
     }
     return 0;
 }
-int QueueEmpty01158(Queue01158 *Queue)
-{
-    return Queue->nSize;
-}
+
 int QueuePush01158(Queue01158 *Queue, int nNumPush)
 {
     Node01158 *NodeNew = NULL;
