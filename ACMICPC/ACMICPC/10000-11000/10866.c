@@ -154,7 +154,7 @@ int DequeTail10866(Deque10866 *Deque, int *nNum)
 
 int Problem10866(void)
 {
-    char czOperand[20] = {0,};
+    char szOperand[20] = {0,};
     int nCount = 0;
     int nNum = 0;
     Deque10866 Deque;
@@ -164,21 +164,21 @@ int Problem10866(void)
     scanf("%d", &nCount);
     for(int i = 0; i < nCount; i++)
     {
-        memset(czOperand, 0, sizeof(czOperand));
+        memset(szOperand, 0, sizeof(szOperand));
         nNum = 0;
-        scanf("%s", czOperand);
+        scanf("%s", szOperand);
 
-        if(strcmp(czOperand, "push_front") == 0)
+        if(strcmp(szOperand, "push_front") == 0)
         {
             scanf("%d", &nNum);
             DequePushHead10866(&Deque, nNum);
         }
-        else if(strcmp(czOperand, "push_back") == 0)
+        else if(strcmp(szOperand, "push_back") == 0)
         {
             scanf("%d", &nNum);
             DequePushTail10866(&Deque, nNum);
         }
-        else if(strcmp(czOperand, "pop_front") == 0)
+        else if(strcmp(szOperand, "pop_front") == 0)
         {
             if(DequePopHead10866(&Deque, &nNum))
             {
@@ -189,7 +189,7 @@ int Problem10866(void)
                 printf("%d\n", nNum);
             }
         }
-        else if(strcmp(czOperand, "pop_back") == 0)
+        else if(strcmp(szOperand, "pop_back") == 0)
         {
             if(DequePopTail10866(&Deque, &nNum))
             {
@@ -200,17 +200,17 @@ int Problem10866(void)
                 printf("%d\n", nNum);
             }
         }
-        else if(strcmp(czOperand, "size") == 0)
+        else if(strcmp(szOperand, "size") == 0)
         {
             nNum = DequeSize10866(&Deque);
             printf("%d\n", nNum);
         }
-        else if(strcmp(czOperand, "empty") == 0)
+        else if(strcmp(szOperand, "empty") == 0)
         {
             nNum = DequeEmpty10866(&Deque);
             printf("%d\n", nNum);
         }
-        else if(strcmp(czOperand, "front") == 0)
+        else if(strcmp(szOperand, "front") == 0)
         {
             if(DequeHead10866(&Deque, &nNum))
             {
@@ -221,7 +221,7 @@ int Problem10866(void)
                 printf("%d\n", nNum);
             }
         }
-        else if(strcmp(czOperand, "back") == 0)
+        else if(strcmp(szOperand, "back") == 0)
         {
             if(DequeTail10866(&Deque, &nNum))
             {
