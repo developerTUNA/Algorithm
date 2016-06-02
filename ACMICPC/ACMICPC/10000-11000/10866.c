@@ -25,7 +25,7 @@ int DequeSize10866(Deque10866 *Deque)
 
 int DequeEmpty10866(Deque10866 *Deque)
 {
-    if(0 == Deque->nSize)
+    if(Deque->nSize == 0)
     {
         return 1;
     }
@@ -71,8 +71,17 @@ int DequePushHead10866(Deque10866 *Deque, int nNum)
     pNodeNew->nNum = nNum;
     pNodeNew->pNodePrev = NULL;
     pNodeNew->pNodeNext = Deque->pNodeHead;
+    if(Deque->pNodeHead != NULL)
+    {
+        Deque->pNodeHead->pNodePrev = pNodeNew;
+    }
     Deque->pNodeHead = pNodeNew;
+    if(Deque->pNodeTail == NULL)
+    {
+        Deque->pNodeTail = Deque->pNodeHead;
+    }
     Deque->nSize += 1;
+    
     return 0;
 }
 
@@ -84,8 +93,17 @@ int DequePushTail10866(Deque10866 *Deque, int nNum)
     pNodeNew->nNum = nNum;
     pNodeNew->pNodePrev = Deque->pNodeTail;
     pNodeNew->pNodeNext = NULL;
+    if(Deque->pNodeTail != NULL)
+    {
+        Deque->pNodeTail->pNodeNext = pNodeNew;
+    }
     Deque->pNodeTail = pNodeNew;
+    if(Deque->pNodeHead == NULL)
+    {
+        Deque->pNodeHead = Deque->pNodeTail;
+    }
     Deque->nSize += 1;
+    
     return 0;
 }
 
@@ -100,14 +118,20 @@ int DequePopHead10866(Deque10866 *Deque, int *nNum)
     }
 
     *nNum = pNodePop->nNum;
-
     Deque->pNodeHead = pNodePop->pNodeNext;
+
     if(Deque->pNodeHead != NULL)
     {
         Deque->pNodeHead->pNodePrev = NULL;
     }
+    else
+    {
+        Deque->pNodeTail = NULL;
+    }
+
     free(pNodePop);
     Deque->nSize -= 1;
+    
     return 0;
 }
 
@@ -123,12 +147,18 @@ int DequePopTail10866(Deque10866 *Deque, int *nNum)
 
     *nNum = pNodePop->nNum;
     Deque->pNodeTail = pNodePop->pNodePrev;
+    
     if(Deque->pNodeTail != NULL)
     {
         Deque->pNodeTail->pNodeNext = NULL;
     }
+    else
+    {
+        Deque->pNodeHead = NULL;
+    }
     free(pNodePop);
     Deque->nSize -= 1;
+    
     return 0;
 }
 
@@ -139,6 +169,7 @@ int DequeHead10866(Deque10866 *Deque, int *nNum)
         return 1;
     }
     *nNum = Deque->pNodeHead->nNum;
+    
     return 0;
 }
 
@@ -149,6 +180,7 @@ int DequeTail10866(Deque10866 *Deque, int *nNum)
         return 1;
     }
     *nNum = Deque->pNodeTail->nNum;
+    
     return 0;
 }
 
@@ -235,5 +267,6 @@ int Problem10866(void)
     }
 
     DequeFinalize10866(&Deque);
+    
     return 0;
 }
