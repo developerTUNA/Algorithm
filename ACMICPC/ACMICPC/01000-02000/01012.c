@@ -11,44 +11,44 @@ typedef struct _Node01012
     struct _Node01012 *pNext;
 } Node01012;
 
-int QueuePut01012(Node01012 **ppstr_NodeHead, int nRow, int nCol)
+int QueuePut01012(Node01012 **pp_NodeHead, int nRow, int nCol)
 {
 	top++;
-	Node01012 *pstr_NodeHead = *ppstr_NodeHead;
-    Node01012 *pstr_NodeNew = NULL;
+	Node01012 *p_NodeHead = *pp_NodeHead;
+    Node01012 *p_NodeNew = NULL;
 
-    pstr_NodeNew = (Node01012*)malloc(sizeof(Node01012));
-    pstr_NodeNew->nRow = nRow;
-    pstr_NodeNew->nCol = nCol;
-    pstr_NodeNew->pNext = NULL;
+    p_NodeNew = (Node01012*)malloc(sizeof(Node01012));
+    p_NodeNew->nRow = nRow;
+    p_NodeNew->nCol = nCol;
+    p_NodeNew->pNext = NULL;
 
-    if(pstr_NodeHead == NULL)
+    if(p_NodeHead == NULL)
     {
-        *ppstr_NodeHead = pstr_NodeNew;
+        *pp_NodeHead = p_NodeNew;
     }
     else
     {
-        while(pstr_NodeHead->pNext != NULL)
+        while(p_NodeHead->pNext != NULL)
         {
-            pstr_NodeHead = pstr_NodeHead->pNext;
+            p_NodeHead = p_NodeHead->pNext;
         }
-        pstr_NodeHead->pNext = pstr_NodeNew;
+        p_NodeHead->pNext = p_NodeNew;
     }
     return 0;
 }
-int QueueGet01012(Node01012 **ppstr_NodeHead, int *nRow, int *nCol)
+int QueueGet01012(Node01012 **pp_NodeHead, int *nRow, int *nCol)
 {
 	
-    Node01012 *pstr_NodeSelect = *ppstr_NodeHead;
-    if(pstr_NodeSelect == NULL)
+    Node01012 *p_NodeSelect = *pp_NodeHead;
+    if(p_NodeSelect == NULL)
     {
         return 1;
     }
 	top--;
-    *nRow = pstr_NodeSelect->nRow;
-    *nCol = pstr_NodeSelect->nCol;
-    *ppstr_NodeHead = pstr_NodeSelect->pNext;
-    free(pstr_NodeSelect);
+    *nRow = p_NodeSelect->nRow;
+    *nCol = p_NodeSelect->nCol;
+    *pp_NodeHead = p_NodeSelect->pNext;
+    free(p_NodeSelect);
     return 0;
 }
 int BFS01012(int ***ppp_nFarm, int nRow, int nCol)
@@ -60,7 +60,7 @@ int BFS01012(int ***ppp_nFarm, int nRow, int nCol)
 	int nMoveCol[4] = { 0,0,1,-1 };
 	int **pp_nFarm = *ppp_nFarm;
 	int **pp_nCheck = NULL;
-    Node01012 *pstr_NodeHead = NULL;
+    Node01012 *p_NodeHead = NULL;
 	
 	pp_nCheck = malloc(sizeof(int*)*nRow);
 	for (int i = 0; i < nRow; i++)
@@ -75,8 +75,8 @@ int BFS01012(int ***ppp_nFarm, int nRow, int nCol)
             if(pp_nFarm[i][j] == 1)
             {
 				nWorm++;
-                QueuePut01012(&pstr_NodeHead, i, j);
-                while(QueueGet01012(&pstr_NodeHead, &nGetRow, &nGetCol)==0)
+                QueuePut01012(&p_NodeHead, i, j);
+                while(QueueGet01012(&p_NodeHead, &nGetRow, &nGetCol)==0)
                 {
                     for(int k = 0; k < 4 ;k++)
                     {
@@ -85,7 +85,7 @@ int BFS01012(int ***ppp_nFarm, int nRow, int nCol)
 							pp_nFarm[nGetRow + nMoveRow[k]][nGetCol + nMoveCol[k]] == 1 &&
 							pp_nCheck[nGetRow + nMoveRow[k]][nGetCol + nMoveCol[k]] == 0)
 						{	
-							QueuePut01012(&pstr_NodeHead, nGetRow + nMoveRow[k], nGetCol + nMoveCol[k]);
+							QueuePut01012(&p_NodeHead, nGetRow + nMoveRow[k], nGetCol + nMoveCol[k]);
 							pp_nCheck[nGetRow + nMoveRow[k]][nGetCol + nMoveCol[k]] = 1;
 						}
                     }

@@ -11,7 +11,7 @@ int Problem02216(void)
     int nScoreMatch = 0;
     int nScoreBlank = 0;
     int nScoreMiss = 0;
-    int **ppnScore_DP = NULL;
+    int **pp_nScore_DP = NULL;
     size_t nLenA = 0;
     size_t nLenB = 0;
 
@@ -23,20 +23,20 @@ int Problem02216(void)
     nLenA = strlen(szA);
     nLenB = strlen(szB);
 
-    ppnScore_DP = (int **)malloc(sizeof(int*)*nLenA);
+    pp_nScore_DP = (int **)malloc(sizeof(int*)*nLenA);
     for(int i = 0; i < nLenA; i++)
     {
-        ppnScore_DP[i] = (int*)malloc(sizeof(int)*nLenB);
-        memset(ppnScore_DP[i], 0, sizeof(int)*nLenB);
+        pp_nScore_DP[i] = (int*)malloc(sizeof(int)*nLenB);
+        memset(pp_nScore_DP[i], 0, sizeof(int)*nLenB);
     }
 
     for(int i = 0; i < nLenA; i++)
     {
-        ppnScore_DP[i][0] = i * nScoreBlank;
+        pp_nScore_DP[i][0] = i * nScoreBlank;
     }
     for(int i = 0; i < nLenB; i++)
     {
-        ppnScore_DP[0][i] = i * nScoreBlank;
+        pp_nScore_DP[0][i] = i * nScoreBlank;
     }
 
     for(int i = 1; i < nLenA; i++)
@@ -45,21 +45,21 @@ int Problem02216(void)
         {
             if(szA[i] == szB[j])
             {
-                ppnScore_DP[i][j] = ppnScore_DP[i - 1][j - 1] + nScoreMatch;
+                pp_nScore_DP[i][j] = pp_nScore_DP[i - 1][j - 1] + nScoreMatch;
             }
             else
             {
-                ppnScore_DP[i][j] = MAX02216(ppnScore_DP[i - 1][j], ppnScore_DP[i][j - 1]) + nScoreBlank;
-                ppnScore_DP[i][j] = MAX02216(ppnScore_DP[i][j], ppnScore_DP[i - 1][j - 1] + nScoreMiss);
+                pp_nScore_DP[i][j] = MAX02216(pp_nScore_DP[i - 1][j], pp_nScore_DP[i][j - 1]) + nScoreBlank;
+                pp_nScore_DP[i][j] = MAX02216(pp_nScore_DP[i][j], pp_nScore_DP[i - 1][j - 1] + nScoreMiss);
             }
         }
     }
-    printf("%d\n", ppnScore_DP[nLenA-1][nLenB-1]);
+    printf("%d\n", pp_nScore_DP[nLenA-1][nLenB-1]);
     
     for(int i = 0; i < nLenA; i++)
     {
-        free(ppnScore_DP[i]);
+        free(pp_nScore_DP[i]);
     }
-    free(ppnScore_DP);
+    free(pp_nScore_DP);
     return 0;
 }

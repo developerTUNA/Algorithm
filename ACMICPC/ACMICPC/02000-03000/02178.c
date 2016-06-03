@@ -10,39 +10,39 @@ typedef struct _Node02178
     struct _Node02178 *pNext;
 } Node02178;
 
-int QueuePut02178(Node02178 **ppstr_NodeHead, int nRow, int nCol)
+int QueuePut02178(Node02178 **pp_NodeHead, int nRow, int nCol)
 {
-    Node02178 *pstr_NodeNew;
-    Node02178 *pstr_NodeSearch;
-    pstr_NodeNew = malloc(sizeof(Node02178));
-    pstr_NodeNew->nRow = nRow;
-    pstr_NodeNew->nCol = nCol;
-    pstr_NodeNew->pNext = NULL;
+    Node02178 *p_NodeNew;
+    Node02178 *p_NodeSearch;
+    p_NodeNew = malloc(sizeof(Node02178));
+    p_NodeNew->nRow = nRow;
+    p_NodeNew->nCol = nCol;
+    p_NodeNew->pNext = NULL;
 
-    if (*ppstr_NodeHead == NULL)
+    if (*pp_NodeHead == NULL)
     {
-        *ppstr_NodeHead = pstr_NodeNew;
+        *pp_NodeHead = p_NodeNew;
     }
     else {
-        pstr_NodeSearch = *ppstr_NodeHead;
-        while (pstr_NodeSearch->pNext != NULL)
+        p_NodeSearch = *pp_NodeHead;
+        while (p_NodeSearch->pNext != NULL)
         {
-            pstr_NodeSearch = pstr_NodeSearch->pNext;
+            p_NodeSearch = p_NodeSearch->pNext;
         }
-        pstr_NodeSearch->pNext = pstr_NodeNew;
+        p_NodeSearch->pNext = p_NodeNew;
     }
     return 0;
 }
 
-int QueueGet02178(Node02178 **pstr_NodeHead, int *nRow, int *nCol)
+int QueueGet02178(Node02178 **p_NodeHead, int *nRow, int *nCol)
 {
     Node02178 *str_pNodeGet;
-    if (*pstr_NodeHead == NULL)
+    if (*p_NodeHead == NULL)
     {
         return 1;
     }
-    str_pNodeGet = *pstr_NodeHead;
-    *pstr_NodeHead = (*pstr_NodeHead)->pNext;
+    str_pNodeGet = *p_NodeHead;
+    *p_NodeHead = (*p_NodeHead)->pNext;
     *nRow = str_pNodeGet->nRow;
     *nCol = str_pNodeGet->nCol;
     free(str_pNodeGet);
@@ -60,7 +60,7 @@ int Problem02178(void)
     char *p_cLine = NULL;
     int **pp_nMaze = NULL;
     int **pp_nMazeCheck = NULL;
-    Node02178 *pstr_QueHead = NULL;
+    Node02178 *p_QueHead = NULL;
 
     scanf("%d %d", &nRow, &nCol);
 
@@ -88,7 +88,7 @@ int Problem02178(void)
         }
     }
 
-    QueuePut02178(&pstr_QueHead, 1, 1);
+    QueuePut02178(&p_QueHead, 1, 1);
     pp_nMazeCheck[1][1] = 1;
 
     while (1)
@@ -96,7 +96,7 @@ int Problem02178(void)
         int nRowGet = 0;
         int nColGet = 0;
         int nCount = 0;
-        QueueGet02178(&pstr_QueHead, &nRowGet, &nColGet);
+        QueueGet02178(&p_QueHead, &nRowGet, &nColGet);
         if (nRowGet == nRow && nColGet == nCol)
         {
             break;
@@ -110,7 +110,7 @@ int Problem02178(void)
                 (pp_nMazeCheck[nRowTemp][nColTemp] == 0))
             {
                 pp_nMazeCheck[nRowTemp][nColTemp] = nCount;
-                QueuePut02178(&pstr_QueHead, nRowTemp, nColTemp);
+                QueuePut02178(&p_QueHead, nRowTemp, nColTemp);
             }
         }
     }
