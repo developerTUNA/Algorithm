@@ -210,6 +210,7 @@
     <ClCompile Include="09000-10000\09012.c" />
     <ClCompile Include="09000-10000\09085.c" />
     <ClCompile Include="09000-10000\09095.c" />
+    <ClCompile Include="09000-10000\09184.c" />
     <ClCompile Include="09000-10000\09251.c" />
     <ClCompile Include="09000-10000\09252.c" />
     <ClCompile Include="09000-10000\09465.c" />
