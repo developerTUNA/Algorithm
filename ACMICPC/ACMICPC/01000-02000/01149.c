@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MIN(a,b) ((a)<(b)?(a):(b))
+#define MIN01149(a, b)(((a) < (b)) ? (a) : (b))
 
 int Problem01149(void)
 {
@@ -32,12 +32,12 @@ int Problem01149(void)
 
     for (int i = 1; i <= num; i++)
     {
-        D[i][0] = MIN(D[i - 1][1], D[i - 1][2]) + P[i][0];
-        D[i][1] = MIN(D[i - 1][0], D[i - 1][2]) + P[i][1];
-        D[i][2] = MIN(D[i - 1][0], D[i - 1][1]) + P[i][2];
+        D[i][0] = MIN01149(D[i - 1][1], D[i - 1][2]) + P[i][0];
+        D[i][1] = MIN01149(D[i - 1][0], D[i - 1][2]) + P[i][1];
+        D[i][2] = MIN01149(D[i - 1][0], D[i - 1][1]) + P[i][2];
     }
 
-    result = MIN(MIN(D[num][0], D[num][1]), D[num][2]);
+    result = MIN01149(MIN01149(D[num][0], D[num][1]), D[num][2]);
     printf("%d\n", result);
 
     for (int i = 0; i <= num; i++)

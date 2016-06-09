@@ -1,7 +1,7 @@
 #pragma warning(disable:4996)
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX02579(a,b) ((a)<(b)?(b):(a))
+#define MAX02579(a,b) (((a)<(b))?(b):(a))
 
 int Problem02579(void)
 {

@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX02300(a,b) ((a)<(b)?(b):(a))
-#define ABS02300(a) ((a)<0?(-a):(a))
+#define MAX02300(a,b) (((a)<(b))?(b):(a))
+#define ABS02300(a) (((a)<0)?(-a):(a))
 
 typedef int OrderType02300;          //정렬할 기본 데이터형, 이걸 어찌 지정할 방법이 없을까?
 
