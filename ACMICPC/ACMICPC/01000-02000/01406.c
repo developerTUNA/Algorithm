@@ -6,7 +6,7 @@
 
 typedef struct _Stack01406
 {
-    int nSize;
+    size_t nSize;
     char *p_Data;
 }Stack01406;
 
@@ -22,20 +22,20 @@ int StackFinalize01046(Stack01406 *Stack)
     free((*Stack).p_Data);
     return 0;
 }
-int StackLen01406(Stack01406 Stack)
+size_t StackLen01406(Stack01406 Stack)
 {
     return Stack.nSize;
 }
 int StackPush01406(Stack01406 *Stack, char cData)
 {
-    int nPoz = StackLen01406(*Stack);
+    size_t nPoz = StackLen01406(*Stack);
     (*Stack).p_Data[nPoz] = cData;
     (*Stack).nSize++;
     return 0;
 }
 int StackPop01406(Stack01406 *Stack, char *cData)
 {
-    int nPoz = StackLen01406(*Stack);
+    size_t nPoz = StackLen01406(*Stack);
     if(nPoz == 0)
     {
         return 1;

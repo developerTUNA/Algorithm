@@ -3,19 +3,19 @@
 #include <string.h>
 #include <stdlib.h>
 
-int StackLen10799(char *p_szStack)
+size_t StackLen10799(char *p_szStack)
 {
     return strlen(p_szStack);
 }
 int StackPush10799(char *p_szStack, char cData)
 {
-    int nPoz = StackLen10799(p_szStack);
+    size_t nPoz = StackLen10799(p_szStack);
     p_szStack[nPoz] = cData;
     return 0;
 }
 int StackPop10799(char *p_szStack, char *cData)
 {
-    int nPoz = StackLen10799(p_szStack);
+    size_t nPoz = StackLen10799(p_szStack);
     *cData = p_szStack[nPoz];
     p_szStack[nPoz-1] = 0;
     return 0;
@@ -26,8 +26,8 @@ int Problem10799(void)
     char cTemp = 0;
     char *p_szString = NULL;
     char *p_szStack = NULL;
-    int nStringLen = 0;
-    int nPices = 0;
+    size_t nStringLen = 0;
+    size_t nPices = 0;
     p_szString = malloc(sizeof(char) * 100001);
     p_szStack = malloc(sizeof(char) * 100001);
     memset(p_szString, 0, sizeof(char) * 100001);
@@ -55,6 +55,6 @@ int Problem10799(void)
 
     free(p_szString);
     free(p_szStack);
-    printf("%d\n", nPices);
+    printf("%lld\n", nPices);
     return 0;
 }
