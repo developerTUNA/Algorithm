@@ -6,12 +6,12 @@ int Problem10808(void)
 {
     char szString[101] = {0,};
     int arr_nCount[26] = {0,};
-    int nStringLen = 0;
+    size_t llnStringLen = 0;
     
     scanf("%s", szString);
-    nStringLen = strlen(szString);
+    llnStringLen = strlen(szString);
 
-    for(int i = 0; i < nStringLen; i++)
+    for(int i = 0; i < llnStringLen; i++)
     {
         arr_nCount[szString[i] - 'a']++;
     }
