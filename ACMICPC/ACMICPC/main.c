@@ -1,6 +1,6 @@
 
 int main(void)
 {
-    Problem10820();
+    Problem10824();
     return 0;
 }
