@@ -342,5 +342,8 @@
     <ClCompile Include="10000-11000\10824.c">
       <Filter>소스 파일\10000-11000</Filter>
     </ClCompile>
+    <ClCompile Include="11000-12000\11656.c">
+      <Filter>소스 파일\11000-12000</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
