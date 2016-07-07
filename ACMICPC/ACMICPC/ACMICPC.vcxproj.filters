@@ -351,5 +351,17 @@
     <ClCompile Include="10000-11000\10797.c">
       <Filter>소스 파일\10000-11000</Filter>
     </ClCompile>
+    <ClCompile Include="11000-12000\11654.c">
+      <Filter>소스 파일\11000-12000</Filter>
+    </ClCompile>
+    <ClCompile Include="10000-11000\10952.c">
+      <Filter>소스 파일\10000-11000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02902.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02941.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
