@@ -13,7 +13,7 @@ int Problem10953(void)
     {
         scanf("%d,%d", &nA, &nB);
         nResult = nA + nB;
-        printf("%d", nResult);
+        printf("%d\n", nResult);
     }
 
     return 0;
