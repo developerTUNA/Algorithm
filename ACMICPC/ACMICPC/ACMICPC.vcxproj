@@ -152,6 +152,7 @@
     <ClCompile Include="01000-02000\01023.c" />
     <ClCompile Include="01000-02000\01026.c" />
     <ClCompile Include="01000-02000\01032.c" />
+    <ClCompile Include="01000-02000\01094.c" />
     <ClCompile Include="01000-02000\01100.c" />
     <ClCompile Include="01000-02000\01110.c" />
     <ClCompile Include="01000-02000\01149.c" />
@@ -239,6 +240,7 @@
     <ClCompile Include="10000-11000\10866.c" />
     <ClCompile Include="10000-11000\10950.c" />
     <ClCompile Include="10000-11000\10952.c" />
+    <ClCompile Include="10000-11000\10953.c" />
     <ClCompile Include="11000-12000\11052.c" />
     <ClCompile Include="11000-12000\11053.c" />
     <ClCompile Include="11000-12000\11057.c" />
