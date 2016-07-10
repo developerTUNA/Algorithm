@@ -27,7 +27,7 @@ int QuickSortPartion02606(Edge02606 *pEdge, int nLeft, int nRight)
 {
     int nPivot = 0;
     int nStore = 0;
-    
+
     nPivot = (nLeft + nRight) / 2;
     QuickSortSwap02606(&pEdge[nPivot], &pEdge[nRight]);
     nStore = nLeft;
@@ -54,8 +54,8 @@ int QuickSort02606(Edge02606 *pEdge, int nLeft, int nRight)
     int nPartion = 0;
     if(nLeft < nRight)
     {
-        nPartion = QuickSortPartion02606(pEdge,nLeft,nRight);
-        QuickSort02606(pEdge, nLeft, nPartion-1);
+        nPartion = QuickSortPartion02606(pEdge, nLeft, nRight);
+        QuickSort02606(pEdge, nLeft, nPartion - 1);
         QuickSort02606(pEdge, nPartion + 1, nRight);
     }
 
@@ -80,6 +80,7 @@ int QueueInitialize02606(Queue02606 *Queue)
     Queue->pNodeHead = NULL;
     Queue->pNodeTail = NULL;
     Queue->nSize = 0;
+    return 0;
 }
 
 int QueueFianlize02606(Queue02606 *Queue)
@@ -100,6 +101,7 @@ int QueueFianlize02606(Queue02606 *Queue)
     Queue->pNodeHead = NULL;
     Queue->pNodeTail = NULL;
     Queue->nSize = 0;
+    return 0;
 }
 int QueueEmpty02606(Queue02606 *Queue)
 {
@@ -156,14 +158,36 @@ int QueuePop02606(Queue02606 *Queue, int *nData)
     return 0;
 }
 
-int GraphBFS02606(Edge02606 *pEdge, int *p_nEdgeCount, int *p_nVirusCheck, int nComputerNum, int nNetworkNum)
+int GraphBFS02606(Edge02606 *pEdge, int *p_nEdgeCount, int *p_nVirusCheck, int nComputerNum)
 {
-    Queue02606 *Queue = NULL;
+    Queue02606 Queue;
     int nVirusNum = 0;
-    QueueInitialize02606(Queue);
-    QueuePush02606(Queue, 1);
+    int nPop = 0;
+    QueueInitialize02606(&Queue);
+    QueuePush02606(&Queue, 1);
 
-    QueueFianlize02606(Queue);
+    while(QueueEmpty02606(&Queue) == 0)
+    {
+        QueuePop02606(&Queue, &nPop);
+        for(int i = p_nEdgeCount[nPop - 1]; i < p_nEdgeCount[nPop]; i++)
+        {
+            if(p_nVirusCheck[pEdge[i].nTo] == 0)
+            {
+                p_nVirusCheck[pEdge[i].nTo] = 1;
+                QueuePush02606(&Queue, pEdge[i].nTo);
+            }
+        }
+    }
+    QueueFianlize02606(&Queue);
+
+    for(int i = 0; i <= nComputerNum; i++)
+    {
+        if(p_nVirusCheck[i])
+        {
+            nVirusNum++;
+        }
+    }
+    return nVirusNum;
 }
 
 int Problem02606(void)
@@ -176,35 +200,39 @@ int Problem02606(void)
     int *p_nVirusCheck = NULL;
     int *p_nEdgeCount = NULL;
     Edge02606 *pEdge = NULL;
-    
+
     scanf("%d", &nComputerNum);
     scanf("%d", &nNetworkNum);
     p_nVirusCheck = (int*)malloc(sizeof(int)*(nComputerNum + 1));
-    p_nEdgeCount = (int*)malloc(sizeof(int)*(nNetworkNum + 1));
-    pEdge = (Edge02606*)malloc(sizeof(Edge02606)*(nNetworkNum));
+    p_nEdgeCount = (int*)malloc(sizeof(int)*(nComputerNum + 1));
+    pEdge = (Edge02606*)malloc(sizeof(Edge02606)*(nNetworkNum * 2));
     memset(p_nVirusCheck, 0, sizeof(int)*(nComputerNum + 1));
-    memset(p_nEdgeCount, 0, sizeof(int)*(nNetworkNum + 1));
-    memset(pEdge, 0, sizeof(Edge02606)*(nNetworkNum));
+    memset(p_nEdgeCount, 0, sizeof(int)*(nComputerNum + 1));
+    memset(pEdge, 0, sizeof(Edge02606)*(nNetworkNum * 2));
 
     for(int i = 0; i < nNetworkNum; i++)
     {
         scanf("%d %d", &nFrom, &nTo);
         p_nEdgeCount[nFrom] ++;
+        p_nEdgeCount[nTo] ++;
         pEdge[i].nFrom = nFrom;
         pEdge[i].nTo = nTo;
+        pEdge[i + nNetworkNum].nFrom = nTo;
+        pEdge[i + nNetworkNum].nTo = nFrom;
     }
-    for(int i = 1; i <= nNetworkNum; i++)
+    for(int i = 1; i <= nComputerNum; i++)
     {
         p_nEdgeCount[i] = p_nEdgeCount[i - 1] + p_nEdgeCount[i];
     }
-    QuickSort02606(pEdge, 0, nNetworkNum - 1);
 
-
-
+    QuickSort02606(pEdge, 0, (nNetworkNum * 2) - 1);
+    nVirusNum = GraphBFS02606(pEdge, p_nEdgeCount, p_nVirusCheck, nComputerNum);
+    nVirusNum -= 1;
+    printf("%d\n", nVirusNum);
 
     free(p_nVirusCheck);
     free(p_nEdgeCount);
     free(pEdge);
-    
+
     return 0;
 }
