@@ -25,7 +25,7 @@ int Problem01427(void)
     char szNum[11] = {0,};
     int nSize = 0;
     scanf("%s", szNum);
-    nSize = strlen(szNum);
+    nSize = (int)strlen(szNum);
     InsertSort01427(szNum, nSize);
 
     printf("%s", szNum);
