@@ -4,7 +4,6 @@
 int InsertSort01427(char *szNum, int nSize)
 {
     char cTemp = 0;
-    int nPoz = 0;
     for(int i = 1; i < nSize; i++)
     {
         cTemp = szNum[i];
