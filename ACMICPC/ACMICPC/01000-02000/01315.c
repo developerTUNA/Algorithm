@@ -52,7 +52,7 @@ int Problem01315(void)
                 }
             }
 
-            if(nStr == 1 || nInt == 1)
+            if(nStr == 1 && nInt == 1)
             {
                 pp_nStrIntPossible[nStr][nInt] = 1;
                 if(nQuestClearMax < nQuestPossible)
@@ -60,7 +60,7 @@ int Problem01315(void)
                     nQuestClearMax = nQuestPossible;
                 }
             }
-            else if(pp_nStrIntPossible[nStr - 1][nInt] && 0 < pp_nFreePoint[nStr][nInt])
+            else if(pp_nStrIntPossible[nStr - 1][nInt] && 0 < pp_nFreePoint[nStr - 1][nInt])
             {
                 pp_nStrIntPossible[nStr][nInt] = 1;
                 if(nQuestClearMax < nQuestPossible)
@@ -68,7 +68,7 @@ int Problem01315(void)
                     nQuestClearMax = nQuestPossible;
                 }
             }
-            else if(pp_nStrIntPossible[nStr - 1][nInt] && 0 < pp_nFreePoint[nStr][nInt])
+            else if(pp_nStrIntPossible[nStr][nInt - 1] && 0 < pp_nFreePoint[nStr][nInt - 1])
             {
                 pp_nStrIntPossible[nStr][nInt] = 1;
                 if(nQuestClearMax < nQuestPossible)
