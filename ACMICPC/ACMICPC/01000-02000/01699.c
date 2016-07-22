@@ -1,30 +1,33 @@
 #pragma warning (disable:4996)
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int Problem01699(void)
 {
-    int nSqrtDP[100001] = {0,};
+    int *p_nSqrtDP = NULL;
     int nBackCounter = 0;
     int nNum = 0;
+    int nMin = 0;
 
     scanf("%d", &nNum);
-    for(int i = 0; i < 317; i++)
+    p_nSqrtDP = (int*)malloc(sizeof(int)*(nNum + 1));
+    memset(p_nSqrtDP, 0, sizeof(int)*(nNum + 1));
+    for(int i = 1; i <= nNum; i++)
     {
-        nSqrtDP[i*i] = 1;
-    }
-    for(int i = 1; i < 100001; i++)
-    {
-        if(nSqrtDP[i] != 1)
+        
+        nMin = p_nSqrtDP[i - 1];
+        for(int j = 2; j*j <= i; j++)
         {
-            nSqrtDP[i] = nSqrtDP[nBackCounter] + 1;
-            nBackCounter++;
+            if(p_nSqrtDP[i - j*j]<nMin)
+            {
+                nMin = p_nSqrtDP[i - j*j];
+            }
         }
-        else
-        {
-            nBackCounter = 1;
-        }
+        p_nSqrtDP[i] = nMin+1;
     }
 
-    printf("%d\n", nSqrtDP[nNum]);
+    printf("%d\n", p_nSqrtDP[nNum]);
+    free(p_nSqrtDP);
     return 0;
 }
