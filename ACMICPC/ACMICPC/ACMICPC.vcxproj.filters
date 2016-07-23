@@ -37,6 +37,9 @@
     <Filter Include="소스 파일\07000-08000">
       <UniqueIdentifier>{cf3d05fd-44aa-4c88-b102-df31e7dbc5ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\04000-05000">
+      <UniqueIdentifier>{51cd1e2b-2003-44d8-8aab-422fd0167b3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="11000-12000\11728.c">
@@ -452,6 +455,12 @@
     </ClCompile>
     <ClCompile Include="01000-02000\01699.c">
       <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="10000-11000\10172.c">
+      <Filter>소스 파일\10000-11000</Filter>
+    </ClCompile>
+    <ClCompile Include="04000-05000\04999.c">
+      <Filter>소스 파일\04000-05000</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
