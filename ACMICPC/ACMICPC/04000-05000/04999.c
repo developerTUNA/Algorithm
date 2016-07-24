@@ -12,8 +12,8 @@ int Problem04999(void)
     scanf("%s", szPatient);
     scanf("%s", szDoctor);
 
-    nPatient = strlen(szPatient);
-    nDoctor = strlen(szDoctor);
+    nPatient = (int)strlen(szPatient);
+    nDoctor = (int)strlen(szDoctor);
 
     if(nDoctor <= nPatient)
     {
