@@ -220,6 +220,7 @@
     <ClCompile Include="02000-03000\02606.c" />
     <ClCompile Include="02000-03000\02609.c" />
     <ClCompile Include="02000-03000\02616.c" />
+    <ClCompile Include="02000-03000\02666.c" />
     <ClCompile Include="02000-03000\02667.c" />
     <ClCompile Include="02000-03000\02705.c" />
     <ClCompile Include="02000-03000\02743.c" />
@@ -275,6 +276,7 @@
     <ClCompile Include="10000-11000\10953.c" />
     <ClCompile Include="11000-12000\11021.c" />
     <ClCompile Include="11000-12000\11022.c" />
+    <ClCompile Include="11000-12000\11051.c" />
     <ClCompile Include="11000-12000\11052.c" />
     <ClCompile Include="11000-12000\11053.c" />
     <ClCompile Include="11000-12000\11054.c" />
@@ -292,6 +294,7 @@
     <ClCompile Include="11000-12000\11728.c" />
     <ClCompile Include="11000-12000\11942.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="format.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

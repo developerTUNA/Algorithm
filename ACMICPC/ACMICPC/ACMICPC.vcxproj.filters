@@ -270,9 +270,6 @@
     <ClCompile Include="02000-03000\02705.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="02000-03000\02300.c">
       <Filter>소스 파일\02000-03000</Filter>
     </ClCompile>
@@ -488,6 +485,18 @@
     </ClCompile>
     <ClCompile Include="09000-10000\09084.c">
       <Filter>소스 파일\09000-10000</Filter>
+    </ClCompile>
+    <ClCompile Include="02000-03000\02666.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
+    <ClCompile Include="11000-12000\11051.c">
+      <Filter>소스 파일\11000-12000</Filter>
+    </ClCompile>
+    <ClCompile Include="format.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
