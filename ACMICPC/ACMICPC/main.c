@@ -1,5 +1,5 @@
 int main(void)
 {
-    test();
+    Problem01648();
     return 0;
 }
