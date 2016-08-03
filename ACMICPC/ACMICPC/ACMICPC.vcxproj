@@ -182,6 +182,7 @@
     <ClCompile Include="01000-02000\01983.c" />
     <ClCompile Include="02000-03000\01085.c" />
     <ClCompile Include="02000-03000\02010.c" />
+    <ClCompile Include="02000-03000\02011.c" />
     <ClCompile Include="02000-03000\02092.c" />
     <ClCompile Include="02000-03000\02133.c" />
     <ClCompile Include="02000-03000\02156.c" />
