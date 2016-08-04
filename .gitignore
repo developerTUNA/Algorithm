@@ -1,5 +1,6 @@
 *.sdf
 *.opendb
+*.db
 Debug/
 Release/
 .vs/
