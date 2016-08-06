@@ -16,7 +16,7 @@ int Problem01890(void)
     for(int i = 0; i <= nSize; i++)
     {
         pp_nBox[i] = (int*)malloc(sizeof(int)*(nSize + 1));
-        pp_llnBox_DP[i] = (int*)malloc(sizeof(long long)*(nSize + 1));
+        pp_llnBox_DP[i] = (long long*)malloc(sizeof(long long)*(nSize + 1));
         memset(pp_nBox[i], 0, sizeof(int)*(nSize + 1));
         memset(pp_llnBox_DP[i], 0, sizeof(long long)*(nSize + 1));
     }

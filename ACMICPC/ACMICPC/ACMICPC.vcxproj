@@ -274,6 +274,7 @@
     <ClCompile Include="10000-11000\10844.c" />
     <ClCompile Include="10000-11000\10845.c" />
     <ClCompile Include="10000-11000\10866.c" />
+    <ClCompile Include="10000-11000\10942.c" />
     <ClCompile Include="10000-11000\10950.c" />
     <ClCompile Include="10000-11000\10951.c" />
     <ClCompile Include="10000-11000\10952.c" />
