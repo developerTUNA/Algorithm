@@ -23,14 +23,15 @@ int GO_DP01648(int **pp_nBox, int nRow, int nCol, int nPos, int nStatus)
     pp_nBox[nPos][nStatus] = 0;
     if(nStatus & 1)//체워야될 자리가 차 있는 경우
     {
-       pp_nBox[nPos][nStatus] += GO_DP01648(pp_nBox, nRow, nCol, nPos+1, nStatus >> 1);
+        pp_nBox[nPos][nStatus] += GO_DP01648(pp_nBox, nRow, nCol, nPos + 1, nStatus >> 1);
     }
-    else{
-        if(((nStatus & 2) == 0) && ((nPos%nRow) != (nRow-1)))
+    else
+    {
+        if(((nStatus & 2) == 0) && ((nPos%nCol) != (nCol - 1)))
         {
             pp_nBox[nPos][nStatus] += GO_DP01648(pp_nBox, nRow, nCol, nPos + 2, nStatus >> 2);
         }
-        pp_nBox[nPos][nStatus] += GO_DP01648(pp_nBox, nRow, nCol, nPos + 1, (nStatus >> 1 | 1 << (nRow-1)));
+        pp_nBox[nPos][nStatus] += GO_DP01648(pp_nBox, nRow, nCol, nPos + 1, (nStatus >> 1 | 1 << (nCol - 1)));
     }
     pp_nBox[nPos][nStatus] %= 9901;
     return pp_nBox[nPos][nStatus];
@@ -42,21 +43,21 @@ int Problem01648(void)
     int nCol = 0;
     int nBoxSize = 0;
     int nAnswer = 0;
-    int nRowShift = 0;
+    int nColShift = 0;
     int **pp_nBox = NULL;
 
-    scanf("%d %d", &nCol, &nRow);
-    nBoxSize = nCol*nRow;
-    pp_nBox = (int **)malloc(sizeof(int *)*(nBoxSize+1));
-    nRowShift = 1 << nRow;
+    scanf("%d %d", &nRow, &nCol);
+    nBoxSize = nRow*nCol;
+    pp_nBox = (int **)malloc(sizeof(int *)*(nBoxSize + 1));
+    nColShift = 1 << nCol;
     for(int i = 0; i <= nBoxSize; i++)
     {
-        pp_nBox[i] = (int *)malloc(sizeof(int)*(nRowShift));
-        memset(pp_nBox[i], -1, sizeof(int)*(nRowShift));
+        pp_nBox[i] = (int *)malloc(sizeof(int)*(nColShift));
+        memset(pp_nBox[i], -1, sizeof(int)*(nColShift));
     }
 
     nAnswer = GO_DP01648(pp_nBox, nRow, nCol, 0, 0);
-    
+
     printf("%d\n", nAnswer);
     for(int i = 0; i <= nBoxSize; i++)
     {
