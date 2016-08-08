@@ -1,5 +1,5 @@
 int main(void)
 {
-    Problem10942();
+    Problem01509_2();
     return 0;
 }
