@@ -5,7 +5,7 @@
 int Problem10820(void)
 {
     char cInput = 0;
-    int arr_nCount[4] = {0,};
+    int a_nCount[4] = {0,};
 
     while(cInput = getc(stdin))
     {
@@ -18,26 +18,26 @@ int Problem10820(void)
         {
             for(int i = 0; i < 4; i++)
             {
-                printf("%d ", arr_nCount[i]);
+                printf("%d ", a_nCount[i]);
             }
             printf("\n");
-            memset(arr_nCount, 0, sizeof(arr_nCount));
+            memset(a_nCount, 0, sizeof(a_nCount));
         }
         else if('a' <= cInput && cInput <= 'z')
         {
-            arr_nCount[0]++;
+            a_nCount[0]++;
         }
         else if('A' <= cInput && cInput <= 'Z')
         {
-            arr_nCount[1]++;
+            a_nCount[1]++;
         }
         else if('0' <= cInput && cInput <= '9')
         {
-            arr_nCount[2]++;
+            a_nCount[2]++;
         }
         else if(cInput == ' ')
         {
-            arr_nCount[3]++;
+            a_nCount[3]++;
         }
     }
     return 0;

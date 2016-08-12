@@ -12,33 +12,33 @@ int StringSwap11656(char szA[1001], char szB[1001])
     return 0;
 }
 
-int QuickSortPartion11656(char arr_szStringSub[1001][1001], int nLeft, int nRight)
+int QuickSortPartion11656(char a_szStringSub[1001][1001], int nLeft, int nRight)
 {
     int nPivot = 0;
     int nStore = 0;
     nPivot = (nLeft + nRight) / 2;
-    StringSwap11656(arr_szStringSub[nPivot], arr_szStringSub[nRight]);
+    StringSwap11656(a_szStringSub[nPivot], a_szStringSub[nRight]);
     nStore = nLeft;
     for(int i = nLeft; i < nRight; i++)
     {
-        if(strcmp(arr_szStringSub[i], arr_szStringSub[nRight]) < 0)
+        if(strcmp(a_szStringSub[i], a_szStringSub[nRight]) < 0)
         {
-            StringSwap11656(arr_szStringSub[i], arr_szStringSub[nStore]);
+            StringSwap11656(a_szStringSub[i], a_szStringSub[nStore]);
             nStore++;
         }
     }
-    StringSwap11656(arr_szStringSub[nStore], arr_szStringSub[nRight]);
+    StringSwap11656(a_szStringSub[nStore], a_szStringSub[nRight]);
     return nStore;
 }
 
-int QuickSort11656(char arr_szStringSub[1001][1001], int nLeft, int nRight)
+int QuickSort11656(char a_szStringSub[1001][1001], int nLeft, int nRight)
 {
     int nPartion = 0;
     if(nLeft < nRight)
     {
-        nPartion = QuickSortPartion11656(arr_szStringSub, nLeft, nRight);
-        QuickSort11656(arr_szStringSub, nLeft, nPartion-1);
-        QuickSort11656(arr_szStringSub, nPartion+1, nRight);
+        nPartion = QuickSortPartion11656(a_szStringSub, nLeft, nRight);
+        QuickSort11656(a_szStringSub, nLeft, nPartion-1);
+        QuickSort11656(a_szStringSub, nPartion+1, nRight);
     }
     return 0;
 }
@@ -47,20 +47,20 @@ int QuickSort11656(char arr_szStringSub[1001][1001], int nLeft, int nRight)
 int Problem11656(void)
 {
     char szStringOrg[1001] = {0,};
-    char arr_szStringSub[1001][1001] = {0,};
+    char a_szStringSub[1001][1001] = {0,};
     int nStringLen = 0;
 
     scanf("%s", szStringOrg);
     nStringLen = (int)strlen(szStringOrg);
     for(int i = 0; i < nStringLen; i++)
     {
-        strncpy(arr_szStringSub[i], szStringOrg + i, nStringLen - i);
+        strncpy(a_szStringSub[i], szStringOrg + i, nStringLen - i);
     }
-    QuickSort11656(arr_szStringSub, 0, nStringLen-1);
+    QuickSort11656(a_szStringSub, 0, nStringLen-1);
 
     for(int i = 0; i < nStringLen; i++)
     {
-        printf("%s\n", arr_szStringSub[i]);
+        printf("%s\n", a_szStringSub[i]);
     }
     return 0;
 }

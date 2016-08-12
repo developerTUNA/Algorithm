@@ -5,7 +5,7 @@
 int Problem10809(void)
 {
     char szString[101] = {0,};
-    int arr_nCount[26] = {0,};
+    int a_nCount[26] = {0,};
     size_t llnStringLen = 0;
 
     scanf("%s", szString);
@@ -13,18 +13,18 @@ int Problem10809(void)
 
     for(int i = 0; i < 26; i++)
     {
-        arr_nCount[i] = -1;
+        a_nCount[i] = -1;
     }
 
     for(int i = 0; i < llnStringLen; i++)
     {
-        if(arr_nCount[szString[i] - 'a'] == -1)
-            arr_nCount[szString[i] - 'a'] = i;
+        if(a_nCount[szString[i] - 'a'] == -1)
+            a_nCount[szString[i] - 'a'] = i;
     }
 
     for(int i = 0; i < 26; i++)
     {
-        printf("%d ", arr_nCount[i]);
+        printf("%d ", a_nCount[i]);
     }
     return 0;
 }

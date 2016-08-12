@@ -54,9 +54,9 @@ int Problem02178(void)
 
     int nRow = 0;
     int nCol = 0;
-    char arr_cChar[2] = {'\0','\0'};
-    int arr_nMoveRow[4] = { 1,-1,0,0 };
-    int arr_nMoveCol[4] = { 0,0,1,-1 };
+    char a_cChar[2] = {'\0','\0'};
+    int a_nMoveRow[4] = { 1,-1,0,0 };
+    int a_nMoveCol[4] = { 0,0,1,-1 };
     char *p_cLine = NULL;
     int **pp_nMaze = NULL;
     int **pp_nMazeCheck = NULL;
@@ -82,9 +82,9 @@ int Problem02178(void)
         scanf("%s", p_cLine);
         for (int j = 0; j < nCol; j++)
         {
-            memset(arr_cChar, 0, 2);
-            strncpy(arr_cChar, p_cLine + j, 1);
-            pp_nMaze[i][j + 1] = atoi(arr_cChar);
+            memset(a_cChar, 0, 2);
+            strncpy(a_cChar, p_cLine + j, 1);
+            pp_nMaze[i][j + 1] = atoi(a_cChar);
         }
     }
 
@@ -104,8 +104,8 @@ int Problem02178(void)
         nCount = pp_nMazeCheck[nRowGet][nColGet] + 1;
         for (int i = 0; i < 4; i++)
         {
-            int nRowTemp = nRowGet + arr_nMoveRow[i];
-            int nColTemp = nColGet + arr_nMoveCol[i];
+            int nRowTemp = nRowGet + a_nMoveRow[i];
+            int nColTemp = nColGet + a_nMoveCol[i];
             if ((pp_nMaze[nRowTemp][nColTemp] == 1) &&
                 (pp_nMazeCheck[nRowTemp][nColTemp] == 0))
             {

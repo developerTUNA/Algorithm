@@ -8,7 +8,7 @@ int Problem08958(void)
     int nOXResultLen = 0;
     int nTestCase = 0;
     int nResult = 0;
-    int arr_nScore[81] = {0,};
+    int a_nScore[81] = {0,};
 
     scanf("%d", &nTestCase);
 
@@ -16,7 +16,7 @@ int Problem08958(void)
     {
         nResult = 0;
         memset(szOXResult, 0, sizeof(char) * 81);
-        memset(arr_nScore, 0, sizeof(int) * 81);
+        memset(a_nScore, 0, sizeof(int) * 81);
         
         scanf("%s", szOXResult);
         nOXResultLen = (int)strlen(szOXResult);
@@ -24,8 +24,8 @@ int Problem08958(void)
         {
             if(szOXResult[j-1] == 'O')
             {
-                arr_nScore[j] = arr_nScore[j-1]+1;
-                nResult += arr_nScore[j];
+                a_nScore[j] = a_nScore[j-1]+1;
+                nResult += a_nScore[j];
             }
         }
         printf("%d\n", nResult);

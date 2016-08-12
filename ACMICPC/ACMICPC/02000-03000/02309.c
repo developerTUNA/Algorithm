@@ -16,16 +16,16 @@ int Qsort_Compare_02309_inc(const void *a, const void *b)
 
 int Problem02309(void)
 {
-    int arr_nLength[9] = { 0, };
+    int a_nLength[9] = { 0, };
     int arr2_nMux[9][9] = { 0, };
     int nMax = 0;
     int nFind = 0;
     for(int i=0; i<9;i++)
     {
-        scanf("%d", &arr_nLength[i]);
-        nMax += arr_nLength[i];
+        scanf("%d", &a_nLength[i]);
+        nMax += a_nLength[i];
     }
-    qsort(arr_nLength, 9, sizeof(int), Qsort_Compare_02309_inc);
+    qsort(a_nLength, 9, sizeof(int), Qsort_Compare_02309_inc);
     nFind = nMax - 100;
 
 
@@ -33,12 +33,12 @@ int Problem02309(void)
     {
         for (int j = i + 1; j < 9; j++)
         {
-            if (nFind == (arr_nLength[i] + arr_nLength[j]))
+            if (nFind == (a_nLength[i] + a_nLength[j]))
             {
                 for (int k = 0; k < 9; k++)
                 {
                     if (k != i && k != j)
-                        printf("%d\n", arr_nLength[k]);
+                        printf("%d\n", a_nLength[k]);
                 }
                 i = 10;
                 break;

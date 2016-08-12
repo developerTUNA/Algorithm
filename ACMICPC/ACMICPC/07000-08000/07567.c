@@ -5,23 +5,23 @@
 int Problem07567(void)
 {
     char cLast = '\0';
-    char arr_szDish[51] = {0,};
+    char a_szDish[51] = {0,};
     int nHeight = 0;
     size_t nSize = 0;
-    scanf("%s", arr_szDish);
-    nSize = strlen(arr_szDish);
+    scanf("%s", a_szDish);
+    nSize = strlen(a_szDish);
 
-    cLast = arr_szDish[0];
+    cLast = a_szDish[0];
     nHeight = 10;
     for(int i = 1; i < nSize; i++)
     {
-        if(cLast == arr_szDish[i])
+        if(cLast == a_szDish[i])
         {
             nHeight += 5;
         }
         else
         {
-            cLast = arr_szDish[i];
+            cLast = a_szDish[i];
             nHeight += 10;
         }
     }

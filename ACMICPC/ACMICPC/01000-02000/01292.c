@@ -3,7 +3,7 @@
 
 int Problem01292(void)
 {
-    int arr_nNum[1000] = {0,};
+    int a_nNum[1000] = {0,};
     int nStart = 0;
     int nEnd = 0;
     int nSum = 0;
@@ -14,7 +14,7 @@ int Problem01292(void)
     {
         for(int i = 0; i < nScore && nCount < 1000; i++)
         {
-            arr_nNum[nCount] = nScore;
+            a_nNum[nCount] = nScore;
             nCount++;
         }
         nScore++;
@@ -23,7 +23,7 @@ int Problem01292(void)
     scanf("%d %d", &nStart, &nEnd);
     for(int i = nStart - 1; i < nEnd; i++)
     {
-        nSum += arr_nNum[i];
+        nSum += a_nNum[i];
     }
     printf("%d\n", nSum);
     return 0;

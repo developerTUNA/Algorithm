@@ -5,7 +5,7 @@ int Problem02577(void)
 {
     int nMux = 0;
     int nGet = 0;
-    int arr_nNumCount[10] = {0,};
+    int a_nNumCount[10] = {0,};
     nMux = 1;
     for(int i = 0; i < 3; i++)
     {
@@ -14,12 +14,12 @@ int Problem02577(void)
     }
     while(nMux != 0)
     {
-        arr_nNumCount[nMux % 10]++;
+        a_nNumCount[nMux % 10]++;
         nMux /= 10;
     }
     for(int i = 0; i < 10; i++)
     {
-        printf("%d\n", arr_nNumCount[i]);
+        printf("%d\n", a_nNumCount[i]);
     }
     return 0;
 }

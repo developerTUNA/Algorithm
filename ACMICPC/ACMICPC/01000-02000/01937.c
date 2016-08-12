@@ -179,8 +179,8 @@ int Problem01937(void)
     int nSize = 0;
     int nOrder = 0;
     int nLiveAge = 0;
-    int arr_nMoveRow[4] = {1,-1,0,0};
-    int arr_nMoveCol[4] = {0,0,1,-1};
+    int a_nMoveRow[4] = {1,-1,0,0};
+    int a_nMoveCol[4] = {0,0,1,-1};
 	int *p_nRowCol = NULL;
     int **pp_nForest = NULL;
     int **pp_nForestDP = NULL;
@@ -224,8 +224,8 @@ int Problem01937(void)
 	        p_nRowCol = HeapDelete(&OrderHeap);
             for(int k = 0; k < 4; k++)
             {
-                int nLookRow = p_nRowCol[0] + arr_nMoveRow[k];
-                int nLookCol = p_nRowCol[1] + arr_nMoveCol[k];
+                int nLookRow = p_nRowCol[0] + a_nMoveRow[k];
+                int nLookCol = p_nRowCol[1] + a_nMoveCol[k];
                 if(0 <= nLookRow && nLookRow < nSize &&
                    0 <= nLookCol && nLookCol < nSize)
                 {

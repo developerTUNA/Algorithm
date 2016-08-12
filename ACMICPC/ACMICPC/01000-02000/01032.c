@@ -4,7 +4,7 @@
 
 int Problem01032(void)
 {
-    char arr_strFileName[50][51] = { 0, };
+    char a_strFileName[50][51] = { 0, };
     char strResult[51] = { 0, };
     int nFileNum = 0;
     size_t nFileNameSize = 0;
@@ -12,17 +12,17 @@ int Problem01032(void)
     scanf("%d", &nFileNum);
     for (int i = 0; i < nFileNum; i++)
     {
-        scanf("%s", arr_strFileName[i]);
+        scanf("%s", a_strFileName[i]);
     }
 
-    nFileNameSize = strlen(arr_strFileName[0]);
-    strcpy(strResult, arr_strFileName[0]);
+    nFileNameSize = strlen(a_strFileName[0]);
+    strcpy(strResult, a_strFileName[0]);
 
     for (int i = 0; i < nFileNameSize; i++)
     {
         for (int j = 1; j < nFileNum; j++)
         {
-            if (strResult[i] != arr_strFileName[j][i])
+            if (strResult[i] != a_strFileName[j][i])
             {
                 strResult[i] = '?';
                 break;
