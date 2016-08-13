@@ -55,6 +55,6 @@ int Problem10799(void)
 
     free(p_szString);
     free(p_szStack);
-    printf("%lld\n", nPices);
+    printf("%zd\n", nPices);
     return 0;
 }

@@ -85,10 +85,10 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level2</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -292,6 +292,7 @@
     <ClCompile Include="11000-12000\11055.c" />
     <ClCompile Include="11000-12000\11057.c" />
     <ClCompile Include="11000-12000\11060.c" />
+    <ClCompile Include="11000-12000\11066.c" />
     <ClCompile Include="11000-12000\11506.c" />
     <ClCompile Include="11000-12000\11654.c" />
     <ClCompile Include="11000-12000\11655.c" />
