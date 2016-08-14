@@ -10,7 +10,7 @@ int Problem11655(void)
     scanf("%[0-9a-zA-Z ]s", szString);
     llnStringLen = strlen(szString);
 
-    for(int i = 0; i < llnStringLen; i++)
+    for(size_t i = 0; i < llnStringLen; i++)
     {
         if('a' <= szString[i] && szString[i] <= 'z')
         {

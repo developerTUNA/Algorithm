@@ -35,7 +35,7 @@ int Problem10799(void)
     scanf("%s", p_szString);
     nStringLen = strlen(p_szString);
     
-    for(int i = 0; i < nStringLen; i++)
+    for(size_t i = 0; i < nStringLen; i++)
     {
         if(i+1 < nStringLen && p_szString[i] == '(' && p_szString[i+1] == ')')
         {

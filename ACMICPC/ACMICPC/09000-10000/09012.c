@@ -17,7 +17,7 @@ int Problem09012(void)
         
         scanf("%s", szBracket);
         llnBracketLen = strlen(szBracket);
-        for(int j = 0; j < llnBracketLen; j++)
+        for(size_t j = 0; j < llnBracketLen; j++)
         {
             if(szBracket[j] == '(')
             {

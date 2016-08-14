@@ -37,8 +37,8 @@ int Problem01023(void)
         return 0;
     }
 
-    nBracketNonNum_DP = (unsigned long long*)malloc(sizeof(unsigned long long)*(nBracketSize + 1));
-    memset(nBracketNonNum_DP, 0, sizeof(unsigned long long)*(nBracketSize + 1));
+    nBracketNonNum_DP = (unsigned long long*)malloc(sizeof(unsigned long long)*((size_t)nBracketSize + 1));
+    memset(nBracketNonNum_DP, 0, sizeof(unsigned long long)*((size_t)nBracketSize + 1));
     nBracketNonNum_DP[2] = 1;
     unsigned long long test = 0;
     for(unsigned long long i = 4; i <= nBracketSize; i += 2)
@@ -47,12 +47,12 @@ int Problem01023(void)
         test += nBracketNonNum_DP[i];
     }
 
-    pp_ullBracketNonNum_DP = (unsigned long long**)malloc(sizeof(unsigned long long*)*(nBracketSize + 1));
-    memset(pp_ullBracketNonNum_DP, 0, sizeof(unsigned long long*)*(nBracketSize + 1));
+    pp_ullBracketNonNum_DP = (unsigned long long**)malloc(sizeof(unsigned long long*)*((size_t)nBracketSize + 1));
+    memset(pp_ullBracketNonNum_DP, 0, sizeof(unsigned long long*)*((size_t)nBracketSize + 1));
     for(unsigned long long i = 2; i <= nBracketSize; i += 2)
     {
-        pp_ullBracketNonNum_DP[i] = (unsigned long long*)malloc(sizeof(unsigned long long)*nBracketNonNum_DP[i]);
-        memset(pp_ullBracketNonNum_DP[i], 0, sizeof(unsigned long long)*nBracketNonNum_DP[i]);
+        pp_ullBracketNonNum_DP[i] = (unsigned long long*)malloc(sizeof(unsigned long long)*(size_t)nBracketNonNum_DP[i]);
+        memset(pp_ullBracketNonNum_DP[i], 0, sizeof(unsigned long long)*(size_t)nBracketNonNum_DP[i]);
     }
 
 

@@ -11,7 +11,7 @@ int Problem10808(void)
     scanf("%s", szString);
     llnStringLen = strlen(szString);
 
-    for(int i = 0; i < llnStringLen; i++)
+    for(size_t i = 0; i < llnStringLen; i++)
     {
         a_nCount[szString[i] - 'a']++;
     }

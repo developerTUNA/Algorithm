@@ -18,7 +18,7 @@ int Problem01032(void)
     nFileNameSize = strlen(a_strFileName[0]);
     strcpy(strResult, a_strFileName[0]);
 
-    for (int i = 0; i < nFileNameSize; i++)
+    for (size_t i = 0; i < nFileNameSize; i++)
     {
         for (int j = 1; j < nFileNum; j++)
         {

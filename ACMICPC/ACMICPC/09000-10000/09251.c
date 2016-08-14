@@ -18,15 +18,15 @@ int Problem09251(void)
     nLenB = strlen(szB);
 
     pp_nAB_DP = (int**)malloc(sizeof(int *)*(nLenA+1));
-    for(int i = 0; i <= nLenA; i++)
+    for(size_t i = 0; i <= nLenA; i++)
     {
         pp_nAB_DP[i] = (int*)malloc(sizeof(int)*(nLenB+1));
         memset(pp_nAB_DP[i], 0, sizeof(int)*(nLenB+1));
     }
 
-    for(int i = 1; i < nLenA; i++)
+    for(size_t i = 1; i < nLenA; i++)
     {
-        for(int j = 1; j < nLenB; j++)
+        for(size_t j = 1; j < nLenB; j++)
         {
             if(szA[i] == szB[j])
             {
@@ -44,7 +44,7 @@ int Problem09251(void)
     }
     printf("%d\n", pp_nAB_DP[nLenA-1][nLenB-1]);
 
-    for(int i = 0; i <= nLenA; i++)
+    for(size_t i = 0; i <= nLenA; i++)
     {
         free(pp_nAB_DP[i]);
     }

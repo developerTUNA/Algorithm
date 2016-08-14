@@ -13,7 +13,7 @@ int Problem07567(void)
 
     cLast = a_szDish[0];
     nHeight = 10;
-    for(int i = 1; i < nSize; i++)
+    for(size_t i = 1; i < nSize; i++)
     {
         if(cLast == a_szDish[i])
         {
