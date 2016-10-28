@@ -82,7 +82,7 @@ int Problem01102(void)
         }
         if(nGoal <= nOn_Count)
         {
-            if(nResult == -1 || nResult < p_nCost_DP[i])
+            if(nResult == -1 || p_nCost_DP[i] < nResult)
             {
                 nResult = p_nCost_DP[i];
             }
