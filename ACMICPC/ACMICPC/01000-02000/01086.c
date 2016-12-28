@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-int GCD01086(int nX, int nY)
+long long GCD01086(long long nX, long long nY)
 {
     if(nY == 0)
     {
@@ -20,13 +20,15 @@ int Problem01086(void)
 {
     int nNum_Count = 0;
     int nDiv = 0;
-    int nTotal_Count = 0;
-    int nResult_Count = 0;
-    int nGcd = 0;
+    int nNum_Len_Max = 0;
+    long long llnTotal_Count = 0;
+    long long llnResult_Count = 0;
+    long long llnGcd = 0;
+    int *p_nNext = NULL;
     int *p_nRemain = NULL;
     int *p_nNum_Len = NULL;
-    int **pp_nRemain_DP = NULL;
     char **pp_szNum = NULL;
+    long long **pp_llnRemain_DP = NULL;
     
     scanf("%d", &nNum_Count);
     pp_szNum = malloc(sizeof(char *)*(nNum_Count));
@@ -47,24 +49,36 @@ int Problem01086(void)
     }
     scanf("%d", &nDiv);
 
-    pp_nRemain_DP = malloc(sizeof(int*)*(1<<nNum_Count));
-    memset(pp_nRemain_DP, 0, sizeof(int*)*(1<<nNum_Count));
+    pp_llnRemain_DP = malloc(sizeof(long long*)*(1<<nNum_Count));
+    memset(pp_llnRemain_DP, 0, sizeof(long long*)*(1<<nNum_Count));
     for(int i = 0; i < (1 << nNum_Count); i++)
     {
-        pp_nRemain_DP[i] = malloc(sizeof(int)*(nDiv));
-        memset(pp_nRemain_DP[i], 0, sizeof(int)*(nDiv));
+        pp_llnRemain_DP[i] = malloc(sizeof(long long)*(nDiv));
+        memset(pp_llnRemain_DP[i], 0, sizeof(long long)*(nDiv));
     }
 
     for(int i = 0; i < nNum_Count; i++)
     {
         p_nNum_Len[i] = strlen(pp_szNum[i]);
+        if(nNum_Len_Max < p_nNum_Len[i])
+        {
+            nNum_Len_Max = p_nNum_Len[i];
+        }
         for(int j = 0; j < p_nNum_Len[i]; j++)
         {
             p_nRemain[i] = (p_nRemain[i] * 10 + (pp_szNum[i][j] - '0')) % nDiv;
         }
     }
 
-    pp_nRemain_DP[0][0] = 1;
+    p_nNext = malloc(sizeof(int)*(nNum_Len_Max+1));
+    memset(p_nNext, 0, sizeof(int)*(nNum_Len_Max+1));
+    p_nNext[0] = 1;
+    for (int i = 1; i<= nNum_Len_Max;i++)
+    {
+        p_nNext[i] = (p_nNext[i-1] * 10) % nDiv;
+    }
+
+    pp_llnRemain_DP[0][0] = 1;
     for(int i = 0; i < (1 << nNum_Count); i++)
     {
         for(int j = 0; j < nDiv; j++)
@@ -74,28 +88,24 @@ int Problem01086(void)
                 if((i&(1<<k)) == 0)
                 {
                     int nNext = 1;
-                    for(int l = 0; l < p_nNum_Len[k]; l++)
-                    {
-                        nNext = (nNext * 10)%nDiv;
-                    }
-                    nNext = (nNext*j + p_nRemain[k]) % nDiv;
-                    pp_nRemain_DP[i | (1 << k)][nNext] += pp_nRemain_DP[i][j];
+                    nNext = (p_nNext[p_nNum_Len[k]]*j + p_nRemain[k]) % nDiv;
+                    pp_llnRemain_DP[i | (1 << k)][nNext] += pp_llnRemain_DP[i][j];
                 }
             }
         }
     }
 
-    nResult_Count = pp_nRemain_DP[(1 << nNum_Count)-1][0];
-    nTotal_Count = 1;
+    llnResult_Count = pp_llnRemain_DP[(1 << nNum_Count)-1][0];
+    llnTotal_Count = 1;
     for(int i = 1; i <= nNum_Count; i++)
     {
-        nTotal_Count *= i;
+        llnTotal_Count *= i;
     }
 
-    nGcd = GCD01086(nResult_Count, nTotal_Count);
-    nResult_Count /= nGcd;
-    nTotal_Count /= nGcd;
-    printf("%d/%d\n", nResult_Count, nTotal_Count);
+    llnGcd = GCD01086(llnResult_Count, llnTotal_Count);
+    llnResult_Count /= llnGcd;
+    llnTotal_Count /= llnGcd;
+    printf("%lld/%lld\n", llnResult_Count, llnTotal_Count);
 
     for(int i = 0; i < nNum_Count; i++)
     {
@@ -103,12 +113,13 @@ int Problem01086(void)
     }
     for(int i = 0; i < (1 << nNum_Count); i++)
     {
-        free(pp_nRemain_DP[i]);
+        free(pp_llnRemain_DP[i]);
     }
     free(pp_szNum);
-    free(pp_nRemain_DP);
+    free(pp_llnRemain_DP);
     free(p_nRemain);
     free(p_nNum_Len);
+    free(p_nNext);
 
     return 0;
 }
