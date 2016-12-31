@@ -5,6 +5,5 @@
 
 int Problem00000(void)
 {
-
     return 0;
 }
