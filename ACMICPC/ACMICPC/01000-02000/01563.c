@@ -181,11 +181,8 @@ int Problem01563_2(void)
             {
                 pppp_nAward_DP[i][0][k][0] += pppp_nAward_DP[i - 1][j][k][0];
                 pppp_nAward_DP[i][0][k][0] += pppp_nAward_DP[i - 1][j][k][1];
-                if(k + 1 < 2)
-                {
-                    pppp_nAward_DP[i][0][k+1][0] += pppp_nAward_DP[i - 1][j][k][2];
-                    pppp_nAward_DP[i][0][k+1][0] %= 1000000;
-                }
+                pppp_nAward_DP[i][0][k][0] += pppp_nAward_DP[i - 1][j][k][2];
+                pppp_nAward_DP[i][0][k][0] %= 1000000;
 
                 pppp_nAward_DP[i][1][k][1] += pppp_nAward_DP[i - 1][j][k][0];
                 pppp_nAward_DP[i][1][k][1] += pppp_nAward_DP[i - 1][j][k][2];
