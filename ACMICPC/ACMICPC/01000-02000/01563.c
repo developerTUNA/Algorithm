@@ -142,7 +142,6 @@ int Problem01563(void)
     return 0;
 }
 
-
 int Problem01563_2(void)
 {
     int nDay = 0;
@@ -189,15 +188,15 @@ int Problem01563_2(void)
                 pppp_nAward_DP[i][1][k][1] %= 1000000;
                 if(j + 1 < 3)
                 {
-                    pppp_nAward_DP[i][j+1][k][1] += pppp_nAward_DP[i - 1][j][k][1];
-                    pppp_nAward_DP[i][j+1][k][1] %= 1000000;
+                    pppp_nAward_DP[i][j + 1][k][1] += pppp_nAward_DP[i - 1][j][k][1];
+                    pppp_nAward_DP[i][j + 1][k][1] %= 1000000;
                 }
 
                 if(k + 1 < 2)
                 {
-                    pppp_nAward_DP[i][0][k+1][2] += pppp_nAward_DP[i - 1][j][k][0];
-                    pppp_nAward_DP[i][0][k+1][2] += pppp_nAward_DP[i - 1][j][k][1];
-                    pppp_nAward_DP[i][0][k+1][2] %= 1000000;
+                    pppp_nAward_DP[i][0][k + 1][2] += pppp_nAward_DP[i - 1][j][k][0];
+                    pppp_nAward_DP[i][0][k + 1][2] += pppp_nAward_DP[i - 1][j][k][1];
+                    pppp_nAward_DP[i][0][k + 1][2] %= 1000000;
                 }
             }
         }
@@ -220,6 +219,102 @@ int Problem01563_2(void)
         for(int j = 0; j < 3; j++)
         {
             for(int k = 0; k < 2; k++)
+            {
+                free(pppp_nAward_DP[i][j][k]);
+            }
+            free(pppp_nAward_DP[i][j]);
+        }
+        free(pppp_nAward_DP[i]);
+    }
+    free(pppp_nAward_DP);
+    return 0;
+}
+
+int Problem01563_3(void)
+{
+    int nDay = 0;
+    int nResult = 0;
+    int ****pppp_nAward_DP = NULL;
+
+    scanf("%d", &nDay);
+
+    pppp_nAward_DP = malloc(sizeof(int***)*(nDay + 1));
+    memset(pppp_nAward_DP, 0, sizeof(int***)*(nDay + 1));
+    for(int i = 0; i <= nDay; i++)
+    {
+        pppp_nAward_DP[i] = malloc(sizeof(int**)*(2));
+        memset(pppp_nAward_DP[i], 0, sizeof(int**)*(2));
+        for(int j = 0; j < 2; j++)
+        {
+            pppp_nAward_DP[i][j] = malloc(sizeof(int*)*(3));
+            memset(pppp_nAward_DP[i][j], 0, sizeof(int*)*(3));
+            for(int k = 0; k < 3; k++)
+            {
+                pppp_nAward_DP[i][j][k] = malloc(sizeof(int)*(3));
+                memset(pppp_nAward_DP[i][j][k], 0, sizeof(int)*(3));
+            }
+        }
+    }
+
+    pppp_nAward_DP[1][0][0][0] = 1;
+    pppp_nAward_DP[1][0][0][1] = 1;
+    pppp_nAward_DP[1][1][0][2] = 1;
+
+    for(int i = 2; i <= nDay; i++)
+    {
+        for(int j = 0; j < 2; j++)
+        {
+            for(int k = 0; k < 3; k++)
+            {
+                pppp_nAward_DP[i][j][0][0] += pppp_nAward_DP[i - 1][j][k][0];
+                pppp_nAward_DP[i][j][1][0] += pppp_nAward_DP[i - 1][j][k][1];
+                pppp_nAward_DP[i][j][2][0] += pppp_nAward_DP[i - 1][j][k][2];
+
+                pppp_nAward_DP[i][j][0][1] += pppp_nAward_DP[i - 1][j][k][0];
+                pppp_nAward_DP[i][j][2][1] += pppp_nAward_DP[i - 1][j][k][2];
+                if(k != 1)
+                {
+                    pppp_nAward_DP[i][j][1][1] += pppp_nAward_DP[i - 1][j][k][1];
+                }
+
+                if(0 <= j - 1)
+                {
+                    pppp_nAward_DP[i][j][0][2] += pppp_nAward_DP[i - 1][j - 1][k][0];
+                    pppp_nAward_DP[i][j][2][2] += pppp_nAward_DP[i - 1][j - 1][k][1];
+                }
+
+                pppp_nAward_DP[i][j][0][0] %= 1000000;
+                pppp_nAward_DP[i][j][1][0] %= 1000000;
+                pppp_nAward_DP[i][j][2][0] %= 1000000;
+                pppp_nAward_DP[i][j][0][1] %= 1000000;
+                pppp_nAward_DP[i][j][1][1] %= 1000000;
+                pppp_nAward_DP[i][j][2][1] %= 1000000;
+                pppp_nAward_DP[i][j][0][2] %= 1000000;
+                pppp_nAward_DP[i][j][1][2] %= 1000000;
+                pppp_nAward_DP[i][j][2][2] %= 1000000;
+            }
+        }
+    }
+
+    for(int i = 0; i < 2; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            for(int k = 0; k < 3; k++)
+            {
+                nResult += pppp_nAward_DP[nDay][i][j][k];
+                nResult %= 1000000;
+            }
+        }
+    }
+
+    printf("%d\n", nResult);
+
+    for(int i = 0; i <= nDay; i++)
+    {
+        for(int j = 0; j < 2; j++)
+        {
+            for(int k = 0; k < 3; k++)
             {
                 free(pppp_nAward_DP[i][j][k]);
             }
