@@ -245,6 +245,7 @@
     <ClCompile Include="02000-03000\02744.c" />
     <ClCompile Include="02000-03000\02747.c" />
     <ClCompile Include="02000-03000\02750.c" />
+    <ClCompile Include="02000-03000\02751.c" />
     <ClCompile Include="02000-03000\02753.c" />
     <ClCompile Include="02000-03000\02902.c" />
     <ClCompile Include="02000-03000\02941.c" />
