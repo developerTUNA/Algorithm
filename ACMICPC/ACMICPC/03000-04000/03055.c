@@ -42,7 +42,7 @@ int QueuePop03055(QueueNode03055 *QueueHead, int *nRow, int *nCol)
     free(QueueLast);
     return 0;
 }
-int BFS03055(char **pp_chMap, int nRow, int nCol)
+int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
 {
     int arr_nMoveRow[4] = { 1,-1,0,0 };
     int arr_nMoveCol[4] = { 0,0,1,-1 };
@@ -87,7 +87,7 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
     {
         for (int j = 1; j <= nCol; j++)
         {
-            if (pp_chMap_Water[i][j] == 1)
+            if (pp_chMap_Go[i][j] == 1)
             {
                 QueuePush03055(QueueHead, i, j);
             }
@@ -97,12 +97,13 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
     while (QueuePop03055(QueueHead, &nRowRet, &nColRet) != -1)
     {
         int nTemp = 0;
-        nTemp = pp_chMap_Water[nRowRet][nColRet];
+        nTemp = pp_chMap_Go[nRowRet][nColRet];
         for (int i = 0; i < 4; i++)
         {
-            if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] == 0)
+            if (0<=pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] &&
+                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp)
             {
-                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
+                pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
                 QueuePush03055(QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
             }
         }
@@ -133,7 +134,12 @@ int Problem03055(void)
     {
         for (int j = 1; j <= nCol; j++)
         {
-            scanf("%c", &chRead);
+            while (1)
+            {
+                scanf("%c", &chRead);
+                if (chRead != '\n')
+                    break;
+            }
             if (chRead == 'D')
             {
                 pp_chMap_Water[i][j] = -1;
@@ -158,7 +164,26 @@ int Problem03055(void)
         }
     }
     
-    BFS03055(pp_chMap_Water, nRow, nCol);
+    BFS03055_Water(pp_chMap_Water, nRow, nCol);
+    BFS03055_Go(pp_chMap_Water, pp_chMap_Go, nRow, nCol);
+
+    for (int i = 1; i <= nRow; i++)
+    {
+        for (int j = 1; j <= nCol; j++)
+        {
+            if (pp_chMap_Water[i][j] == -1)
+            {
+                if (0 == pp_chMap_Go[i][j])
+                {
+                    printf("KAKTUS\n");
+                }
+                else
+                {
+                    printf("%d", pp_chMap_Go[i][j]);
+                }
+            }
+        }
+    }
 
     for (int i = 0; i < nRow + 2; i++)
     {
