@@ -10,6 +10,7 @@ struct _QueueNode03055
     struct _QueueNode03055 *Next;
 }typedef QueueNode03055;
 
+
 int QueuePush03055(QueueNode03055 **QueueHead, int nRow, int nCol)
 {
     QueueNode03055 *QueueNodeNew = NULL;
@@ -21,25 +22,35 @@ int QueuePush03055(QueueNode03055 **QueueHead, int nRow, int nCol)
     return 0;
 }
 
-int QueuePop03055(QueueNode03055 *QueueHead, int *nRow, int *nCol)
+int QueuePop03055(QueueNode03055 **QueueHead, int *nRow, int *nCol)
 {
     QueueNode03055 *QueueNext = NULL;
     QueueNode03055 *QueueLast = NULL;
-    if (QueueHead == NULL)
+    if (*QueueHead == NULL)
     {
         return -1;
     }
-    QueueNext = QueueHead;
-    QueueLast = QueueHead;
-    while (QueueLast->Next != NULL)
+    else if ((*QueueHead)->Next == NULL)
     {
-        QueueNext = QueueNext->Next;
-        QueueLast = QueueNext->Next;
+        *nRow = (*QueueHead)->nRow;
+        *nCol = (*QueueHead)->nCol;
+        free(*QueueHead);
+        *QueueHead = NULL;
     }
-    *nRow = QueueLast->nRow;
-    *nCol = QueueLast->nCol;
-    QueueNext->Next = NULL;
-    free(QueueLast);
+    else
+    {
+        QueueNext = *QueueHead;
+        QueueLast = (*QueueHead)->Next;
+        while (QueueLast->Next != NULL)
+        {
+            QueueNext = QueueNext->Next;
+            QueueLast = QueueNext->Next;
+        }
+        *nRow = QueueLast->nRow;
+        *nCol = QueueLast->nCol;
+        QueueNext->Next = NULL;
+        free(QueueLast);
+    }
     return 0;
 }
 int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
@@ -60,7 +71,7 @@ int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
         }
     }
     
-    while (QueuePop03055(QueueHead, &nRowRet, &nColRet) != -1)
+    while (QueuePop03055(&QueueHead, &nRowRet, &nColRet) != -1)
     {
         int nTemp = 0;
         nTemp = pp_chMap[nRowRet][nColRet];
@@ -94,18 +105,20 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
         }
     }
 
-    while (QueuePop03055(QueueHead, &nRowRet, &nColRet) != -1)
+    while (QueuePop03055(&QueueHead, &nRowRet, &nColRet) != -1)
     {
         int nTemp = 0;
         nTemp = pp_chMap_Go[nRowRet][nColRet];
         for (int i = 0; i < 4; i++)
         {
-            if (0<=pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] &&
-                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp)
-            {
-                pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
-                QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
-            }
+            if (pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] == -1) continue;
+            if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] == -1 ) continue;
+            if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]]!= -2 &&
+                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp+1 ) continue;
+            if (pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]]< nTemp+1 &&
+                pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] != 0) continue;
+            pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
+            QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
         }
     }
     return 0;
@@ -115,6 +128,8 @@ int Problem03055(void)
 {
     int nRow = 0;
     int nCol = 0;
+    int nGoalRow = 0;
+    int nGoalCol = 0;
     char chRead = 0;
     char **pp_chMap_Water = NULL;
     char **pp_chMap_Go = NULL;
@@ -142,8 +157,10 @@ int Problem03055(void)
             }
             if (chRead == 'D')
             {
-                pp_chMap_Water[i][j] = -1;
-                pp_chMap_Go[i][j] = -2;
+                pp_chMap_Water[i][j] = -2;
+                pp_chMap_Go[i][j] = 0;
+                nGoalRow = i;
+                nGoalCol = j;
             }
             else if (chRead == '*')
             {
@@ -151,14 +168,16 @@ int Problem03055(void)
             }
             else if (chRead == 'X')
             {
-                pp_chMap_Water[i][j] = -1;
+                //pp_chMap_Water[i][j] = -1;
             }
             else if (chRead == '.')
             {
                 pp_chMap_Water[i][j] = 0;
+                pp_chMap_Go[i][j] = 0;
             }
             else if (chRead == 'S')
             {
+                pp_chMap_Water[i][j] = 0;
                 pp_chMap_Go[i][j] = 1;
             }
         }
@@ -167,22 +186,14 @@ int Problem03055(void)
     BFS03055_Water(pp_chMap_Water, nRow, nCol);
     BFS03055_Go(pp_chMap_Water, pp_chMap_Go, nRow, nCol);
 
-    for (int i = 1; i <= nRow; i++)
+
+    if (pp_chMap_Go[nGoalRow][nGoalCol] == 0)
     {
-        for (int j = 1; j <= nCol; j++)
-        {
-            if (pp_chMap_Water[i][j] == -1)
-            {
-                if (0 == pp_chMap_Go[i][j])
-                {
-                    printf("KAKTUS\n");
-                }
-                else
-                {
-                    printf("%d", pp_chMap_Go[i][j]);
-                }
-            }
-        }
+        printf("KAKTUS\n");
+    }
+    else
+    {
+        printf("%d\n", pp_chMap_Go[nGoalRow][nGoalCol]-1);
     }
 
     for (int i = 0; i < nRow + 2; i++)
