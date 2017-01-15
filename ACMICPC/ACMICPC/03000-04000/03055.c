@@ -10,15 +10,15 @@ struct _QueueNode03055
     struct _QueueNode03055 *Next;
 }typedef QueueNode03055;
 
-int QueuePush03055(QueueNode03055 *QueueHead, int nRow, int nCol)
+int QueuePush03055(QueueNode03055 **QueueHead, int nRow, int nCol)
 {
     QueueNode03055 *QueueNodeNew = NULL;
     QueueNodeNew = malloc(sizeof(QueueNode03055));
     QueueNodeNew->nRow = nRow;
     QueueNodeNew->nCol = nCol;
-    QueueNodeNew->Next = QueueHead;
-
-    return QueueNodeNew;
+    QueueNodeNew->Next = *QueueHead;
+    *QueueHead = QueueNodeNew;
+    return 0;
 }
 
 int QueuePop03055(QueueNode03055 *QueueHead, int *nRow, int *nCol)
@@ -53,9 +53,9 @@ int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
     {
         for (int j = 1; j <= nCol; j++)
         {
-            if (pp_chMap[i][j] == -2)
+            if (pp_chMap[i][j] == 1)
             {
-                QueuePush03055(QueueHead, i, j);
+                QueuePush03055(&QueueHead, i, j);
             }
         }
     }
@@ -69,7 +69,7 @@ int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
             if (pp_chMap[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]]==0)
             {
                 pp_chMap[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
-                QueuePush03055(QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
+                QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
             }
         }
     }
@@ -89,7 +89,7 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
         {
             if (pp_chMap_Go[i][j] == 1)
             {
-                QueuePush03055(QueueHead, i, j);
+                QueuePush03055(&QueueHead, i, j);
             }
         }
     }
@@ -104,7 +104,7 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
                 pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp)
             {
                 pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
-                QueuePush03055(QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
+                QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
             }
         }
     }
