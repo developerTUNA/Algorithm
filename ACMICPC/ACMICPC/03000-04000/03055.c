@@ -53,7 +53,7 @@ int QueuePop03055(QueueNode03055 **QueueHead, int *nRow, int *nCol)
     }
     return 0;
 }
-int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
+int BFS03055_Water(int **pp_chMap, int nRow, int nCol)
 {
     int arr_nMoveRow[4] = { 1,-1,0,0 };
     int arr_nMoveCol[4] = { 0,0,1,-1 };
@@ -87,7 +87,7 @@ int BFS03055_Water(char **pp_chMap, int nRow, int nCol)
     return 0;
 }
 
-int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
+int BFS03055_Go(int **pp_chMap_Water, int **pp_chMap_Go, int nRow, int nCol)
 {
     int arr_nMoveRow[4] = { 1,-1,0,0 };
     int arr_nMoveCol[4] = { 0,0,1,-1 };
@@ -111,14 +111,15 @@ int BFS03055_Go(char **pp_chMap_Water, char **pp_chMap_Go, int nRow, int nCol)
         nTemp = pp_chMap_Go[nRowRet][nColRet];
         for (int i = 0; i < 4; i++)
         {
-            if (pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] == -1) continue;
+            if (pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] != 0) continue;
             if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] == -1 ) continue;
-            if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]]!= -2 &&
-                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp+1 ) continue;
-            if (pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]]< nTemp+1 &&
-                pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] != 0) continue;
-            pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
-            QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
+            if (pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] != 0 &&
+                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] != -2 &&
+                pp_chMap_Water[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] <= nTemp + 1) continue;
+            {
+                pp_chMap_Go[nRowRet + arr_nMoveRow[i]][nColRet + arr_nMoveCol[i]] = nTemp + 1;
+                QueuePush03055(&QueueHead, nRowRet + arr_nMoveRow[i], nColRet + arr_nMoveCol[i]);
+            }
         }
     }
     return 0;
@@ -131,18 +132,18 @@ int Problem03055(void)
     int nGoalRow = 0;
     int nGoalCol = 0;
     char chRead = 0;
-    char **pp_chMap_Water = NULL;
-    char **pp_chMap_Go = NULL;
+    int **pp_chMap_Water = NULL;
+    int **pp_chMap_Go = NULL;
 
     scanf("%d %d", &nRow, &nCol);
-    pp_chMap_Water = malloc(sizeof(char*)*(nRow + 2));
-    pp_chMap_Go = malloc(sizeof(char*)*(nRow + 2));
+    pp_chMap_Water = malloc(sizeof(int*)*(nRow + 2));
+    pp_chMap_Go = malloc(sizeof(int*)*(nRow + 2));
     for (int i = 0; i < nRow + 2; i++)
     {
-        pp_chMap_Water[i] = malloc(sizeof(char)*(nCol + 2));
-        memset(pp_chMap_Water[i], -1, sizeof(char)*(nCol + 2));
-        pp_chMap_Go[i] = malloc(sizeof(char)*(nCol + 2));
-        memset(pp_chMap_Go[i], -1, sizeof(char)*(nCol + 2));
+        pp_chMap_Water[i] = malloc(sizeof(int)*(nCol + 2));
+        memset(pp_chMap_Water[i], -1, sizeof(int)*(nCol + 2));
+        pp_chMap_Go[i] = malloc(sizeof(int)*(nCol + 2));
+        memset(pp_chMap_Go[i], -1, sizeof(int)*(nCol + 2));
     }
 
     for (int i = 1; i <= nRow; i++)
@@ -182,10 +183,9 @@ int Problem03055(void)
             }
         }
     }
-    
+
     BFS03055_Water(pp_chMap_Water, nRow, nCol);
     BFS03055_Go(pp_chMap_Water, pp_chMap_Go, nRow, nCol);
-
 
     if (pp_chMap_Go[nGoalRow][nGoalCol] == 0)
     {
