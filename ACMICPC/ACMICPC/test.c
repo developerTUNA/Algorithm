@@ -6,6 +6,6 @@
 
 int test()
 {
-    
+	Gittest();
 }
     
