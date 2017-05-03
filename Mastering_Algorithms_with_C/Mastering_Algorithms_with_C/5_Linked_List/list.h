@@ -6,7 +6,7 @@
 //연결 리스트 항목들의 구조체 정의
 typedef struct ListElmt_ {
 	void *data;
-	struct ListElmt_ *next;
+	struct ListElmt_ *Next;
 } ListElmt;
 
 //연결 리스트 구조체 정의
@@ -29,8 +29,8 @@ int ListRemove_Next(List *list, ListElmt *element, void **data);
 #define ListHead(list)((list)->Head)
 #define ListTail(list)((list)->Tail)
 #define ListisHead(list, element)((element)==(list)->Head?1:0)
-#define ListisTail(list, element)((element)->next == NULL?1:0)
+#define ListisTail(list, element)((element)->Next == NULL?1:0)
 #define ListData(element)((element)->data)
-#define ListNext(element)((element)->next)
+#define ListNext(element)((element)->Next)
 
 #endif LIST_H
