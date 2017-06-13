@@ -21,12 +21,18 @@
     <ClInclude Include="5_Linked_List\dlist.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="5_Linked_List\clist.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\list.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="5_Linked_List\dlist.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="5_Linked_List\clist.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
