@@ -27,7 +27,7 @@ void CListDestory(CList *list)
 	return;
 }
 
-int ClistInsert_Next(CList *list, CListElmt *element, const void *data)
+int CListInsert_Next(CList *list, CListElmt *element, const void *data)
 {
 	CListElmt *element_new;
 
@@ -53,7 +53,7 @@ int ClistInsert_Next(CList *list, CListElmt *element, const void *data)
 	return 0;
 }
 
-int CListRemove_next(CList *list, CListElmt *element, void **data)
+int CListRemove_Next(CList *list, CListElmt *element, void **data)
 {
 	CListElmt *element_old;
 

@@ -13,27 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\List">
+      <UniqueIdentifier>{b4cd6ac1-7736-4247-8622-cc32a14fe10e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\List">
+      <UniqueIdentifier>{b6eeacb3-b9b0-4322-b5e1-2d0db0f3d4bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Stack, Queue">
+      <UniqueIdentifier>{2c54cab9-8011-4f15-bf80-d394d3322c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Stack, Queue">
+      <UniqueIdentifier>{3d27ff11-639d-4ca1-b12f-2af3d215f55d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="5_Linked_List\list.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="5_Linked_List\clist.h">
+      <Filter>헤더 파일\List</Filter>
     </ClInclude>
     <ClInclude Include="5_Linked_List\dlist.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\List</Filter>
     </ClInclude>
-    <ClInclude Include="5_Linked_List\clist.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="5_Linked_List\list.h">
+      <Filter>헤더 파일\List</Filter>
+    </ClInclude>
+    <ClInclude Include="6_Stack_Queue\stack.h">
+      <Filter>헤더 파일\Stack, Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="6_Stack_Queue\queue.h">
+      <Filter>헤더 파일\Stack, Queue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="5_Linked_List\list.c">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="5_Linked_List\clist.c">
+      <Filter>소스 파일\List</Filter>
     </ClCompile>
     <ClCompile Include="5_Linked_List\dlist.c">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\List</Filter>
     </ClCompile>
-    <ClCompile Include="5_Linked_List\clist.c">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="5_Linked_List\list.c">
+      <Filter>소스 파일\List</Filter>
+    </ClCompile>
+    <ClCompile Include="6_Stack_Queue\stack.c">
+      <Filter>소스 파일\Stack, Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="6_Stack_Queue\queue.c">
+      <Filter>소스 파일\Stack, Queue</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

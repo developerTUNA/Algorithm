@@ -142,11 +142,15 @@
     <ClInclude Include="5_Linked_List\clist.h" />
     <ClInclude Include="5_Linked_List\dlist.h" />
     <ClInclude Include="5_Linked_List\list.h" />
+    <ClInclude Include="6_Stack_Queue\queue.h" />
+    <ClInclude Include="6_Stack_Queue\stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c" />
     <ClCompile Include="5_Linked_List\dlist.c" />
     <ClCompile Include="5_Linked_List\list.c" />
+    <ClCompile Include="6_Stack_Queue\queue.c" />
+    <ClCompile Include="6_Stack_Queue\stack.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
