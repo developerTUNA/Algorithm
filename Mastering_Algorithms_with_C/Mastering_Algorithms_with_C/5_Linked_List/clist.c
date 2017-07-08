@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-
 #include "clist.h"
 
 void CListInit(CList *list, void(*destory)(void *data))
@@ -77,5 +76,6 @@ int CListRemove_Next(CList *list, CListElmt *element, void **data)
 
 	free(element_old);
 	list->nSize--;
+
 	return 0;
 }

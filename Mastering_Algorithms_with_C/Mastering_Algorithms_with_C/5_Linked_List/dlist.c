@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-
 #include "dlist.h"
 
 void DListInit(DList *list, void(*destory)(void *data))

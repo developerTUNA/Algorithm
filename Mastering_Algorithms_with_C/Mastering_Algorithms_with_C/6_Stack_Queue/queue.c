@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-
 #include "queue.h"
 
 int QueueEnqueue(Queue *queue, const void *data)

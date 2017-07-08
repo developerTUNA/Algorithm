@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-
 #include "list.h"
 
 void ListInit(List *list, void(*destory)(void *data))

@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\Stack, Queue">
       <UniqueIdentifier>{3d27ff11-639d-4ca1-b12f-2af3d215f55d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Set">
+      <UniqueIdentifier>{ea27ab1c-68c8-4841-874c-d2beede91722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Set">
+      <UniqueIdentifier>{138247fc-548b-4e78-97e6-8349630c410a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5_Linked_List\clist.h">
@@ -42,6 +48,9 @@
     <ClInclude Include="6_Stack_Queue\queue.h">
       <Filter>헤더 파일\Stack, Queue</Filter>
     </ClInclude>
+    <ClInclude Include="7_Sets\set.h">
+      <Filter>헤더 파일\Set</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -58,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="6_Stack_Queue\queue.c">
       <Filter>소스 파일\Stack, Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="7_Sets\set.c">
+      <Filter>소스 파일\Set</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
