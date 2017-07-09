@@ -4,14 +4,14 @@
 
 int ChtblInit(CHTbl *htbl, int nBuckets, int(*hash)(const void *key), int(*match)(const void *key1, const void *key2), void(*destroy)(void *data))
 {
-	if ((htbl->tables = (List*)malloc(nBuckets * sizeof(List))) == NULL)
+	if ((htbl->table = (List*)malloc(nBuckets * sizeof(List))) == NULL)
 	{
 		return -1;
 	}
 	htbl->nBuckets = nBuckets;
 	for (int i = 0; i < htbl->nBuckets; i++)
 	{
-		ListInit(&htbl->tables[i], destroy);
+		ListInit(&htbl->table[i], destroy);
 	}
 	htbl->hash = hash;
 	htbl->match = match;
@@ -25,9 +25,9 @@ void ChtblDestory(CHTbl *htbl)
 {
 	for (int i = 0; i < htbl->nBuckets; i++)
 	{
-		ListDestory(&htbl->tables[i]);
+		ListDestory(&htbl->table[i]);
 	}
-	free(htbl->tables);
+	free(htbl->table);
 	memset(htbl, 0, sizeof(CHTbl));
 
 	return;
@@ -41,13 +41,13 @@ int ChtblInsert(CHTbl *htbl, const void *data)
 
 	temp = (void*)data;
 
-	if (ChtblLookup(htbl, &temp) == NULL)
+	if (ChtblLookup(htbl, &temp) == 0)
 	{
 		return 1;
 	}
 	nBucket = htbl->hash(data) % htbl->nBuckets;
 
-	if ((nRetval = ListInsert_Next(&htbl->tables[nBucket], NULL, data)) == NULL)
+	if ((nRetval = ListInsert_Next(&htbl->table[nBucket], NULL, data)) == 0)
 	{
 		htbl->nSize++;
 	}
@@ -65,11 +65,11 @@ int ChtblRemove(CHTbl *htbl, void **data)
 
 	prev = NULL;
 
-	for (element = ListHead(&htbl->tables[nBucket]); element != NULL; element = ListNext(element))
+	for (element = ListHead(&htbl->table[nBucket]); element != NULL; element = ListNext(element))
 	{
 		if (htbl->match(*data, ListData(element)))
 		{
-			if (ListRemove_Next(&htbl->tables[nBucket], prev, data) == 0)
+			if (ListRemove_Next(&htbl->table[nBucket], prev, data) == 0)
 			{
 				htbl->nSize--;
 				return 0;
@@ -90,7 +90,7 @@ int ChtblLookup(const CHTbl *htbl, void **data)
 	int nBucket = 0;
 
 	nBucket = htbl->hash(*data) % htbl->nBuckets;
-	for (element = ListHead(&htbl->tables[nBucket]); element != NULL; element = ListNext(element))
+	for (element = ListHead(&htbl->table[nBucket]); element != NULL; element = ListNext(element))
 	{
 		if (htbl->match(*data, ListData(element)))
 		{
@@ -100,3 +100,4 @@ int ChtblLookup(const CHTbl *htbl, void **data)
 	}
 	return -1;
 }
+

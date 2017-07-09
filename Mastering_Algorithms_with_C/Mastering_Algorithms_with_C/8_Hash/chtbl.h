@@ -10,7 +10,7 @@ typedef struct CHTbl_ {
 	int(*match)(const void *key1, const void *key2);
 	void(*destory)(void *data);
 	int nSize;
-	List *tables;
+	List *table;
 } CHTbl;
 
 int ChtblInit(CHTbl *htbl, int nBuckets, int(*hash)(const void *key), int(*match)(const void *key1, const void *key2), void(*destory)(void *data));

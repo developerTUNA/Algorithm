@@ -60,6 +60,9 @@
     <ClInclude Include="8_Hash\chtbl.h">
       <Filter>헤더 파일\Hash</Filter>
     </ClInclude>
+    <ClInclude Include="8_Hash\ohtbl.h">
+      <Filter>헤더 파일\Hash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -81,6 +84,9 @@
       <Filter>소스 파일\Set</Filter>
     </ClCompile>
     <ClCompile Include="8_Hash\chtbl.c">
+      <Filter>소스 파일\Hash</Filter>
+    </ClCompile>
+    <ClCompile Include="8_Hash\ohtbl.c">
       <Filter>소스 파일\Hash</Filter>
     </ClCompile>
   </ItemGroup>

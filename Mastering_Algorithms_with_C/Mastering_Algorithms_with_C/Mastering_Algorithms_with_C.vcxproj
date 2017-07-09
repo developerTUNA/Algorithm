@@ -146,6 +146,7 @@
     <ClInclude Include="6_Stack_Queue\stack.h" />
     <ClInclude Include="7_Sets\set.h" />
     <ClInclude Include="8_Hash\chtbl.h" />
+    <ClInclude Include="8_Hash\ohtbl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c" />
@@ -155,6 +156,7 @@
     <ClCompile Include="6_Stack_Queue\stack.c" />
     <ClCompile Include="7_Sets\set.c" />
     <ClCompile Include="8_Hash\chtbl.c" />
+    <ClCompile Include="8_Hash\ohtbl.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
