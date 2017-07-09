@@ -98,7 +98,7 @@ int SetIntersection(Set *seti, const Set *set1, const Set *set2)
 	return 0;
 }
 
-int SetDefference(Set *setd, const Set *set1, const Set *set2)
+int SetDifference(Set *setd, const Set *set1, const Set *set2)
 {
 	ListElmt *member = NULL;
 	void *data = NULL;

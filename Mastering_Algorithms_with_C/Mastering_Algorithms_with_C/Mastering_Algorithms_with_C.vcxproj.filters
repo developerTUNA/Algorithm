@@ -31,6 +31,12 @@
     <Filter Include="헤더 파일\Set">
       <UniqueIdentifier>{138247fc-548b-4e78-97e6-8349630c410a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Hash">
+      <UniqueIdentifier>{580644e7-3660-45e4-8cdc-035a6d96ef76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Hash">
+      <UniqueIdentifier>{d64cdb89-8616-4845-b6cf-677967238c65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5_Linked_List\clist.h">
@@ -51,6 +57,9 @@
     <ClInclude Include="7_Sets\set.h">
       <Filter>헤더 파일\Set</Filter>
     </ClInclude>
+    <ClInclude Include="8_Hash\chtbl.h">
+      <Filter>헤더 파일\Hash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -70,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="7_Sets\set.c">
       <Filter>소스 파일\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="8_Hash\chtbl.c">
+      <Filter>소스 파일\Hash</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
