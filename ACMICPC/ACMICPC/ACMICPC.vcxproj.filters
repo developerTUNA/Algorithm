@@ -43,6 +43,12 @@
     <Filter Include="소스 파일\08000-09000">
       <UniqueIdentifier>{bc23342f-3a4d-4835-9490-b854de0a937b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\12000-13000">
+      <UniqueIdentifier>{1f5c06d0-05fc-409c-b815-c797d0802771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\13000-14000">
+      <UniqueIdentifier>{b5348371-6a09-47a7-8243-1ecf046a2aaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="11000-12000\11728.c">
@@ -595,6 +601,15 @@
       <Filter>소스 파일\03000-04000</Filter>
     </ClCompile>
     <ClCompile Include="11000-12000\11652.c">
+      <Filter>소스 파일\11000-12000</Filter>
+    </ClCompile>
+    <ClCompile Include="13000-14000\13023.c">
+      <Filter>소스 파일\13000-14000</Filter>
+    </ClCompile>
+    <ClCompile Include="01000-02000\01260.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
+    <ClCompile Include="11000-12000\11724.c">
       <Filter>소스 파일\11000-12000</Filter>
     </ClCompile>
   </ItemGroup>
