@@ -40,7 +40,6 @@ int Problem02309(void)
                     if (k != i && k != j)
                         printf("%d\n", a_nLength[k]);
                 }
-                i = 10;
                 break;
             }
         }
