@@ -3,44 +3,56 @@
 #include <string.h>
 #include <stdlib.h>
 
-int QuickSelection11004(int n, int *ArrList, int k)
+void Swap11004(int *nA, int *nB)
 {
-	if (ArrList == NULL || n <= k)
+	int nTemp = 0;
+	nTemp = *nA;
+	*nA = *nB;
+	*nB = nTemp;
+}
+
+int QuickSelection11004(int nSize, int *ArrList, int nFind)
+{
+	if (ArrList == NULL || nSize <= nFind)
 		return -1;
 
-	int start = 0;
-	int end = n - 1;
+	int nStart = 0;
+	int nEnd = nSize - 1;
 
-	while (start < end)
+	while (nStart < nEnd)
 	{
-		int i = start;
-		int j = end;
+		int i = nStart;
+		int j = nEnd;
 		int mid = ArrList[(i + j) / 2];
 
 		while (i < j)
 		{
 			if (ArrList[i] >= mid)
 			{
-				int tmp = ArrList[j];
-				ArrList[j] = ArrList[i];
-				ArrList[i] = tmp;
+				Swap11004(ArrList[i], ArrList[j]);
 				j--;
 			}
-			else {
+			else
+			{
 				i++;
 			}
 		}
 
 		if (ArrList[i] > mid)
+		{
 			i--;
-
-		if (k <= i)
-			end = i;
+		}
+		if (nFind <= i)
+		{
+			nEnd = i;
+		}
 		else
-			start = i + 1;
+		{
+			nStart = i + 1;
+		}
 	}
 
-	return ArrList[k];
+	return ArrList[nFind];
 }
 
 int Problem11004(void)
