@@ -37,6 +37,12 @@
     <Filter Include="소스 파일\Hash">
       <UniqueIdentifier>{d64cdb89-8616-4845-b6cf-677967238c65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Tree">
+      <UniqueIdentifier>{144a6492-5cb6-4743-90c7-d7249c2a7d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Tree">
+      <UniqueIdentifier>{3785e6e0-0c95-46e5-bb3a-41777f1e4016}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5_Linked_List\clist.h">
@@ -63,6 +69,9 @@
     <ClInclude Include="8_Hash\ohtbl.h">
       <Filter>헤더 파일\Hash</Filter>
     </ClInclude>
+    <ClInclude Include="9_Tree\bitree.h">
+      <Filter>헤더 파일\Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -88,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="8_Hash\ohtbl.c">
       <Filter>소스 파일\Hash</Filter>
+    </ClCompile>
+    <ClCompile Include="9_Tree\bitree.c">
+      <Filter>소스 파일\Tree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
