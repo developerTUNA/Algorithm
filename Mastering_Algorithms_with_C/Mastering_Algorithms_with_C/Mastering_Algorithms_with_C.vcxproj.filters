@@ -72,6 +72,9 @@
     <ClInclude Include="9_Tree\bitree.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
+    <ClInclude Include="9_Tree\traverse.h">
+      <Filter>헤더 파일\Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -99,6 +102,9 @@
       <Filter>소스 파일\Hash</Filter>
     </ClCompile>
     <ClCompile Include="9_Tree\bitree.c">
+      <Filter>소스 파일\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="9_Tree\traverse.c">
       <Filter>소스 파일\Tree</Filter>
     </ClCompile>
   </ItemGroup>

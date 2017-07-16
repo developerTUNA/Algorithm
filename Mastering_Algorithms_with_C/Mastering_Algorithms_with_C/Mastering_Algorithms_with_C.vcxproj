@@ -148,6 +148,7 @@
     <ClInclude Include="8_Hash\chtbl.h" />
     <ClInclude Include="8_Hash\ohtbl.h" />
     <ClInclude Include="9_Tree\bitree.h" />
+    <ClInclude Include="9_Tree\traverse.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c" />
@@ -159,6 +160,7 @@
     <ClCompile Include="8_Hash\chtbl.c" />
     <ClCompile Include="8_Hash\ohtbl.c" />
     <ClCompile Include="9_Tree\bitree.c" />
+    <ClCompile Include="9_Tree\traverse.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
