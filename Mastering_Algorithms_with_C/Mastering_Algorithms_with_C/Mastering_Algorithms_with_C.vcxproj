@@ -147,6 +147,7 @@
     <ClInclude Include="7_Sets\set.h" />
     <ClInclude Include="8_Hash\chtbl.h" />
     <ClInclude Include="8_Hash\ohtbl.h" />
+    <ClInclude Include="9_Tree\bisearchtree.h" />
     <ClInclude Include="9_Tree\bitree.h" />
     <ClInclude Include="9_Tree\traverse.h" />
   </ItemGroup>
@@ -159,6 +160,7 @@
     <ClCompile Include="7_Sets\set.c" />
     <ClCompile Include="8_Hash\chtbl.c" />
     <ClCompile Include="8_Hash\ohtbl.c" />
+    <ClCompile Include="9_Tree\bisearchtree.c" />
     <ClCompile Include="9_Tree\bitree.c" />
     <ClCompile Include="9_Tree\traverse.c" />
   </ItemGroup>

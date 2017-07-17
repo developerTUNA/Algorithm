@@ -29,7 +29,7 @@ int QuickSelection11004(int nSize, int *ArrList, int nFind)
 		{
 			if (ArrList[i] >= mid)
 			{
-				Swap11004(ArrList[i], ArrList[j]);
+				Swap11004(&ArrList[i], &ArrList[j]);
 				j--;
 			}
 			else
@@ -71,7 +71,7 @@ int Problem11004(void)
 	}
 
 
-	int res = quickselection11004(nSize, p_nNumber, nPosition-1);
+	int res = QuickSelection11004(nSize, p_nNumber, nPosition-1);
 
 	printf("%d\n", res);
 	free(p_nNumber);
