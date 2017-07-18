@@ -15,10 +15,10 @@ typedef struct AVLNode_
 
 typedef BiTree BiSearchTree;
 
-void BiSerachTreeInit(BiSearchTree *tree, int(*compare)(const void *key1, const void *key2), void(*destory)(void *data));
+void BiSearchTreeInit(BiSearchTree *tree, int(*compare)(const void *key1, const void *key2), void(*destory)(void *data));
 void BiSearchTreeDestory(BiSearchTree *tree);
 int BiSearchTreeInsert(BiSearchTree *tree, const void *data);
 int BiSearchTreeRemove(BiSearchTree *tree, const void *data);
 int BiSearchTreeLookup(BiSearchTree *tree, void **data);
-#define BiSearchTreeSize(tree) ((tree)->nSize)
+#define BiSearchTreeSize(tree) ((tree)->nSize);
 #endif

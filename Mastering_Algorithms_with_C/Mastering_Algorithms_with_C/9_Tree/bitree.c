@@ -91,7 +91,7 @@ void BiTreeRemove_Left(BiTree *tree, BiTreeNode *node)
 {
 	BiTreeNode **position = NULL;
 
-	if (BiTreeSize(tree) == NULL)
+	if (BiTreeSize(tree) == 0)
 	{
 		return;
 	}
@@ -134,11 +134,11 @@ void BiTreeRemove_Right(BiTree *tree, BiTreeNode *node)
 
 	if (node == NULL)
 	{
-		*position = tree;
+		position = &tree->root;
 	}
 	else
 	{
-		*position = node->right;
+		position = &node->right;
 	}
 
 	if (*position != NULL)
@@ -163,7 +163,7 @@ int BiTreeMerge(BiTree *treeMerge, BiTree *treeLeft, BiTree *treeRight, const vo
 {
 	BiTreeInit(treeMerge, treeLeft->destory);
 
-	if (BiTreeInsert_Left(treeMerge, NULL, data) != NULL)
+	if (BiTreeInsert_Left(treeMerge, NULL, data) != 0)
 	{
 		BiTreeDestory(treeMerge);
 		return -1;
