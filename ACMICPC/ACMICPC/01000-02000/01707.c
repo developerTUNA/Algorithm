@@ -65,21 +65,21 @@ int DFSColor01707(int nEdge, int nVertex, int *p_nEdgeList_cnt, EdgeList01707 *p
 		nNow = i;
 		nStackTop = 0;
 		p_nStack[nStackTop] = nNow;
-		nStackTop++;
+		p_nCheck[nNow] = 1;
 		while(0<= nStackTop)
 		{
 
 			int nNext = 0;
-			for (int j = p_nEdgeList_cnt[nNow - 1]; j < p_nEdgeList_cnt[j]; j++)
+			for (int j = p_nEdgeList_cnt[nNow - 1]; j < p_nEdgeList_cnt[nNow]; j++)
 			{
-				if (p_nCheck[p_edgeList[i].nTo] == p_nCheck[nNow])
+				if (p_nCheck[p_edgeList[j].nTo] == p_nCheck[nNow])
 				{
 					nResult = 0;
 					break;
 				}
-				else if (p_nCheck[p_edgeList[i].nTo] == 0)
+				else if (p_nCheck[p_edgeList[j].nTo] == 0)
 				{
-					nNext = p_edgeList[i].nTo;
+					nNext = p_edgeList[j].nTo;
 					break;
 				}
 			}
@@ -89,18 +89,18 @@ int DFSColor01707(int nEdge, int nVertex, int *p_nEdgeList_cnt, EdgeList01707 *p
 			}
 			if (nNext == 0)
 			{
+				p_nStack[nStackTop] = 0;
 				nStackTop--;
 				if(0<=nStackTop)
 				{
 					nNow = p_nStack[nStackTop];
 				}
-				p_nStack[nStackTop] = 0;
 			}
 			else
 			{
-				p_nCheck[nNext] = 3 - p_nCheck[nNow];
-				p_nStack[nStackTop] = nNext;
 				nStackTop++;
+				p_nStack[nStackTop] = nNext;
+				p_nCheck[nNext] = 3 - p_nCheck[nNow];
 				nNow = nNext;
 			}
 		}
