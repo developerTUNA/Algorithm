@@ -80,6 +80,7 @@ Arguments (may be any combination):
 filename - digests file
 (none)   - digests standard input
 */
+/*
 int main(argc, argv)
 int argc;
 char *argv[];
@@ -101,7 +102,7 @@ char *argv[];
 
 	return (0);
 }
-
+*/
 /* Digests a string and prints the result.
 */
 static void MDString(string)
@@ -109,7 +110,7 @@ char *string;
 {
 	MD_CTX context;
 	unsigned char digest[16];
-	unsigned int len = strlen(string);
+	size_t len = strlen(string);
 
 	MDInit(&context);
 	MDUpdate(&context, string, len);
@@ -188,10 +189,10 @@ char *filename;
 {
 	FILE *file;
 	MD_CTX context;
-	int len;
+	size_t len;
 	unsigned char buffer[1024], digest[16];
-
-	if ((file = fopen(filename, "rb")) == NULL)
+	fopen_s(&file, filename, "rb");
+	if (file == NULL)
 		printf("%s can't be opened\n", filename);
 
 	else {
@@ -213,7 +214,7 @@ char *filename;
 static void MDFilter()
 {
 	MD_CTX context;
-	int len;
+	size_t len;
 	unsigned char buffer[16], digest[16];
 
 	MDInit(&context);
@@ -234,4 +235,23 @@ unsigned char digest[16];
 
 	for (i = 0; i < 16; i++)
 		printf("%02x", digest[i]);
+}
+
+/* 내가 추가 */
+void MDFile_FP(FILE *file, wchar_t *md5)
+{
+	MD5_CTX context;
+	size_t len;
+	unsigned int i;
+	unsigned char buffer[1024], digest[16];
+
+
+	MDInit(&context);
+	while (len = fread(buffer, 1, 1024, file))
+		MDUpdate(&context, buffer, len);
+	MDFinal(digest, &context);
+
+	for (i = 0; i < 16; i++)
+		swprintf_s(md5 + i * 2, 33 - i * 2, L"%02x", digest[i]);
+
 }
