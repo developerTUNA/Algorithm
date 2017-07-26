@@ -150,6 +150,7 @@
     <ClInclude Include="9_Tree\bisearchtree.h" />
     <ClInclude Include="9_Tree\bitree.h" />
     <ClInclude Include="9_Tree\traverse.h" />
+    <ClInclude Include="A_Heap\heap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c" />
@@ -163,6 +164,7 @@
     <ClCompile Include="9_Tree\bisearchtree.c" />
     <ClCompile Include="9_Tree\bitree.c" />
     <ClCompile Include="9_Tree\traverse.c" />
+    <ClCompile Include="A_Heap\heap.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -43,6 +43,12 @@
     <Filter Include="소스 파일\Tree">
       <UniqueIdentifier>{3785e6e0-0c95-46e5-bb3a-41777f1e4016}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Heap, Priority Queue">
+      <UniqueIdentifier>{d850603a-1ff5-485a-ad22-6d30a4696cc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Heap. Priority Queue">
+      <UniqueIdentifier>{a672138a-fa73-4921-90da-4bf12ea0e1fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5_Linked_List\clist.h">
@@ -78,6 +84,9 @@
     <ClInclude Include="9_Tree\bisearchtree.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
+    <ClInclude Include="A_Heap\heap.h">
+      <Filter>헤더 파일\Heap. Priority Queue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
@@ -112,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="9_Tree\bisearchtree.c">
       <Filter>소스 파일\Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="A_Heap\heap.c">
+      <Filter>소스 파일\Heap, Priority Queue</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
