@@ -84,7 +84,7 @@
     <ClInclude Include="9_Tree\bisearchtree.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
-    <ClInclude Include="A_Heap\heap.h">
+    <ClInclude Include="A_Heap, Priority Queue\heap.h">
       <Filter>헤더 파일\Heap. Priority Queue</Filter>
     </ClInclude>
   </ItemGroup>
@@ -122,7 +122,7 @@
     <ClCompile Include="9_Tree\bisearchtree.c">
       <Filter>소스 파일\Tree</Filter>
     </ClCompile>
-    <ClCompile Include="A_Heap\heap.c">
+    <ClCompile Include="A_Heap, Priority Queue\heap.c">
       <Filter>소스 파일\Heap, Priority Queue</Filter>
     </ClCompile>
   </ItemGroup>

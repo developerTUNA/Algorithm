@@ -11,7 +11,7 @@ typedef struct Heap_
 
 void HeapInit(Heap *heap, int(*compare)(const void *key1, const void *key2), void(*destory)(void *data));
 void HeapDestory(Heap *heap);
-int HeapInsrt(Heap *heap, const void *data);
+int HeapInsert(Heap *heap, const void *data);
 int HeapExtract(Heap *heap, void **data);
 #define HeapSize(heap)((heap)->nSize)
 
