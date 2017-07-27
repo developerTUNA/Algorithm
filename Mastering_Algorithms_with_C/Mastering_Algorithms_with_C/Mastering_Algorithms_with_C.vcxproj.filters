@@ -87,6 +87,9 @@
     <ClInclude Include="A_Heap, Priority Queue\heap.h">
       <Filter>헤더 파일\Heap. Priority Queue</Filter>
     </ClInclude>
+    <ClInclude Include="A_Heap, Priority Queue\pqueue.h">
+      <Filter>헤더 파일\Heap. Priority Queue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">

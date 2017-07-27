@@ -636,5 +636,8 @@
     <ClCompile Include="10000-11000\10451.c">
       <Filter>소스 파일\10000-11000</Filter>
     </ClCompile>
+    <ClCompile Include="cplusplustest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

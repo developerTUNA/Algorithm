@@ -1,5 +1,7 @@
+/*
 int main(void)
 {
-	Problem10451();
+	cpptest();
     return 0;
 }
+*/
