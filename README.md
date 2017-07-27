@@ -2,4 +2,4 @@
 
 https://github.com/developertuna
 
-http://52.197.247.225/dokuwiki/DSA/doku.php
+http://52.198.166.17/dokuwiki/DSA/doku.php
