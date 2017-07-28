@@ -152,6 +152,7 @@
     <ClInclude Include="9_Tree\traverse.h" />
     <ClInclude Include="A_Heap, Priority Queue\heap.h" />
     <ClInclude Include="A_Heap, Priority Queue\pqueue.h" />
+    <ClInclude Include="B_Graph\graph.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c" />
