@@ -167,6 +167,7 @@
     <ClCompile Include="9_Tree\bitree.c" />
     <ClCompile Include="9_Tree\traverse.c" />
     <ClCompile Include="A_Heap, Priority Queue\heap.c" />
+    <ClCompile Include="B_Graph\graph.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

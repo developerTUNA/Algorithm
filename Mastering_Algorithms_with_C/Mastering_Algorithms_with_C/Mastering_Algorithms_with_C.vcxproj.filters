@@ -137,5 +137,8 @@
     <ClCompile Include="A_Heap, Priority Queue\heap.c">
       <Filter>소스 파일\Heap, Priority Queue</Filter>
     </ClCompile>
+    <ClCompile Include="B_Graph\graph.c">
+      <Filter>소스 파일\Graph</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
