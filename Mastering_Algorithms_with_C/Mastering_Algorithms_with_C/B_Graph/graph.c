@@ -106,3 +106,75 @@ int GraphInsert_Edge(Graph *graph, const void *data1, const void *data2)
 
 	return 0;
 }
+
+int GraphRemove_Vertex(Graph *graph, void **data)
+{
+	ListElmt *element = NULL;
+	ListElmt *temp = NULL;
+	ListElmt *prev = NULL;
+	AdjList *adjlist = NULL;
+	int nFound = 0;
+
+	for (element = ListHead(&graph->AdjLists); element != NULL; element = ListNext(element))
+	{
+		if (SetisMember(&((AdjList *)ListData(element))->Adjacent, *data))
+		{
+			return -1;
+		}
+		if (graph->match(*data, ((AdjList*)ListData(element))->vertex))
+		{
+			temp = element;
+			nFound = 1;
+		}
+		if (!nFound)
+		{
+			prev = element;
+		}
+	}
+
+	if (!nFound)
+	{
+		return -1;
+	}
+
+	if (SetSize(&((AdjList*)ListData(temp))->Adjacent) > 0)
+	{
+		return -1;
+	}
+	if (ListRemove_Next(&graph->AdjLists, prev, (void**)&adjlist) != 0)
+	{
+		return -1;
+	}
+
+	*data = adjlist->vertex;
+	free(adjlist);
+
+	graph->n_Vcount--;
+	return 0;
+}
+
+int GraphRemove_Edge(Graph *graph, void *data1, void **data2)
+{
+	ListElmt *element = NULL;
+
+	for (element = ListHead(&graph->AdjLists); element != NULL; element = ListNext(element))
+	{
+		if (graph->match(data1, ((AdjList*)ListData(element))->vertex))
+		{
+			break;
+		}
+	}
+	if (element == NULL)
+	{
+		return -1;
+	}
+
+	if (SetRemove(&((AdjList*)ListData(element))->Adjacent, data2) != 0)
+	{
+		return -1;
+	}
+
+	graph->n_Ecount--;
+
+	return 0;
+}
