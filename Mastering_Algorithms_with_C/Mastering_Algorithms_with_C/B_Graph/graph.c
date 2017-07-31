@@ -178,3 +178,49 @@ int GraphRemove_Edge(Graph *graph, void *data1, void **data2)
 
 	return 0;
 }
+
+int GraphAdjlist(const Graph *graph, const void *data, AdjList **adjlist)
+{
+	ListElmt *element = NULL;
+	ListElmt *prev = NULL;
+
+	for (element = ListHead(&graph->AdjLists); element != NULL; element = ListNext(element))
+	{
+		if (graph->match(data, ((AdjList*)ListData(element))->vertex))
+		{
+			break;
+		}
+		prev = element;
+	}
+
+	if (element == NULL)
+	{
+		return -1;
+	}
+
+	*adjlist = ListData(element);
+
+	return 0;
+}
+
+GraphIsAdjacent(const Graph *graph, const void *data1, const void data2)
+{
+	ListElmt *element = NULL;
+	ListElmt *prev = NULL;
+
+	for (element = ListHead(&graph->AdjLists); element != NULL; element = ListNext(element))
+	{
+		if (graph->match(data1, ((AdjList*)ListData(element))->vertex))
+		{
+			break;
+		}
+		prev = element;
+	}
+
+	if (element == NULL)
+	{
+		return 0;
+	}
+
+	return SetisMember(&((AdjList*)ListData(element))->Adjacent, data2);
+}
