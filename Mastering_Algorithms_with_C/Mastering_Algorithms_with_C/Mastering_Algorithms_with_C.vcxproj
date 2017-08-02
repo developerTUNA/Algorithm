@@ -152,6 +152,7 @@
     <ClInclude Include="9_Tree\traverse.h" />
     <ClInclude Include="A_Heap, Priority Queue\heap.h" />
     <ClInclude Include="A_Heap, Priority Queue\pqueue.h" />
+    <ClInclude Include="B_Graph\bfs.h" />
     <ClInclude Include="B_Graph\graph.h" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +168,7 @@
     <ClCompile Include="9_Tree\bitree.c" />
     <ClCompile Include="9_Tree\traverse.c" />
     <ClCompile Include="A_Heap, Priority Queue\heap.c" />
+    <ClCompile Include="B_Graph\bfs.c" />
     <ClCompile Include="B_Graph\graph.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

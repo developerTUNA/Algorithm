@@ -179,7 +179,7 @@ int GraphRemove_Edge(Graph *graph, void *data1, void **data2)
 	return 0;
 }
 
-int GraphAdjlist(const Graph *graph, const void *data, AdjList **adjlist)
+int GraphAdjList(const Graph *graph, const void *data, AdjList **adjlist)
 {
 	ListElmt *element = NULL;
 	ListElmt *prev = NULL;
@@ -203,7 +203,7 @@ int GraphAdjlist(const Graph *graph, const void *data, AdjList **adjlist)
 	return 0;
 }
 
-GraphIsAdjacent(const Graph *graph, const void *data1, const void data2)
+GraphIsAdjacent(const Graph *graph, const void *data1, const void *data2)
 {
 	ListElmt *element = NULL;
 	ListElmt *prev = NULL;
