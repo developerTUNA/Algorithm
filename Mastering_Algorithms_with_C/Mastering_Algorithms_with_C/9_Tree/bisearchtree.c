@@ -124,8 +124,8 @@ static void Destory_Left(BiSearchTree *tree, BiTreeNode *node)
 	}
 	if (*position != NULL)
 	{
-		BiTreeRemove_Left(tree, *position);
-		BiTreeRemove_Right(tree, *position);
+		Destory_Left(tree, *position);
+		Destory_Right(tree, *position);
 		if (tree->destory != NULL)
 		{
 			tree->destory(((AVLNode*)(*position)->data)->data);
@@ -158,8 +158,8 @@ static void Destory_Right(BiSearchTree *tree, BiTreeNode *node)
 	}
 	if (*position != NULL)
 	{
-		BiTreeRemove_Left(tree, *position);
-		BiTreeRemove_Right(tree, *position);
+		Destory_Left(tree, *position);
+		Destory_Right(tree, *position);
 		if (tree->destory != NULL)
 		{
 			tree->destory(((AVLNode*)(*position)->data)->data);
