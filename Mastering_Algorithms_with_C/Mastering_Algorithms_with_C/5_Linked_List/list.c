@@ -72,7 +72,7 @@ int ListRemove_Next(List *list, ListElmt *element, void **data)
 		element_old = list->Head;
 		list->Head = list->Head->Next;
 
-		if(list->nSize == 1)
+		if(ListSize(list) == 1)
 		{
 			list->Tail = NULL;
 		}

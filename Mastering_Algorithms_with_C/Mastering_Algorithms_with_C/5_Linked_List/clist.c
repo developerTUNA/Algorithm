@@ -72,6 +72,10 @@ int CListRemove_Next(CList *list, CListElmt *element, void **data)
 	{
 		element_old = element->next;
 		element->next = element->next->next;
+		if(element_old == CListHead(list))
+		{
+			list->head = element_old->next;
+		}
 	}
 
 	free(element_old);
