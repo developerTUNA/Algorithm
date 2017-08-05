@@ -2,6 +2,8 @@
 #include <string.h>
 #include "bisearchtree.h"
 
+static void Destory_Right(BiSearchTree *tree, BiTreeNode *node);
+
 void BiSearchTreeInit(BiSearchTree *tree, int(*compare)(const void *key1, const void *key2), void(*destory)(void *data))
 {
 	BiTreeInit(tree, destory);
