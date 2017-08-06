@@ -57,7 +57,7 @@ int GraphInsert_Vertex(Graph *graph, const void *data)
 	}
 
 	adjlist->vertex = (void*)data;
-	SetInit(&adjlist->Adjacent, graph->match, graph->destory);
+	SetInit(&adjlist->Adjacent, graph->match, NULL);
 
 	if ((nReturn = ListInsert_Next(&graph->AdjLists, ListTail(&graph->AdjLists), adjlist)) != 0)
 	{

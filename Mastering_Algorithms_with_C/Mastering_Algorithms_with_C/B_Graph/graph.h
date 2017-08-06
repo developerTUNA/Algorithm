@@ -16,7 +16,7 @@ typedef struct Graph_
 	int n_Vcount;
 	int n_Ecount;
 	int(*match)(const void *key1, const void *key2);
-	int(*destory)(void *data);
+	void(*destory)(void *data);
 	List AdjLists;
 }Graph;
 
