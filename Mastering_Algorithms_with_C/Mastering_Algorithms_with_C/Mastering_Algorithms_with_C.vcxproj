@@ -153,6 +153,7 @@
     <ClInclude Include="A_Heap, Priority Queue\heap.h" />
     <ClInclude Include="A_Heap, Priority Queue\pqueue.h" />
     <ClInclude Include="B_Graph\bfs.h" />
+    <ClInclude Include="B_Graph\dfs.h" />
     <ClInclude Include="B_Graph\graph.h" />
   </ItemGroup>
   <ItemGroup>

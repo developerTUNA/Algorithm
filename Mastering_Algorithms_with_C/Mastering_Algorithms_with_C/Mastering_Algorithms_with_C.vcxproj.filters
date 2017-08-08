@@ -102,6 +102,9 @@
     <ClInclude Include="B_Graph\bfs.h">
       <Filter>헤더 파일\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="B_Graph\dfs.h">
+      <Filter>헤더 파일\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="5_Linked_List\clist.c">
