@@ -40,3 +40,31 @@ static int DFS_main(Graph *graph, AdjList *adjlist, List *ordered)
 
 	return 0;
 }
+
+int DFS(Graph *graph, List *ordered)
+{
+	DFSVertex *vertex = NULL;
+	ListElmt *element = NULL;
+
+	for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
+	{
+		vertex = ((AdjList *)ListData(element))->vertex;
+		vertex->color = white;
+	}
+	ListInit(ordered, NULL);
+	for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
+	{
+		vertex = ((AdjList*)ListData(element))->vertex;
+
+		if (vertex->color == white)
+		{
+			if (DFS_main(graph, (AdjList*)ListData(element), ordered) != 0)
+			{
+				ListDestory(ordered);
+				return -1;
+			}
+		}
+	}
+
+	return 0;
+}
