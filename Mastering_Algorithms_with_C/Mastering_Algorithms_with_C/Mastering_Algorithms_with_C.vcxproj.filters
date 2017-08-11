@@ -55,6 +55,12 @@
     <Filter Include="소스 파일\Graph">
       <UniqueIdentifier>{3fb67bec-aa0a-4371-a7fd-842586809e1a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Sort">
+      <UniqueIdentifier>{ccb36639-e194-48b5-b8e6-1846967e9a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Sort">
+      <UniqueIdentifier>{1d0225c0-a58f-4b9e-8202-0cdba166ab0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5_Linked_List\clist.h">
@@ -104,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="B_Graph\dfs.h">
       <Filter>헤더 파일\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="C_Sort\sort.h">
+      <Filter>헤더 파일\Sort</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
