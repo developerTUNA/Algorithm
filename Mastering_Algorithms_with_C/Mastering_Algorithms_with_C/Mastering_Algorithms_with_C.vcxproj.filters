@@ -161,5 +161,8 @@
     <ClCompile Include="B_Graph\dfs.c">
       <Filter>소스 파일\Graph</Filter>
     </ClCompile>
+    <ClCompile Include="C_Sort\sort.c">
+      <Filter>소스 파일\Sort</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

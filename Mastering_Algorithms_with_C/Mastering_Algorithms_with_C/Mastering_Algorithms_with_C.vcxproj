@@ -173,6 +173,7 @@
     <ClCompile Include="B_Graph\bfs.c" />
     <ClCompile Include="B_Graph\dfs.c" />
     <ClCompile Include="B_Graph\graph.c" />
+    <ClCompile Include="C_Sort\sort.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
