@@ -75,3 +75,25 @@ static int partition(void *data, int nBlockSize, int nStart, int nEnd, int(*comp
 
 	return nEnd;
 }
+
+int Sort_Quick(void *data, int nNum, int nBlockSize, int nStart, int nEnd, int(*compare)(const void *key1, const void *key2))
+{
+	int nPivot = 0;
+
+	while (nStart < nEnd)
+	{
+		if ((nPivot = partition(data, nBlockSize, nStart, nEnd, compare)) < 0)
+		{
+			return -1;
+		}
+
+		if (Sort_Quick(data, nNum, nBlockSize, nStart, nPivot, compare) < 0)
+		{
+			return -1;
+		}
+
+		nStart = nPivot + 1;
+	}
+
+	return 0;
+}
