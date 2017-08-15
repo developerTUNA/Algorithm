@@ -167,5 +167,8 @@
     <ClCompile Include="C_Sort\sortquick.c">
       <Filter>소스 파일\Sort</Filter>
     </ClCompile>
+    <ClCompile Include="C_Sort\sortmerge.c">
+      <Filter>소스 파일\Sort</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
