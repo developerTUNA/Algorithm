@@ -61,3 +61,29 @@ static int merge(void *data, int nBlockSize, int nStart, int nMid, int nEnd, int
 
 	return 0;
 }
+
+int Sort_Merge(void *data, int nNum, int nBlockSize, int nStart, int nEnd, int(*compare)(const void *key1, const void *key2))
+{
+	int nMid = 0;
+
+	if (nStart < nEnd)
+	{
+		nMid = (int)(((nStart + nEnd - 1)) / 2);
+
+		if (Sort_Merge(data, nNum, nBlockSize, nStart, nMid, compare) < 0)
+		{
+			return -1;
+		}
+		if (Sort_Merge(data, nNum, nBlockSize, nMid + 1, nEnd, compare) < 0)
+		{
+			return -1;
+		}
+
+		if (merge(data, nBlockSize, nStart, nMid, nEnd, compare) < 0)
+		{
+			return -1;
+		}
+	}
+
+	return 0;
+}
