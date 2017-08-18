@@ -177,6 +177,7 @@
     <ClCompile Include="C_Sort\sortinsert.c" />
     <ClCompile Include="C_Sort\sortmerge.c" />
     <ClCompile Include="C_Sort\sortquick.c" />
+    <ClCompile Include="C_Sort\sortradix.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

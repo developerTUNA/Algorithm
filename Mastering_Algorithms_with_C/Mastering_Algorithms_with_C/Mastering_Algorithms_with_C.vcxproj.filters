@@ -173,5 +173,8 @@
     <ClCompile Include="C_Sort\sortcount.c">
       <Filter>소스 파일\Sort</Filter>
     </ClCompile>
+    <ClCompile Include="C_Sort\sortradix.c">
+      <Filter>소스 파일\Sort</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
