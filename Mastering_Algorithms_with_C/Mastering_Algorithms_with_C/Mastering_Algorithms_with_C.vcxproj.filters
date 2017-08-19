@@ -55,10 +55,10 @@
     <Filter Include="소스 파일\Graph">
       <UniqueIdentifier>{3fb67bec-aa0a-4371-a7fd-842586809e1a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Sort">
+    <Filter Include="소스 파일\Sort, Search">
       <UniqueIdentifier>{ccb36639-e194-48b5-b8e6-1846967e9a9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Sort">
+    <Filter Include="헤더 파일\Sort, Search">
       <UniqueIdentifier>{1d0225c0-a58f-4b9e-8202-0cdba166ab0a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -112,7 +112,10 @@
       <Filter>헤더 파일\Graph</Filter>
     </ClInclude>
     <ClInclude Include="C_Sort\sort.h">
-      <Filter>헤더 파일\Sort</Filter>
+      <Filter>헤더 파일\Sort, Search</Filter>
+    </ClInclude>
+    <ClInclude Include="C_Sort\search.h">
+      <Filter>헤더 파일\Sort, Search</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -162,19 +165,22 @@
       <Filter>소스 파일\Graph</Filter>
     </ClCompile>
     <ClCompile Include="C_Sort\sortinsert.c">
-      <Filter>소스 파일\Sort</Filter>
+      <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
     <ClCompile Include="C_Sort\sortquick.c">
-      <Filter>소스 파일\Sort</Filter>
+      <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
     <ClCompile Include="C_Sort\sortmerge.c">
-      <Filter>소스 파일\Sort</Filter>
+      <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
     <ClCompile Include="C_Sort\sortcount.c">
-      <Filter>소스 파일\Sort</Filter>
+      <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
     <ClCompile Include="C_Sort\sortradix.c">
-      <Filter>소스 파일\Sort</Filter>
+      <Filter>소스 파일\Sort, Search</Filter>
+    </ClCompile>
+    <ClCompile Include="C_Sort\searchbinary.c">
+      <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

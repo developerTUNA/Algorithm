@@ -155,6 +155,7 @@
     <ClInclude Include="B_Graph\bfs.h" />
     <ClInclude Include="B_Graph\dfs.h" />
     <ClInclude Include="B_Graph\graph.h" />
+    <ClInclude Include="C_Sort\search.h" />
     <ClInclude Include="C_Sort\sort.h" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +174,7 @@
     <ClCompile Include="B_Graph\bfs.c" />
     <ClCompile Include="B_Graph\dfs.c" />
     <ClCompile Include="B_Graph\graph.c" />
+    <ClCompile Include="C_Sort\searchbinary.c" />
     <ClCompile Include="C_Sort\sortcount.c" />
     <ClCompile Include="C_Sort\sortinsert.c" />
     <ClCompile Include="C_Sort\sortmerge.c" />
