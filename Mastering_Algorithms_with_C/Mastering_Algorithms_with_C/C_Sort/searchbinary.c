@@ -13,6 +13,20 @@ int Search_Binary(void *sorted, const void *target, int nNum, int nBlockSize, in
 
 	while (nLeft < nRight)
 	{
+		nMiddle = (nLeft + nRight) / 2;
 
+		switch (compare(((char*)sorted + (nBlockSize * nMiddle)), target))
+		{
+		case -1:
+			nLeft = nMiddle + 1;
+			break;
+		case 1:
+			nRight = nMiddle - 1;
+			break;
+		case 0:
+			return nMiddle;
+		}
 	}
+
+	return -1;
 }

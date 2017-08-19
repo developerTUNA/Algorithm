@@ -9,7 +9,7 @@ int Sort_Radix(int *data, int nNum, int nDigit, int nBase)
 	int *count = NULL;
 	int *temp = NULL;
 	int nIndex = 0;
-	int nPivot = 0;
+	int nPos = 0;
 
 	if ((count=(int*)malloc(nBase * sizeof(int))) == NULL)
 	{
@@ -28,15 +28,15 @@ int Sort_Radix(int *data, int nNum, int nDigit, int nBase)
 			count[j] = 0;
 		}
 
-		nPivot = 1;
+		nPos = 1;
 		for (int j = 0; j < i; j++)
 		{
-			nPivot = nPivot * nBase;
+			nPos = nPos * nBase;
 		}
 
 		for (int j = 0; j < nNum; j++)
 		{
-			nIndex = (int)(data[j] / nPivot) % nBase;
+			nIndex = (int)(data[j] / nPos) % nBase;
 			count[nIndex] = count[nIndex] + 1;
 		}
 
@@ -47,7 +47,7 @@ int Sort_Radix(int *data, int nNum, int nDigit, int nBase)
 
 		for (int j = nNum - 1; 0 <= j; j--)
 		{
-			nIndex = (int)(data[j] / nPivot) % nBase;
+			nIndex = (int)(data[j] / nPos) % nBase;
 			temp[count[nIndex] - 1] = data[j];
 			count[nIndex] = count[nIndex] - 1;
 		}
