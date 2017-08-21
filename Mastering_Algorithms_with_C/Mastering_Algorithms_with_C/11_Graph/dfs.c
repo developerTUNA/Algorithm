@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "dfs.h"
 #include "graph.h"
-#include "../5_Linked_List/list.h"
+#include "../05_Linked_List/list.h"
 
 static int DFS_main(Graph *graph, AdjList *adjlist, List *ordered)
 {

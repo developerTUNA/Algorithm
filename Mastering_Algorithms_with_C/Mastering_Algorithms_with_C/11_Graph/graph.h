@@ -2,8 +2,8 @@
 #define GRAPH_H
 
 #include <stdlib.h>
-#include "../5_Linked_List/list.h"
-#include "../7_Sets/set.h"
+#include "../05_Linked_List/list.h"
+#include "../07_Sets/set.h"
 
 typedef struct AdjList_
 {

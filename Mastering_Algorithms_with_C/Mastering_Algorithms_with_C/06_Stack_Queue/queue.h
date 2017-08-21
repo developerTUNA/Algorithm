@@ -2,7 +2,7 @@
 #define QUEUE_H
 	
 #include <stdlib.h>
-#include "../5_Linked_List/list.h"
+#include "../05_Linked_List/list.h"
 
 typedef List Queue;
 

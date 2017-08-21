@@ -63,123 +63,123 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="5_Linked_List\clist.h">
+    <ClInclude Include="05_Linked_List\clist.h">
       <Filter>헤더 파일\List</Filter>
     </ClInclude>
-    <ClInclude Include="5_Linked_List\dlist.h">
+    <ClInclude Include="05_Linked_List\dlist.h">
       <Filter>헤더 파일\List</Filter>
     </ClInclude>
-    <ClInclude Include="5_Linked_List\list.h">
+    <ClInclude Include="05_Linked_List\list.h">
       <Filter>헤더 파일\List</Filter>
     </ClInclude>
-    <ClInclude Include="6_Stack_Queue\stack.h">
+    <ClInclude Include="06_Stack_Queue\stack.h">
       <Filter>헤더 파일\Stack, Queue</Filter>
     </ClInclude>
-    <ClInclude Include="6_Stack_Queue\queue.h">
+    <ClInclude Include="06_Stack_Queue\queue.h">
       <Filter>헤더 파일\Stack, Queue</Filter>
     </ClInclude>
-    <ClInclude Include="7_Sets\set.h">
+    <ClInclude Include="07_Sets\set.h">
       <Filter>헤더 파일\Set</Filter>
     </ClInclude>
-    <ClInclude Include="8_Hash\chtbl.h">
+    <ClInclude Include="08_Hash\chtbl.h">
       <Filter>헤더 파일\Hash</Filter>
     </ClInclude>
-    <ClInclude Include="8_Hash\ohtbl.h">
+    <ClInclude Include="08_Hash\ohtbl.h">
       <Filter>헤더 파일\Hash</Filter>
     </ClInclude>
-    <ClInclude Include="9_Tree\bitree.h">
+    <ClInclude Include="09_Tree\bitree.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
-    <ClInclude Include="9_Tree\traverse.h">
+    <ClInclude Include="09_Tree\traverse.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
-    <ClInclude Include="9_Tree\bisearchtree.h">
+    <ClInclude Include="09_Tree\bisearchtree.h">
       <Filter>헤더 파일\Tree</Filter>
     </ClInclude>
-    <ClInclude Include="A_Heap, Priority Queue\heap.h">
+    <ClInclude Include="10_Heap, Priority Queue\heap.h">
       <Filter>헤더 파일\Heap. Priority Queue</Filter>
     </ClInclude>
-    <ClInclude Include="A_Heap, Priority Queue\pqueue.h">
+    <ClInclude Include="10_Heap, Priority Queue\pqueue.h">
       <Filter>헤더 파일\Heap. Priority Queue</Filter>
     </ClInclude>
-    <ClInclude Include="B_Graph\graph.h">
+    <ClInclude Include="11_Graph\graph.h">
       <Filter>헤더 파일\Graph</Filter>
     </ClInclude>
-    <ClInclude Include="B_Graph\bfs.h">
+    <ClInclude Include="11_Graph\bfs.h">
       <Filter>헤더 파일\Graph</Filter>
     </ClInclude>
-    <ClInclude Include="B_Graph\dfs.h">
+    <ClInclude Include="11_Graph\dfs.h">
       <Filter>헤더 파일\Graph</Filter>
     </ClInclude>
-    <ClInclude Include="C_Sort\sort.h">
+    <ClInclude Include="12_Sort, Search\sort.h">
       <Filter>헤더 파일\Sort, Search</Filter>
     </ClInclude>
-    <ClInclude Include="C_Sort\search.h">
+    <ClInclude Include="12_Sort, Search\search.h">
       <Filter>헤더 파일\Sort, Search</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="5_Linked_List\clist.c">
+    <ClCompile Include="05_Linked_List\clist.c">
       <Filter>소스 파일\List</Filter>
     </ClCompile>
-    <ClCompile Include="5_Linked_List\dlist.c">
+    <ClCompile Include="05_Linked_List\dlist.c">
       <Filter>소스 파일\List</Filter>
     </ClCompile>
-    <ClCompile Include="5_Linked_List\list.c">
+    <ClCompile Include="05_Linked_List\list.c">
       <Filter>소스 파일\List</Filter>
     </ClCompile>
-    <ClCompile Include="6_Stack_Queue\stack.c">
+    <ClCompile Include="06_Stack_Queue\stack.c">
       <Filter>소스 파일\Stack, Queue</Filter>
     </ClCompile>
-    <ClCompile Include="6_Stack_Queue\queue.c">
+    <ClCompile Include="06_Stack_Queue\queue.c">
       <Filter>소스 파일\Stack, Queue</Filter>
     </ClCompile>
-    <ClCompile Include="7_Sets\set.c">
+    <ClCompile Include="07_Sets\set.c">
       <Filter>소스 파일\Set</Filter>
     </ClCompile>
-    <ClCompile Include="8_Hash\chtbl.c">
+    <ClCompile Include="08_Hash\chtbl.c">
       <Filter>소스 파일\Hash</Filter>
     </ClCompile>
-    <ClCompile Include="8_Hash\ohtbl.c">
+    <ClCompile Include="08_Hash\ohtbl.c">
       <Filter>소스 파일\Hash</Filter>
     </ClCompile>
-    <ClCompile Include="9_Tree\bitree.c">
+    <ClCompile Include="09_Tree\bitree.c">
       <Filter>소스 파일\Tree</Filter>
     </ClCompile>
-    <ClCompile Include="9_Tree\traverse.c">
+    <ClCompile Include="09_Tree\traverse.c">
       <Filter>소스 파일\Tree</Filter>
     </ClCompile>
-    <ClCompile Include="9_Tree\bisearchtree.c">
+    <ClCompile Include="09_Tree\bisearchtree.c">
       <Filter>소스 파일\Tree</Filter>
     </ClCompile>
-    <ClCompile Include="A_Heap, Priority Queue\heap.c">
+    <ClCompile Include="10_Heap, Priority Queue\heap.c">
       <Filter>소스 파일\Heap, Priority Queue</Filter>
     </ClCompile>
-    <ClCompile Include="B_Graph\graph.c">
+    <ClCompile Include="11_Graph\graph.c">
       <Filter>소스 파일\Graph</Filter>
     </ClCompile>
-    <ClCompile Include="B_Graph\bfs.c">
+    <ClCompile Include="11_Graph\bfs.c">
       <Filter>소스 파일\Graph</Filter>
     </ClCompile>
-    <ClCompile Include="B_Graph\dfs.c">
+    <ClCompile Include="11_Graph\dfs.c">
       <Filter>소스 파일\Graph</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\sortinsert.c">
+    <ClCompile Include="12_Sort, Search\sortinsert.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\sortquick.c">
+    <ClCompile Include="12_Sort, Search\sortquick.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\sortmerge.c">
+    <ClCompile Include="12_Sort, Search\sortmerge.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\sortcount.c">
+    <ClCompile Include="12_Sort, Search\sortcount.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\sortradix.c">
+    <ClCompile Include="12_Sort, Search\sortradix.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
-    <ClCompile Include="C_Sort\searchbinary.c">
+    <ClCompile Include="12_Sort, Search\searchbinary.c">
       <Filter>소스 파일\Sort, Search</Filter>
     </ClCompile>
   </ItemGroup>

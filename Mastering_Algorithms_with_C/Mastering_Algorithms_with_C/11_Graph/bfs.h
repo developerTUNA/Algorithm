@@ -2,7 +2,7 @@
 #define BFS_H
 
 #include "graph.h"
-#include "../5_Linked_List/list.h"
+#include "../05_Linked_List/list.h"
 
 typedef struct BFSVertex_
 {
