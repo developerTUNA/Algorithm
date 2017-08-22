@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "graph.h"
-#include "../05_Linked_List/list.h"
-#include "../07_Sets/set.h"
+#include "../List/list.h"
+#include "../Sets/set.h"
 
 void GraphInit(Graph *graph, int(*match)(const void *key1, const void *key2), void(*destory)(void *data))
 {

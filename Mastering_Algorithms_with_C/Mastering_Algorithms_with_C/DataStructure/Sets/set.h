@@ -1,7 +1,7 @@
 #ifndef SET_H
 #define SET_H
 
-#include "../05_Linked_List/list.h"
+#include "../List/list.h"
 
 typedef List Set;
 

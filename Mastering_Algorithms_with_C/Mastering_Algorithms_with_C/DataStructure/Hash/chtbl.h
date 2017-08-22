@@ -2,7 +2,7 @@
 #define CHTBL_H
 
 #include <stdlib.h>
-#include "../05_Linked_List/list.h"
+#include "../List/list.h"
 
 typedef struct CHTbl_ {
 	int nBuckets;

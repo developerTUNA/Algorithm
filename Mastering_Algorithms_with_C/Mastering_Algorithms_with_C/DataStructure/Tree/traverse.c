@@ -1,4 +1,4 @@
-#include "../05_Linked_List/list.h"
+#include "../List/list.h"
 #include "traverse.h"
 
 int BiTreeOrder_Pre(const BiTreeNode *node, List *list)

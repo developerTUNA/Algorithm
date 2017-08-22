@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "bfs.h"
 #include "graph.h"
-#include "../05_Linked_List/list.h"
-#include "../06_Stack_Queue/queue.h"
+#include "../List/list.h"
+#include "../Stack, Queue/queue.h"
 
 int BFS(Graph *graph, BFSVertex *start, List *hops)
 {
