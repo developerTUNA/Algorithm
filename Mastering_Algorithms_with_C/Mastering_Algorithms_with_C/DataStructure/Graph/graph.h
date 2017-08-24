@@ -30,7 +30,7 @@ int GraphRemove_Edge(Graph *graph, void *data1, void **data2);
 int GraphAdjList(const Graph *graph, const void *data, AdjList **adjlist);
 int GraphIsAdjacent(const Graph *graph, const void *data1, const void *data2);
 #define GraphAdjLists(graph)((graph)->AdjLists)
-#define GraphVcount(graph)(graph)->n_Vcount)
-#define GraphEcount(graph)(graph)->n_Ecount)
+#define GraphVcount(graph)((graph)->n_Vcount)
+#define GraphEcount(graph)((graph)->n_Ecount)
 
 #endif GRAPH_H

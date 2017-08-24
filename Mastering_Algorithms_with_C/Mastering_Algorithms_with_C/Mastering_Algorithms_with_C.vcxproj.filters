@@ -212,5 +212,8 @@
     <ClCompile Include="DataStructure\Tree\traverse.c">
       <Filter>DataStructure\Tree\source</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithm\Graph\mst.c">
+      <Filter>Algorithm\Graph\source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

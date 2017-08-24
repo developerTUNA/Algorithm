@@ -160,6 +160,7 @@
     <ClInclude Include="DataStructure\Sort, Search\sort.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm\Graph\mst.c" />
     <ClCompile Include="DataStructure\List\clist.c" />
     <ClCompile Include="DataStructure\List\dlist.c" />
     <ClCompile Include="DataStructure\List\list.c" />
