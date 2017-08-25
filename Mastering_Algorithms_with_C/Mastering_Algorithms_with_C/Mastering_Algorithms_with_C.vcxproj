@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm\Graph\mst.c" />
+    <ClCompile Include="Algorithm\Graph\shortpath.c" />
     <ClCompile Include="DataStructure\List\clist.c" />
     <ClCompile Include="DataStructure\List\dlist.c" />
     <ClCompile Include="DataStructure\List\list.c" />

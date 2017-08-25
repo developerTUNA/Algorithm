@@ -29,8 +29,8 @@ typedef struct TSPVertex_
 	VertexColor color;
 }TSPVertex;
 
-int MST(Graph *graph, const MSTVertex *start, List *span, int(*match)(const void *key1, const void *key2));
-int ShortPath(Graph *graph, const PathVertex *start, List *path, int(*match)(const void *key1, const void *key2));
+int MST_Prim(Graph *graph, const MSTVertex *start, List *span, int(*match)(const void *key1, const void *key2));
+int ShortPath_Dijkstra(Graph *graph, const PathVertex *start, List *path, int(*match)(const void *key1, const void *key2));
 int TSP(List *vertex, const TSPVertex *start, List *tour, int(*match)(const void *key1, const void *key2));
 
 #endif

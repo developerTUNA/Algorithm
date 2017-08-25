@@ -3,7 +3,7 @@
 #include "../../DataStructure/Graph/graph.h"
 #include "../../DataStructure/List/list.h"
 
-int MST(Graph *graph, const MSTVertex *start, List *span, int(*match)(const void *key1, const void *key2))
+int MST_Prim(Graph *graph, const MSTVertex *start, List *span, int(*match)(const void *key1, const void *key2))
 {
 	AdjList *adjlist = NULL;
 	MSTVertex *vertex_mst = NULL;
