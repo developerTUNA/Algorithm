@@ -23,7 +23,8 @@ int ShortPath_Dijkstra(Graph *graph, const PathVertex *start, List *path, int(*m
 	ListElmt *member = NULL;
 	int nMin = 0;
 	int nFound = 0;
-	
+	int nCount = 0;
+
 	for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
 	{
 		vertex_path = ((AdjList*)ListData(element))->vertex;
@@ -47,4 +48,51 @@ int ShortPath_Dijkstra(Graph *graph, const PathVertex *start, List *path, int(*m
 		return -1;
 	}
 
+	while (nCount < GraphVcount(graph))
+	{
+		nMin = INT_MAX;
+		for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
+		{
+			vertex_path = ((AdjList*)ListData(element))->vertex;
+
+			if (vertex_path->color == white && vertex_path->nDestance < nMin)
+			{
+				nMin = vertex_path->nDestance;
+				adjlist = ListData(element);
+			}
+		}
+
+		((PathVertex *)adjlist->vertex)->color = black;
+
+		for (member = ListHead(&adjlist->Adjacent); member != NULL; member = ListNext(element))
+		{
+			vertex_adj = ListData(member);
+
+			for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
+			{
+				vertex_path = ((AdjList *)ListData(element))->vertex;
+				if (match(vertex_path, vertex_adj))
+				{
+					relax(adjlist->vertex, vertex_path, vertex_adj->nWeight);
+				}
+			}
+		}
+		nCount++;
+	}
+	
+	ListInit(path, NULL);
+	for (element = ListHead(&GraphAdjLists(graph)); element != NULL; element = ListNext(element))
+	{
+		vertex_path = ((AdjList*)ListData(element))->vertex;
+		if (vertex_path->color == black)
+		{
+			if (ListInsert_Next(path, ListTail(path), vertex_path) != 0)
+			{
+				ListDestory(path);
+				return -1;
+			}
+		}
+	}
+
+	return 0;
 }
