@@ -17,15 +17,15 @@ typedef struct PathVertex_
 	void *data;
 	int nWeight;
 	VertexColor color;
-	int nDestance;
+	int nDistance;
 	struct PathVertex_ *parent;
 }PathVertex;
 
 typedef struct TSPVertex_
 {
 	void *data;
-	int nX;
-	int nY;
+	double dX;
+	double dY;
 	VertexColor color;
 }TSPVertex;
 

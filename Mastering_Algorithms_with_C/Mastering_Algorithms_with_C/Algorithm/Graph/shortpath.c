@@ -6,9 +6,9 @@
 
 static void relax(PathVertex *vertex1, PathVertex *vertex2, int nWeight)
 {
-	if (vertex1->nDestance + nWeight < vertex2->nDestance)
+	if (vertex1->nDistance + nWeight < vertex2->nDistance)
 	{
-		vertex2->nDestance = vertex1->nDestance + nWeight;
+		vertex2->nDistance = vertex1->nDistance + nWeight;
 		vertex2->parent = vertex1;
 	}
 	return;
@@ -32,14 +32,14 @@ int ShortPath_Dijkstra(Graph *graph, const PathVertex *start, List *path, int(*m
 		if (match(vertex_path, start))
 		{
 			vertex_path->color = white;
-			vertex_path->nDestance = 0;
+			vertex_path->nDistance = 0;
 			vertex_path->parent = NULL;
 			nFound = 1;
 		}
 		else
 		{
 			vertex_path->color = white;
-			vertex_path->nDestance = INT_MAX;
+			vertex_path->nDistance = INT_MAX;
 			vertex_path->parent = NULL;
 		}
 	}
@@ -55,9 +55,9 @@ int ShortPath_Dijkstra(Graph *graph, const PathVertex *start, List *path, int(*m
 		{
 			vertex_path = ((AdjList*)ListData(element))->vertex;
 
-			if (vertex_path->color == white && vertex_path->nDestance < nMin)
+			if (vertex_path->color == white && vertex_path->nDistance < nMin)
 			{
-				nMin = vertex_path->nDestance;
+				nMin = vertex_path->nDistance;
 				adjlist = ListData(element);
 			}
 		}

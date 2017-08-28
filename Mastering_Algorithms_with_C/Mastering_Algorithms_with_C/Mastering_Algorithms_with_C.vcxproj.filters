@@ -218,5 +218,8 @@
     <ClCompile Include="Algorithm\Graph\shortpath.c">
       <Filter>Algorithm\Graph\source</Filter>
     </ClCompile>
+    <ClCompile Include="Algorithm\Graph\tsp.c">
+      <Filter>Algorithm\Graph\source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
