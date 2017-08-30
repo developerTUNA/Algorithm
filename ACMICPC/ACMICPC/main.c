@@ -1,5 +1,5 @@
-int main2(void)
+int main(void)
 {
-	Problem04963();
+	Problem07576();
     return 0;
 }
