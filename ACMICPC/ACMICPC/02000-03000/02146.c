@@ -91,7 +91,7 @@ int QueuePush02146(Queue02146 *queue, int nRow, int nCol)
 int QueuePop02146(Queue02146 *queue, int *nRow, int *nCol)
 {
 	Node02146 *delNode = NULL;
-	
+
 	if (queue->nSize == 0)
 	{
 		return -1;
@@ -146,15 +146,15 @@ int GroupMake02146(int nSize, int **pp_nMap_Org, int **pp_nMap_Group)
 					{
 						continue;
 					}
-					if(pp_nMap_Org[nCheckRow][nCheckCol] == 0 ||
-						pp_nMap_Group[nCheckRow][nCheckCol]!=0)
+					if (pp_nMap_Org[nCheckRow][nCheckCol] == 0 ||
+						pp_nMap_Group[nCheckRow][nCheckCol] != 0)
 					{
 						continue;
 					}
 					pp_nMap_Group[nCheckRow][nCheckCol] = nCount;
 					StackPush02146(stack, nCheckRow, nCheckCol);
 				}
-				
+
 			}
 		}
 	}
@@ -169,8 +169,8 @@ int GroupCalc02146(int nSize, int nGroupCount, int **pp_nMap_Group, int **pp_nMa
 	Queue02146 *queue = NULL;
 	queue = (Queue02146*)malloc(sizeof(Queue02146));
 	memset(queue, 0, sizeof(Queue02146));
-	
-	nResult = nSize;
+
+	nResult = nSize*nSize + 1;
 	for (int i = 0; i < nGroupCount; i++)
 	{
 		for (int j = 0; j < nSize; j++)
@@ -188,8 +188,6 @@ int GroupCalc02146(int nSize, int nGroupCount, int **pp_nMap_Group, int **pp_nMa
 				}
 			}
 		}
-		printf("\n");
-		PrintIntArray2(pp_nMap_Bridge, 0, nSize - 1, 0, nSize - 1);
 		int nBridge = 0;
 		while (0 < queue->nSize)
 		{
@@ -206,13 +204,11 @@ int GroupCalc02146(int nSize, int nGroupCount, int **pp_nMap_Group, int **pp_nMa
 				{
 					continue;
 				}
-				if (pp_nMap_Bridge[nCheckRow][nCheckCol] == 0&&
+				if (pp_nMap_Bridge[nCheckRow][nCheckCol] == 0 &&
 					pp_nMap_Group[nCheckRow][nCheckCol] == 0)//||
-					//pp_nMap_Bridge[nGetRow][nGetCol] + 1 < pp_nMap_Bridge[nCheckRow][nCheckCol])
+															 //pp_nMap_Bridge[nGetRow][nGetCol] + 1 < pp_nMap_Bridge[nCheckRow][nCheckCol])
 				{
 					pp_nMap_Bridge[nCheckRow][nCheckCol] = pp_nMap_Bridge[nGetRow][nGetCol] + 1;
-					printf("\n");
-					PrintIntArray2(pp_nMap_Bridge, 0, nSize - 1, 0, nSize - 1);
 					QueuePush02146(queue, nCheckRow, nCheckCol);
 				}
 
@@ -231,7 +227,7 @@ int GroupCalc02146(int nSize, int nGroupCount, int **pp_nMap_Group, int **pp_nMa
 	free(queue);
 	return nResult;
 }
-int Problem02146(void)
+int Problem02416(void)
 {
 	int nSize = 0;
 	int nGroupCount = 0;
@@ -263,11 +259,9 @@ int Problem02146(void)
 	}
 
 	nGroupCount = GroupMake02146(nSize, pp_nMap_Org, pp_nMap_Group);
-	printf("\n");
-	PrintIntArray2(pp_nMap_Group, 0, nSize - 1, 0, nSize - 1);
 	nBridge = GroupCalc02146(nSize, nGroupCount, pp_nMap_Group, pp_nMap_Bridge);
-	printf("%d\n", nBridge-1);
-	
+	printf("%d\n", nBridge - 1);
+
 	for (int i = 0; i < nSize; i++)
 	{
 		free(pp_nMap_Org[i]);
