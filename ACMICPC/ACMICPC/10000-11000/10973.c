@@ -16,7 +16,7 @@ int SwapInt10973(int *nA, int *nB)
 int Permutation_Perv10973(int nSize, int *p_nList)
 {
 	int nFirst = nSize;
-	int nLast = nSize-1;
+	int nLast = nSize - 1;
 
 	for (int i = nSize - 1; 1 <= i; i--)
 	{
@@ -44,7 +44,7 @@ int Permutation_Perv10973(int nSize, int *p_nList)
 
 	for (int i = 0; i < (nSize - nFirst) / 2; i++)
 	{
-		SwapInt10973(&p_nList[nFirst+i], &p_nList[nSize - 1 - i]);
+		SwapInt10973(&p_nList[nFirst + i], &p_nList[nSize - 1 - i]);
 	}
 	return 0;
 }

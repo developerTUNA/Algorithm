@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-int SwapInt10972(int *nA, int *nB)
+int SwapInt10974(int *nA, int *nB)
 {
 	int nTemp = 0;
 	nTemp = *nA;
@@ -13,7 +13,7 @@ int SwapInt10972(int *nA, int *nB)
 	return 0;
 }
 
-int Permutation_Next10972(int nSize, int *p_nList)
+int Permutation_Next10974(int nSize, int *p_nList)
 {
 	int nFirst = 0;
 	int nLast = 0;
@@ -40,16 +40,16 @@ int Permutation_Next10972(int nSize, int *p_nList)
 		}
 	}
 
-	SwapInt10972(&p_nList[nFirst - 1], &p_nList[nLast]);
+	SwapInt10974(&p_nList[nFirst - 1], &p_nList[nLast]);
 
 	for (int i = 0; i < (nSize - nFirst) / 2; i++)
 	{
-		SwapInt10972(&p_nList[i + nFirst], &p_nList[nSize - 1 - i]);
+		SwapInt10974(&p_nList[i + nFirst], &p_nList[nSize - 1 - i]);
 	}
 	return 0;
 }
 
-int Problem10972(void)
+int Problem10974(void)
 {
 	int nSize = 0;
 	int *p_nList = NULL;
@@ -60,21 +60,22 @@ int Problem10972(void)
 
 	for (int i = 0; i < nSize; i++)
 	{
-		scanf("%d", &p_nList[i]);
+		p_nList[i] = i + 1;
 	}
 
-	if (Permutation_Next10972(nSize, p_nList) == -1)
+	for (int i = 0; i < nSize; i++)
 	{
-		printf("-1\n");
+		printf("%d ", p_nList[i]);
 	}
-	else
+	printf("\n");
+	while (Permutation_Next10974(nSize, p_nList) == 0)
 	{
 		for (int i = 0; i < nSize; i++)
 		{
 			printf("%d ", p_nList[i]);
 		}
+		printf("\n");
 	}
-
 	free(p_nList);
 	return 0;
 }
