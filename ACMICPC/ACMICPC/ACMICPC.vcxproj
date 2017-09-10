@@ -271,6 +271,7 @@
     <ClCompile Include="05000-06000\05557.c" />
     <ClCompile Include="05000-06000\05565.c" />
     <ClCompile Include="05000-06000\05582.c" />
+    <ClCompile Include="06000-07000\06603.c" />
     <ClCompile Include="07000-08000\07567.c" />
     <ClCompile Include="07000-08000\07576.c" />
     <ClCompile Include="08000-09000\08958.c" />
