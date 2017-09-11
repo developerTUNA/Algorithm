@@ -678,5 +678,8 @@
     <ClCompile Include="06000-07000\06603.c">
       <Filter>소스 파일\06000-07000</Filter>
     </ClCompile>
+    <ClCompile Include="02000-03000\02580.c">
+      <Filter>소스 파일\02000-03000</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

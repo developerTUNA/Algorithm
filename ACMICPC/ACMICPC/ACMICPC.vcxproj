@@ -240,6 +240,7 @@
     <ClCompile Include="02000-03000\02576.c" />
     <ClCompile Include="02000-03000\02577.c" />
     <ClCompile Include="02000-03000\02579.c" />
+    <ClCompile Include="02000-03000\02580.c" />
     <ClCompile Include="02000-03000\02587.c" />
     <ClCompile Include="02000-03000\02588.c" />
     <ClCompile Include="02000-03000\02592.c" />
