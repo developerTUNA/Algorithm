@@ -690,5 +690,8 @@
     <ClCompile Include="09000-10000\09019.c">
       <Filter>소스 파일\09000-10000</Filter>
     </ClCompile>
+    <ClCompile Include="01000-02000\01525.c">
+      <Filter>소스 파일\01000-02000</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
