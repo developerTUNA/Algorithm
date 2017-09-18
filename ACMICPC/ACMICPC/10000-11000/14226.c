@@ -6,7 +6,6 @@
 typedef struct State14226_
 {
 	int nCount;
-	int nPush;
 	int nClipboard;
 }State14226;
 
@@ -47,7 +46,7 @@ int QueuePush14226(Queue14226 *queue, State14226 data)
 	return 0;
 }
 
-int QueuePop14226(Queue14226 *queue, State14226 *data)
+int QueuePop14226(Queue14226 *queue, State14226 *p_data)
 {
 	Node14226 *delNode = NULL;
 	if (queue->nSize == 0)
@@ -61,14 +60,14 @@ int QueuePop14226(Queue14226 *queue, State14226 *data)
 		queue->tail = NULL;
 	}
 	queue->head = queue->head->next;
-	*data = delNode->data;
+	*p_data = delNode->data;
 	free(delNode);
 	queue->nSize--;
 
 	return 0;
 }
 
-int QueueisEmpty(Queue14226 *queue)
+int QueueisEmpty14226(Queue14226 *queue)
 {
 	if (queue->nSize == 0)
 	{
@@ -82,80 +81,72 @@ int QueueisEmpty(Queue14226 *queue)
 int Problem14226(void)
 {
 	int nEnd = 0;
-	int a_nResult[1001] = { 0, };
-	Queue14226 *Queue = NULL;
-	State14226 StateGet;
-	State14226 StateNext;
-
+	int nResult = 0;
+	int **pp_nMap = NULL;
+	State14226 State;
+	Queue14226 *queue = NULL;
+	
 	scanf("%d", &nEnd);
-	
-	StateGet.nCount = 1;
-	StateGet.nPush = 0;
-	StateGet.nClipboard = 0;
-	
-
-	Queue = (Queue14226*)malloc(sizeof(Queue14226));
-	memset(Queue, 0, sizeof(Queue14226));
-
-	QueuePush14226(Queue, StateGet);
-	int nCounter = 0;
-	while (QueueisEmpty(Queue) == 0)
+	pp_nMap = (int**)malloc(sizeof(int*) * 1001);
+	memset(pp_nMap, 0, sizeof(int*) * 1001);
+	for (int i = 0; i < 1001; i++)
 	{
-		QueuePop14226(Queue, &StateGet);
+		pp_nMap[i] = (int*)malloc(sizeof(int) * 1001);
+		memset(pp_nMap[i], -1, sizeof(int) * 1001);
+	}
+	queue = (Queue14226*)malloc(sizeof(Queue14226));
+	memset(queue, 0, sizeof(Queue14226));
 
-		if (StateGet.nCount == nEnd)
-		{
-				break;
-		}
-		if (StateGet.nPush < a_nResult[StateGet.nCount] || a_nResult[StateGet.nCount] == 0)
-		{
-			a_nResult[StateGet.nCount] = StateGet.nPush;
-		}
-		if (0 < StateGet.nCount - 1)
-		{
-			StateNext.nCount = StateGet.nCount - 1;
-			StateNext.nPush = StateGet.nPush + 1;
-			StateNext.nClipboard = StateGet.nClipboard;
-			QueuePush14226(Queue, StateNext);
-			if (StateNext.nPush < a_nResult[StateNext.nCount] || a_nResult[StateNext.nCount] == 0)
-			{
-				a_nResult[StateNext.nCount] = StateNext.nPush;
-			}
-		}
+	pp_nMap[1][0] = 0;
+	State.nClipboard = 0;
+	State.nCount = 1;
+	QueuePush14226(queue, State);
+	while (QueueisEmpty14226(queue) == 0)
+	{
+		State14226 StateGet = { 0, };
+		State14226 StatePush = { 0, };
+		QueuePop14226(queue, &StateGet);
 
-		if (StateGet.nCount + StateGet.nClipboard <= 1000)
+		if (pp_nMap[StateGet.nCount][StateGet.nCount] == -1)
 		{
-			StateNext.nCount = StateGet.nCount + StateGet.nClipboard;
-			StateNext.nPush = StateGet.nPush + 1;
-			StateNext.nClipboard = StateGet.nClipboard;
-			QueuePush14226(Queue, StateNext);
-			if (StateNext.nPush < a_nResult[StateNext.nCount] || a_nResult[StateNext.nCount] == 0)
-			{
-				a_nResult[StateNext.nCount] = StateNext.nPush;
-				
-			}
+			StatePush.nCount = StateGet.nCount;
+			StatePush.nClipboard = StateGet.nCount;
+			QueuePush14226(queue, StatePush);
+			pp_nMap[StatePush.nCount][StatePush.nClipboard] = pp_nMap[StateGet.nCount][StateGet.nClipboard] + 1;
 		}
 
-		if (StateGet.nCount <= 1000)
+		if (StateGet.nCount + StateGet.nClipboard <= nEnd &&
+			pp_nMap[StateGet.nCount + StateGet.nClipboard][StateGet.nClipboard] == -1)
 		{
-			StateNext.nCount = StateGet.nCount;
-			StateNext.nPush = StateGet.nPush + 1;
-			StateNext.nClipboard = StateGet.nCount;
-			QueuePush14226(Queue, StateNext);
-			if (StateNext.nPush < a_nResult[StateNext.nCount] || a_nResult[StateNext.nCount] == 0)
-			{
-				a_nResult[StateNext.nCount] = StateNext.nPush;
-			}
+			StatePush.nCount = StateGet.nCount + StateGet.nClipboard;
+			StatePush.nClipboard = StateGet.nClipboard;
+			QueuePush14226(queue, StatePush);
+			pp_nMap[StatePush.nCount][StatePush.nClipboard] = pp_nMap[StateGet.nCount][StateGet.nClipboard] + 1;
+		}
+		if (1 <= StateGet.nCount &&
+			pp_nMap[StateGet.nCount - 1][StateGet.nClipboard] == -1)
+		{
+			StatePush.nCount = StateGet.nCount - 1;
+			StatePush.nClipboard = StateGet.nClipboard;
+			QueuePush14226(queue, StatePush);
+			pp_nMap[StatePush.nCount][StatePush.nClipboard] = pp_nMap[StateGet.nCount][StateGet.nClipboard] + 1;
 		}
 	}
-	while (QueueisEmpty(Queue) == 0)
+
+	nResult = 1001;
+	for (int i = 0; i < 1001; i++)
 	{
-		State14226 temp;
-		QueuePop14226(Queue, &temp);
+		if (pp_nMap[nEnd][i] < nResult &&
+			pp_nMap[nEnd][i] != -1)
+		{
+			nResult = pp_nMap[nEnd][i];
+		}
 	}
-	free(Queue);
-	printf("%d\n", a_nResult[nEnd]);
-	//for(int i = 0; i<=1000;i++)
-		//printf("%d %d\n",i, a_nResult[i]);
+	for (int i = 0; i < 1001; i++)
+	{
+		free(pp_nMap[i]);
+	}
+	free(pp_nMap);
+	printf("%d\n", nResult);
 	return 0;
 }
