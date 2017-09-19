@@ -147,6 +147,7 @@ int Problem14226(void)
 		free(pp_nMap[i]);
 	}
 	free(pp_nMap);
+	free(queue);
 	printf("%d\n", nResult);
 	return 0;
 }
