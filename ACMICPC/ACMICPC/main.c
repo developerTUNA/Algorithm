@@ -24,6 +24,6 @@ int PrintIntArray2(int **pp_nArray, int nRowBegin, int nRowEnd, int nColBegin, i
 
 int main(void)
 {
-	Problem05014();
+	Problem01759();
     return 0;
 }
