@@ -34,6 +34,8 @@ int Go01759(int nCount, int nLength, char *p_cList, char *p_cMake, int nCheck, i
 	p_cMake[nConsonant + nVowel] = 0;
 
 	Go01759(nCount, nLength, p_cList, p_cMake, nCheck + 1, nConsonant, nVowel);
+
+	return 0;
 }
 
 int Problem01759(void)
